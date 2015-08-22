@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
+    <Compile Include="ListNodeTest.cs" />
+    <Compile Include="PrintListInReversedOrderTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
   </ItemGroup>
   <Choose>

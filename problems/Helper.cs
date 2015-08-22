@@ -1,25 +1,24 @@
 ﻿namespace Problems
 {
-    using System;
-
-    static class Helper
+    public static class Helper
     {
-        public static void PrintArray(int[][] array)
+        public static ListNode CreateLinkedList(int[] values)
         {
-            if (array == null)
+            if (values == null || values.Length == 0)
             {
-                return;
+                return null;
             }
 
-            for (int i = 0; i < array.Length; i++)
-            {
-                for (int j = 0; j < array[0].Length; j++)
-                {
-                    Console.Write(array[i][j] + " ");
-                }
+            ListNode head = new ListNode(values[0]);
+            ListNode tail = head;
 
-                Console.WriteLine();
+            for (int i = 1; i < values.Length; i++)
+            {
+                tail.Next = new ListNode(values[i]);
+                tail = tail.Next; 
             }
+
+            return head;
         }
     }
 }
