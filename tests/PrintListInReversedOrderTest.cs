@@ -12,10 +12,10 @@
             ListNode head = new ListNode(4);
 
             PrintListInReversedOrder.ProcessRecursively(head);
-            Assert.AreEqual("4", PrintListInReversedOrder.GetResult());
+            Assert.AreEqual("4", PrintListInReversedOrder.Result);
 
             PrintListInReversedOrder.ProcessIteratively(head);
-            Assert.AreEqual("4", PrintListInReversedOrder.GetResult());
+            Assert.AreEqual("4", PrintListInReversedOrder.Result);
         }
 
         [TestMethod]
@@ -24,10 +24,10 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
 
             PrintListInReversedOrder.ProcessRecursively(head);
-            Assert.AreEqual("531", PrintListInReversedOrder.GetResult());
+            Assert.AreEqual("531", PrintListInReversedOrder.Result);
 
             PrintListInReversedOrder.ProcessIteratively(head);
-            Assert.AreEqual("531", PrintListInReversedOrder.GetResult());
+            Assert.AreEqual("531", PrintListInReversedOrder.Result);
         }
 
         [TestMethod]
@@ -36,10 +36,10 @@
             ListNode head = null;
 
             PrintListInReversedOrder.ProcessRecursively(head);
-            Assert.IsNull(PrintListInReversedOrder.GetResult());
+            Assert.IsNull(PrintListInReversedOrder.Result);
 
             PrintListInReversedOrder.ProcessIteratively(head);
-            Assert.IsNull(PrintListInReversedOrder.GetResult());
+            Assert.IsNull(PrintListInReversedOrder.Result);
         } 
     }
 }

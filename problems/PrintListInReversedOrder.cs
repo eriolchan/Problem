@@ -11,6 +11,14 @@
     {
         private static StringBuilder output = new StringBuilder();
 
+        public static string Result
+        {
+            get
+            {
+                return Helper.Output(output);
+            }
+        }
+
         public static void ProcessRecursively(ListNode head)
         {
             if (head == null)
@@ -35,23 +43,6 @@
             {
                 output.Append(stack.Pop().Value);
             }
-        }
-
-        public static string GetResult()
-        {
-            if (output == null)
-            {
-                return null;
-            }
-
-            string result = output.ToString();
-            if (string.IsNullOrEmpty(result))
-            {
-                return null;
-            }
-
-            output.Clear();
-            return result;
         }
     }
 }

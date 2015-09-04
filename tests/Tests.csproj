@@ -44,10 +44,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstructBinaryTreeTest.cs" />
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
     <Compile Include="ListNodeTest.cs" />
+    <Compile Include="MergeTwoSortedListTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
+    <Compile Include="TreeNodeTest.cs" />
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">

@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="ConstructBinaryTree.cs" />
     <Compile Include="FindInPartiallySortedMatrix.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="ListNode.cs" />
+    <Compile Include="MergeTwoSortedList.cs" />
     <Compile Include="PrintListInReversedOrder.cs" />
     <Compile Include="ReplaceBlank.cs" />
+    <Compile Include="TreeNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
