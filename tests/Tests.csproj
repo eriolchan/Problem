@@ -49,7 +49,9 @@
     <Compile Include="ListNodeTest.cs" />
     <Compile Include="MergeTwoSortedListTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
+    <Compile Include="QueueWithTwoStacksTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
+    <Compile Include="StackWithTwoQueuesTest.cs" />
     <Compile Include="TreeNodeTest.cs" />
   </ItemGroup>
   <Choose>

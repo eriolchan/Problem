@@ -47,7 +47,9 @@
     <Compile Include="ListNode.cs" />
     <Compile Include="MergeTwoSortedList.cs" />
     <Compile Include="PrintListInReversedOrder.cs" />
+    <Compile Include="QueueWithTwoStacks.cs" />
     <Compile Include="ReplaceBlank.cs" />
+    <Compile Include="StackWithTwoQueues.cs" />
     <Compile Include="TreeNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

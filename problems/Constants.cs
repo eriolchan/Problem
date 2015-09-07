@@ -2,6 +2,7 @@
 {
     public static class Constants
     {
-        public const string InvalidInput = "InvalidInput";
+        public const string InvalidInput = "Invalid input";
+        public const string EmptyContainer = "Container is empty";
     }
 }
