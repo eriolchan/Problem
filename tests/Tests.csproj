@@ -44,6 +44,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BinarySearchTest.cs" />
     <Compile Include="ConstructBinaryTreeTest.cs" />
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
     <Compile Include="ListNodeTest.cs" />

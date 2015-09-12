@@ -30,59 +30,6 @@
                 inOrder.Length - 1);
         }
 
-        public static TreeNode ProcessIteratively(int[] preOrder, int[] inOrder)
-        {
-            if (preOrder == null ||
-                inOrder == null ||
-                preOrder.Length == 0 ||
-                inOrder.Length == 0 ||
-                preOrder.Length != inOrder.Length)
-            {
-                return null;
-            }
-
-            Dictionary<int, int> orders = new Dictionary<int, int>();
-            for(int i = 0; i < inOrder.Length; i++)
-            {
-                orders.Add(inOrder[i], i);
-            }
-
-            TreeNode root = new TreeNode(preOrder[0]);
-            Stack<TreeNode> stack = new Stack<TreeNode>();
-            stack.Push(root);
-
-            TreeNode current = null;
-            TreeNode previous = null;
-            for (int i = 1; i < preOrder.Length; i++)
-            {
-                current = new TreeNode(preOrder[i]);
-                if (!orders.ContainsKey(current.Value))
-                {
-                    throw new ArgumentException(Constants.InvalidInput);
-                }
-
-                if (orders[current.Value] < orders[stack.Peek().Value])
-                {
-                    stack.Peek().Left = current;
-                    stack.Push(current);
-                }
-                else
-                {
-                    while (stack.Count > 0 &&
-                           orders[current.Value] > orders[stack.Peek().Value]) 
-                    {
-                        previous = stack.Pop();
-                    }
-
-                    previous.Right = current;
-                    stack.Push(current);
-                }
-
-            }
-
-            return root;
-        }
-
         private static TreeNode ProcessCore(
             int[] preOrder,
             int startPreOrder,
@@ -139,6 +86,58 @@
                     inOrder,
                     rootInOrder + 1,
                     endInOrder);
+            }
+
+            return root;
+        }
+        public static TreeNode ProcessIteratively(int[] preOrder, int[] inOrder)
+        {
+            if (preOrder == null ||
+                inOrder == null ||
+                preOrder.Length == 0 ||
+                inOrder.Length == 0 ||
+                preOrder.Length != inOrder.Length)
+            {
+                return null;
+            }
+
+            Dictionary<int, int> orders = new Dictionary<int, int>();
+            for(int i = 0; i < inOrder.Length; i++)
+            {
+                orders.Add(inOrder[i], i);
+            }
+
+            TreeNode root = new TreeNode(preOrder[0]);
+            Stack<TreeNode> stack = new Stack<TreeNode>();
+            stack.Push(root);
+
+            TreeNode current = null;
+            TreeNode previous = null;
+            for (int i = 1; i < preOrder.Length; i++)
+            {
+                current = new TreeNode(preOrder[i]);
+                if (!orders.ContainsKey(current.Value))
+                {
+                    throw new ArgumentException(Constants.InvalidInput);
+                }
+
+                if (orders[current.Value] < orders[stack.Peek().Value])
+                {
+                    stack.Peek().Left = current;
+                    stack.Push(current);
+                }
+                else
+                {
+                    while (stack.Count > 0 &&
+                           orders[current.Value] > orders[stack.Peek().Value]) 
+                    {
+                        previous = stack.Pop();
+                    }
+
+                    previous.Right = current;
+                    stack.Push(current);
+                }
+
             }
 
             return root;
