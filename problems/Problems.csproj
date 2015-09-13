@@ -51,6 +51,7 @@
     <Compile Include="QueueWithTwoStacks.cs" />
     <Compile Include="ReplaceBlank.cs" />
     <Compile Include="Sort.cs" />
+    <Compile Include="SortAge.cs" />
     <Compile Include="StackWithTwoQueues.cs" />
     <Compile Include="TreeNode.cs" />
   </ItemGroup>
