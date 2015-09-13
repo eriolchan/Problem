@@ -1,5 +1,7 @@
 ﻿namespace Problems
 {
+    using System;
+
     /// <summary>
     /// Problem: 替换空格
     /// 请实现一个函数, 把字符串中的每个空格换成“%20”。
@@ -32,7 +34,7 @@
             int newLength = originalLength + 2 * numberOfBlank;
             if (newLength > sentence.Length)
             {
-                return;
+                throw new ArgumentException(Constants.InvalidInput);
             }
 
             int indexOfOriginal = originalLength - 1;

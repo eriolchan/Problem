@@ -7,7 +7,7 @@
     {
         public static int ProcessRecursively(int[] array, int number)
         {
-            if (array == null)
+            if (array == null || array.Length == 0)
             {
                 return -1;
             }
@@ -39,7 +39,7 @@
 
         public static int ProcessIteratively(int[] array, int number)
         {
-            if (array == null)
+            if (array == null || array.Length == 0)
             {
                 return -1;
             }

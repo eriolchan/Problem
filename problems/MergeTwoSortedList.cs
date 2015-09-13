@@ -1,5 +1,7 @@
 ﻿namespace Problems
 {
+    using System;
+
     /// <summary>
     /// Problem: 合并两个排序数组
     /// 有两个排序的数组A1和A2, 内存在A1的末尾有足够多的空余空间
@@ -18,7 +20,7 @@
             int newLength = firstCount + second.Length;
             if (newLength > first.Length)
             {
-                return;
+                throw new ArgumentException(Constants.InvalidInput);
             }
 
             int newIndex = newLength - 1;

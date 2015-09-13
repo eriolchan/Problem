@@ -15,10 +15,14 @@
             if (preOrder == null ||
                 inOrder == null ||
                 preOrder.Length == 0 ||
-                inOrder.Length == 0 ||
-                preOrder.Length != inOrder.Length)
+                inOrder.Length == 0)
             {
                 return null;
+            }
+
+            if (preOrder.Length != inOrder.Length)
+            {
+                throw new ArgumentException(Constants.InvalidInput);
             }
 
             return ProcessCore(

@@ -1,9 +1,49 @@
 ﻿namespace Problems
 {
+    using System;
     using System.Text;
 
     public static class Helper
     {
+        public static readonly Random random = new Random();
+
+        public static void Swap(int[] array, int first, int second)
+        {
+            if (array == null || first == second)
+            {
+                return;
+            }
+
+            if (first < 0 ||
+                second < 0 ||
+                first >= array.Length ||
+                second >= array.Length)
+            {
+                throw new ArgumentException(Constants.InvalidInput);
+            }
+
+            int temp = array[first];
+            array[first] = array[second];
+            array[second] = temp;
+        }
+
+        public static string Output(StringBuilder output)
+        {
+            if (output == null)
+            {
+                return null;
+            }
+
+            string result = output.ToString();
+            if (string.IsNullOrEmpty(result))
+            {
+                return null;
+            }
+
+            output.Clear();
+            return result;
+        }
+
         public static ListNode CreateLinkedList(int[] values)
         {
             if (values == null || values.Length == 0)
@@ -70,23 +110,6 @@
 
             return CompareBinaryTree(first.Left, second.Left) &&
                    CompareBinaryTree(first.Right, second.Right);
-        }
-
-        public static string Output(StringBuilder output)
-        {
-            if (output == null)
-            {
-                return null;
-            }
-
-            string result = output.ToString();
-            if (string.IsNullOrEmpty(result))
-            {
-                return null;
-            }
-
-            output.Clear();
-            return result;
         }
 
         public static char[] CreateArray(string content, int length)

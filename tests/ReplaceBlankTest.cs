@@ -2,6 +2,7 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Problems;
+    using System;
 
     [TestClass]
     public class ReplaceBlankTest
@@ -88,12 +89,11 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void TestInsufficientArrayLength()
         {
             char[] sentence = Helper.CreateArray("hello  world", 15);
             ReplaceBlank.Process(sentence);
-
-            CollectionAssert.AreEqual(Helper.CreateArray("hello  world", 15), sentence);
         }
     }
 }

@@ -48,13 +48,13 @@
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
         public void TestInsufficientArrayLength()
         {
             int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 5);
             int[] second = new int[] { 4, 5, 6 };
 
             MergeTwoSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(first, 5), first);
         }
 
         [TestMethod]

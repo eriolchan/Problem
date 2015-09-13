@@ -1,5 +1,8 @@
 ﻿namespace Problems
 {
+    /// <summary>
+    /// Problem: 链表结点
+    /// </summary>
     public class ListNode
     {
         public int Value { get; set; }

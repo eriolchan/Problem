@@ -3,6 +3,9 @@
     using System.Collections.Generic;
     using System.Text;
 
+    /// <summary>
+    /// Problem: 树结点
+    /// </summary>
     public class TreeNode
     {
         public int Value { get; set; }
