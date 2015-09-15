@@ -2,6 +2,7 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Problems;
+    using System;
 
     [TestClass]
     public class SortTest
@@ -9,54 +10,87 @@
         [TestMethod]
         public void TestWithNoDuplicateElement()
         {
-            int[] array = new int[] { 5, 1, 2, 4, 3 };
-            Sort.QuickSort(array);
+            int[] original = new int[] { 3, 9, 1, 7, 5 };
+            int[] expected = new int[] { 1, 3, 5, 7, 9 };
 
-            CollectionAssert.AreEqual(new int[] { 1, 2, 3, 4, 5 }, array);
+            int[] array = (int[])original.Clone();
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            array = (int[])original.Clone();
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
         }
 
         [TestMethod]
         public void TestWithDuplicateElement()
         {
-            int[] array = new int[] { 2, 1, 1, 2, 3 };
-            Sort.QuickSort(array);
+            int[] original = new int[] { 1, 5, 5, 9, 1 };
+            int[] expected = new int[] { 1, 1, 5, 5, 9 };
 
-            CollectionAssert.AreEqual(new int[] { 1, 1, 2, 2, 3 }, array);
+            int[] array = (int[])original.Clone();
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            array = (int[])original.Clone();
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
         }
 
         [TestMethod]
         public void TestWithSortedArray()
         {
-            int[] array = new int[] { 1, 3, 5, 7, 8 };
-            Sort.QuickSort(array);
+            int[] original = new int[] { 1, 3, 5, 7, 9 };
+            int[] expected = original;
 
-            CollectionAssert.AreEqual(new int[] { 1, 3, 5, 7, 8 }, array);
+            int[] array = (int[])original.Clone();
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            array = (int[])original.Clone();
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
         }
 
         [TestMethod]
         public void TestWithSameElements()
         {
-            int[] array = new int[] { 1, 1, 1 };
-            Sort.QuickSort(array);
+            int[] original = new int[] { 1, 1, 1, 1, 1 };
+            int[] expected = original;
 
-            CollectionAssert.AreEqual(new int[] { 1, 1, 1 }, array);
+            int[] array = (int[])original.Clone();
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            array = (int[])original.Clone();
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
         }
 
         [TestMethod]
         public void TestOnlyOneElement()
         {
-            int[] array = new int[] { 1 };
-            Sort.QuickSort(array);
+            int[] original = new int[] { 1 };
+            int[] expected = original;
 
-            CollectionAssert.AreEqual(new int[] { 1 }, array);
+            int[] array = (int[])original.Clone();
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            array = (int[])original.Clone();
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
         }
 
         [TestMethod]
         public void TestNull()
         {
             int[] array = null;
-            Sort.QuickSort(array);
 
+            Sort.QuickSort(array);
+            Assert.IsNull(array);
+
+            Sort.CountingSort(array);
             Assert.IsNull(array);
         }
 
@@ -64,9 +98,21 @@
         public void TestEmptyArray()
         {
             int[] array = new int[0];
-            Sort.QuickSort(array);
+            int[] expected = (int[])array.Clone();
 
-            CollectionAssert.AreEqual(new int[0], array);
+            Sort.QuickSort(array);
+            CollectionAssert.AreEqual(expected, array);
+
+            Sort.CountingSort(array);
+            CollectionAssert.AreEqual(expected, array);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestInvalidInput()
+        {
+            int[] array = new int[] { 1, 3, 10, 5, 7 };
+            Sort.CountingSort(array);
         }
     }
 }
