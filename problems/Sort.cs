@@ -5,6 +5,13 @@
     /// </summary>
     public class Sort
     {
+        /// <summary>
+        /// Average: O(nlogn)
+        /// Best: O(nlogn)
+        /// Worst: O(n2)
+        /// Stable: No
+        /// </summary>
+        /// <param name="array"></param>
         public static void QuickSort(int[] array)
         {
             if (array == null || array.Length == 0)
