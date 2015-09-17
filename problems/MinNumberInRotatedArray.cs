@@ -23,7 +23,7 @@
 
             while (array[start] >= array[end])
             {
-                if (end == start + 1)
+                if (end - start == 1)
                 {
                     mid = end;
                     break;
