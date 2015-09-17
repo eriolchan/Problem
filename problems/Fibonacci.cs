@@ -1,5 +1,9 @@
 ﻿namespace Problems
 {
+    /// <summary>
+    /// Problem: 斐波那契数列
+    /// 写一个函数, 输入n, 求斐波那契数列的第n项。
+    /// </summary>
     public class Fibonacci
     {
         public static long Process_Recursively(uint n)

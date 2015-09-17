@@ -1,5 +1,8 @@
 ﻿namespace Problems
 {
+    /// <summary>
+    /// Problem: 求从1加到N的和
+    /// </summary>
     public class AddFrom1ToN
     {
         public static int Process_Recursively(int n)
