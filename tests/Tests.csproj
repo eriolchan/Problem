@@ -49,6 +49,7 @@
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
     <Compile Include="ListNodeTest.cs" />
     <Compile Include="MergeTwoSortedListTest.cs" />
+    <Compile Include="MinNumberInRotatedArrayTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
     <Compile Include="QueueWithTwoStacksTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
