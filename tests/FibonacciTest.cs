@@ -26,5 +26,12 @@
             Assert.AreEqual(55, Fibonacci.Process_Recursively(10));
             Assert.AreEqual(55, Fibonacci.Process_Iteratively(10));
         }
+
+        [TestMethod]
+        public void TestPerformance()
+        {
+            //Assert.AreEqual(102334155, Fibonacci.Process_Recursively(40));
+            Assert.AreEqual(102334155, Fibonacci.Process_Iteratively(40));
+        }
     }
 }
