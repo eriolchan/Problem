@@ -47,6 +47,7 @@
     <Compile Include="AddFrom1ToNTest.cs" />
     <Compile Include="BinarySearchTest.cs" />
     <Compile Include="ConstructBinaryTreeTest.cs" />
+    <Compile Include="FibonacciTest.cs" />
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
     <Compile Include="ListNodeTest.cs" />
     <Compile Include="MergeTwoSortedListTest.cs" />
