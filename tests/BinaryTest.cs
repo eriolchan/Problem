@@ -41,5 +41,36 @@
         {
             Assert.IsFalse(Binary.IsPowerOf2(15));
         }
+
+        [TestMethod]
+        public void TestBitsToChange()
+        {
+            Assert.AreEqual(3, Binary.BitsToChange(10, 13));
+        }
+
+        [TestMethod]
+        public void TestBitsToChangeWithZero()
+        {
+            Assert.AreEqual(1, Binary.BitsToChange(0, 4));
+        }
+
+        [TestMethod]
+        public void TestBitsToChangeWithSame()
+        {
+            Assert.AreEqual(0, Binary.BitsToChange(1, 1));
+        }
+
+        [TestMethod]
+        public void TestBitsToChangeWithAllBits()
+        {
+            Assert.AreEqual(32, Binary.BitsToChange(int.MaxValue, int.MinValue));
+            Assert.AreEqual(32, Binary.BitsToChange(0, -1));
+        }
+
+        [TestMethod]
+        public void TestBitsToChangeWithNegativeAndPositive()
+        {
+            Assert.AreEqual(31, Binary.BitsToChange(1, -1));
+        }
     }
 }
