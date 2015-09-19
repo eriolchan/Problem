@@ -60,7 +60,7 @@
             int rootInOrder = startInOrder;
             while (rootInOrder <= endInOrder && inOrder[rootInOrder] != root.Value)
             {
-                rootInOrder++;
+                ++rootInOrder;
             }
             
             if (rootInOrder == endInOrder && inOrder[rootInOrder] != root.Value)
@@ -106,7 +106,7 @@
             }
 
             Dictionary<int, int> orders = new Dictionary<int, int>();
-            for(int i = 0; i < inOrder.Length; i++)
+            for(int i = 0; i < inOrder.Length; ++i)
             {
                 orders.Add(inOrder[i], i);
             }
@@ -117,7 +117,7 @@
 
             TreeNode current = null;
             TreeNode previous = null;
-            for (int i = 1; i < preOrder.Length; i++)
+            for (int i = 1; i < preOrder.Length; ++i)
             {
                 current = new TreeNode(preOrder[i]);
                 if (!orders.ContainsKey(current.Value))

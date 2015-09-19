@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Problems
+﻿namespace Problems
 {
+    using System;
+
     /// <summary>
     /// Problem: 排序
     /// </summary>
@@ -40,16 +40,16 @@ namespace Problems
             Helper.Swap(array, pivot, end);
 
             pivot = start - 1;
-            for (int i = start; i < end; i++)
+            for (int i = start; i < end; ++i)
             {
                 if (array[i] < array[end])
                 {
-                    pivot++;
+                    ++pivot;
                     Helper.Swap(array, pivot, i);
                 }
             }
 
-            pivot++;
+            ++pivot;
             Helper.Swap(array, pivot, end);
 
             return pivot;
@@ -73,23 +73,23 @@ namespace Problems
             const int k = 9;
             int[] counter = new int[k + 1];
 
-            for (int i = 0; i < array.Length; i++)
+            for (int i = 0; i < array.Length; ++i)
             {
                 if (array[i] < 0 || array[i] > k)
                 {
                     throw new ArgumentException(Constants.InvalidInput);
                 }
 
-                counter[array[i]]++;
+                ++counter[array[i]];
             }
 
-            for (int i = 1; i < counter.Length; i++)
+            for (int i = 1; i < counter.Length; ++i)
             {
                 counter[i] += counter[i - 1];
             }
 
             int[] result = new int[array.Length];
-            for (int i = array.Length - 1; i >= 0; i--)
+            for (int i = array.Length - 1; i >= 0; --i)
             {
                 result[--counter[array[i]]] = array[i];
             }

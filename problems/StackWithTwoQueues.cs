@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Problems
+﻿namespace Problems
 {
+    using System;
+    using System.Collections.Generic;
+
     /// <summary>
     /// Problem: 用两个队列实现一个栈
     /// </summary>

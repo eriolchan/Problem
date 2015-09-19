@@ -54,7 +54,7 @@
             ListNode head = new ListNode(values[0]);
             ListNode tail = head;
 
-            for (int i = 1; i < values.Length; i++)
+            for (int i = 1; i < values.Length; ++i)
             {
                 tail.Next = new ListNode(values[i]);
                 tail = tail.Next; 

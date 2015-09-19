@@ -29,11 +29,11 @@
                     }
                     else if (matrix[row][column] < number)
                     {
-                        row++;
+                        ++row;
                     }
                     else
                     {
-                        column--;
+                        --column;
                     }
                 }
             }

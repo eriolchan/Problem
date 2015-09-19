@@ -51,7 +51,7 @@
         private static int MinInOrder(int[] array, int start, int end)
         {
             int min = array[start];
-            for (int i = start + 1; i <= end; i++)
+            for (int i = start + 1; i <= end; ++i)
             {
                 if (array[i] < min)
                 {
