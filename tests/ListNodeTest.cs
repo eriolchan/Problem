@@ -12,7 +12,7 @@
             ListNode head = null;
             ListNode.AddToTail(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(new ListNode(5), head));
+            Assert.IsTrue(Helper.CompareLinkedList(new ListNode(5), head));
         }
 
         [TestMethod]
@@ -21,7 +21,7 @@
             ListNode head = new ListNode(1);
             ListNode.AddToTail(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 5 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 5 }), head));
         }
 
         [TestMethod]
@@ -30,7 +30,7 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 1, 2, 3 });
             ListNode.AddToTail(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 2, 3, 5 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 2, 3, 5 }), head));
         }
 
         [TestMethod]
@@ -57,7 +57,7 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 5, 7 });
             ListNode.RemoveNode(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 7 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 7 }), head));
         }
 
         [TestMethod]
@@ -66,7 +66,7 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
             ListNode.RemoveNode(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 3 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 3 }), head));
         }
         
         [TestMethod]
@@ -75,7 +75,7 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 1, 5, 7 });
             ListNode.RemoveNode(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 7 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 7 }), head));
         }
 
         [TestMethod]
@@ -84,7 +84,7 @@
             ListNode head = Helper.CreateLinkedList(new int[] { 1, 3 });
             ListNode.RemoveNode(ref head, 5);
 
-            Assert.AreEqual(true, Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 3 }), head));
+            Assert.IsTrue(Helper.CompareLinkedList(Helper.CreateLinkedList(new int[] { 1, 3 }), head));
         }
     }
 }

@@ -14,13 +14,8 @@
             int[] preOrder = new int[] { 1, 2, 4, 7, 3, 5, 6, 8 };
             int[] inOrder = new int[] { 4, 7, 2, 1, 5, 3, 8, 6 };
 
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
-
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
         }
 
         [TestMethod]
@@ -30,13 +25,8 @@
             int[] preOrder = new int[] { 1, 2, 3, 4, 5 };
             int[] inOrder = new int[] { 5, 4, 3, 2, 1 };
 
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
-
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
         }
 
         [TestMethod]
@@ -46,13 +36,8 @@
             int[] inOrder = new int[] { 1, 2, 3, 4, 5 };
             TreeNode expected = Helper.CreateTree(TreeType.NoLeftChildTree);
 
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
-
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
         }
 
         [TestMethod]
@@ -62,13 +47,8 @@
             int[] inOrder = new int[] { 1 };
             TreeNode expected = new TreeNode(1);
 
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
-
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
         }
 
         [TestMethod]
@@ -78,13 +58,8 @@
             int[] inOrder = new int[] { 4, 2, 5, 1, 6, 3, 7 };
             TreeNode expected = Helper.CreateTree(TreeType.CompleteTree);
 
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
-
-            Assert.AreEqual(true, Helper.CompareBinaryTree(
-                expected,
-                ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessRecursively(preOrder, inOrder)));
+            Assert.IsTrue(Helper.CompareBinaryTree(expected, ConstructBinaryTree.ProcessIteratively(preOrder, inOrder)));
         }
 
         [TestMethod]

@@ -17,43 +17,43 @@
         [TestMethod]
         public void TestNumberInMatrix()
         {
-            Assert.AreEqual(true, FindInPartiallySortedMatrix.Process(matrix, 7));
+            Assert.IsTrue(FindInPartiallySortedMatrix.Process(matrix, 7));
         }
 
         [TestMethod]
         public void TestNumberNotInMatrix()
         {
-            Assert.AreEqual(false, FindInPartiallySortedMatrix.Process(matrix, 5));
+            Assert.IsFalse(FindInPartiallySortedMatrix.Process(matrix, 5));
         }
 
         [TestMethod]
         public void TestNumberIsMin()
         {
-            Assert.AreEqual(true, FindInPartiallySortedMatrix.Process(matrix, 1));
+            Assert.IsTrue(FindInPartiallySortedMatrix.Process(matrix, 1));
         }
 
         [TestMethod]
         public void TestNumberIsMax()
         {
-            Assert.AreEqual(true, FindInPartiallySortedMatrix.Process(matrix, 15));
+            Assert.IsTrue(FindInPartiallySortedMatrix.Process(matrix, 15));
         }
 
         [TestMethod]
         public void TestNumberIsLessThanMin()
         {
-            Assert.AreEqual(false, FindInPartiallySortedMatrix.Process(matrix, 0));
+            Assert.IsFalse(FindInPartiallySortedMatrix.Process(matrix, 0));
         }
 
         [TestMethod]
         public void TestNumberIsMoreThanMax()
         {
-            Assert.AreEqual(false, FindInPartiallySortedMatrix.Process(matrix, 16));
+            Assert.IsFalse(FindInPartiallySortedMatrix.Process(matrix, 16));
         }
 
         [TestMethod]
         public void TestNullMatrix()
         {
-            Assert.AreEqual(false, FindInPartiallySortedMatrix.Process(null, 7));
+            Assert.IsFalse(FindInPartiallySortedMatrix.Process(null, 7));
         }
     }
 }
