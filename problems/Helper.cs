@@ -44,6 +44,11 @@
             return result;
         }
 
+        public static bool DoubleIsEqual(double first, double second)
+        {
+            return Math.Abs(first - second) <= Constants.Precision;
+        }
+
         public static ListNode CreateLinkedList(int[] values)
         {
             if (values == null || values.Length == 0)

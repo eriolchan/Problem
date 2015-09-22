@@ -4,5 +4,6 @@
     {
         public const string InvalidInput = "Invalid input";
         public const string EmptyContainer = "Container is empty";
+        public const double Precision = 1E-6;
     }
 }

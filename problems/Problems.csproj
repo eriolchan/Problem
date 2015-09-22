@@ -52,6 +52,7 @@
     <Compile Include="MergeTwoSortedList.cs" />
     <Compile Include="MinNumberInRotatedArray.cs" />
     <Compile Include="NumberOf1InBinary.cs" />
+    <Compile Include="Power.cs" />
     <Compile Include="PrintListInReversedOrder.cs" />
     <Compile Include="QueueWithTwoStacks.cs" />
     <Compile Include="ReplaceBlank.cs" />

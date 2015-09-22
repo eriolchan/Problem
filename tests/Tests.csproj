@@ -53,6 +53,7 @@
     <Compile Include="MergeTwoSortedListTest.cs" />
     <Compile Include="MinNumberInRotatedArrayTest.cs" />
     <Compile Include="NumberOf1InBinaryTest.cs" />
+    <Compile Include="PowerTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
     <Compile Include="QueueWithTwoStacksTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
