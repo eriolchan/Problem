@@ -72,5 +72,60 @@
                 output.Append(',');
             }
         }
+
+        public static void Process(int n)
+        {
+            if (n <= 0)
+            {
+                return;
+            }
+
+            char[] number = new char[n];
+            for (int i = 0; i < number.Length; ++i)
+            {
+                number[i] = '0';
+            }
+
+            while (!Increment(number))
+            {
+                PrintNumber(number);
+            }
+        }
+
+        private static bool Increment(char[] number)
+        {
+            bool isOverflow = false;
+            int takeOver = 0;
+
+            for (int i = number.Length - 1; i >= 0; --i)
+            {
+                int sum = number[i] - Zero + takeOver;
+                if (i == number.Length - 1)
+                {
+                    ++sum;
+                }
+
+                if (sum >= 10)
+                {
+                    if (i == 0)
+                    {
+                        isOverflow = true;
+                    }
+                    else
+                    {
+                        sum -= 10;
+                        takeOver = 1;
+                        number[i] = (char)(sum + Zero);
+                    }
+                }
+                else
+                {
+                    number[i] = (char)(sum + Zero);
+                    break;
+                }
+            }
+
+            return isOverflow;
+        }
     }
 }

@@ -12,12 +12,18 @@
         {
             Print1ToMaxOfNDigits.Process_Recursively(-1);
             Assert.IsNull(Print1ToMaxOfNDigits.Result);
+
+            Print1ToMaxOfNDigits.Process(-1);
+            Assert.IsNull(Print1ToMaxOfNDigits.Result);
         }
 
         [TestMethod]
         public void TestNIsZero()
         {
             Print1ToMaxOfNDigits.Process_Recursively(0);
+            Assert.IsNull(Print1ToMaxOfNDigits.Result);
+
+            Print1ToMaxOfNDigits.Process(0);
             Assert.IsNull(Print1ToMaxOfNDigits.Result);
         }
 
@@ -31,6 +37,9 @@
             }
 
             Print1ToMaxOfNDigits.Process_Recursively(1);
+            Assert.AreEqual(expected.ToString(), Print1ToMaxOfNDigits.Result);
+
+            Print1ToMaxOfNDigits.Process(1);
             Assert.AreEqual(expected.ToString(), Print1ToMaxOfNDigits.Result);
         }
 
