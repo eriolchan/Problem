@@ -45,6 +45,7 @@
     <Compile Include="BinarySearch.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="ConstructBinaryTree.cs" />
+    <Compile Include="DeleteNodeInList.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FindInPartiallySortedMatrix.cs" />
     <Compile Include="Helper.cs" />
