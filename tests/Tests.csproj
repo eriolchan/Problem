@@ -58,6 +58,7 @@
     <Compile Include="Print1ToMaxOfNDigitsTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
     <Compile Include="QueueWithTwoStacksTest.cs" />
+    <Compile Include="ReorderArrayTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="StackWithTwoQueuesTest.cs" />
