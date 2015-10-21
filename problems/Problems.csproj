@@ -49,6 +49,7 @@
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FindInPartiallySortedMatrix.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="KthNodeFromEnd.cs" />
     <Compile Include="ListNode.cs" />
     <Compile Include="MergeTwoSortedList.cs" />
     <Compile Include="MinNumberInRotatedArray.cs" />
