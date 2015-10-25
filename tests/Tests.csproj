@@ -63,6 +63,7 @@
     <Compile Include="QueueWithTwoStacksTest.cs" />
     <Compile Include="ReorderArrayTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
+    <Compile Include="ReverseListTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="StackWithTwoQueuesTest.cs" />
     <Compile Include="TreeNodeTest.cs" />

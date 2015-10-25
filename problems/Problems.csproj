@@ -62,6 +62,7 @@
     <Compile Include="QueueWithTwoStacks.cs" />
     <Compile Include="ReorderArray.cs" />
     <Compile Include="ReplaceBlank.cs" />
+    <Compile Include="ReverseList.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="StackWithTwoQueues.cs" />
     <Compile Include="TreeNode.cs" />
