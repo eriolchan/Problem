@@ -50,6 +50,7 @@
     <Compile Include="DeleteNodeInListTest.cs" />
     <Compile Include="FibonacciTest.cs" />
     <Compile Include="FindInPartiallySortedMatrixTest.cs" />
+    <Compile Include="FindLoopInListTest.cs" />
     <Compile Include="FindMiddleNodeOfListTest.cs" />
     <Compile Include="KthNodeFromEndTest.cs" />
     <Compile Include="ListNodeTest.cs" />

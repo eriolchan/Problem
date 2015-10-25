@@ -68,6 +68,22 @@
             return head;
         }
 
+        public static ListNode GetLastNode(ListNode head)
+        {
+            if (head == null)
+            {
+                return null;
+            }
+
+            ListNode lastNode = head;
+            while (lastNode.Next != null)
+            {
+                lastNode = lastNode.Next;
+            }
+
+            return lastNode;
+        }
+
         public static bool CompareLinkedList(ListNode first, ListNode second)
         {
             if (first == second)

@@ -48,6 +48,7 @@
     <Compile Include="DeleteNodeInList.cs" />
     <Compile Include="Fibonacci.cs" />
     <Compile Include="FindInPartiallySortedMatrix.cs" />
+    <Compile Include="FindLoopInList.cs" />
     <Compile Include="FindMiddleNodeOfList.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="KthNodeFromEnd.cs" />
