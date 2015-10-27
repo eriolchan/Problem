@@ -8,7 +8,7 @@
     /// 容纳A2。请实现一个函数, 把A2中的所有数字插入到A1中并且所有
     /// 的数字是排序的。
     /// </summary>
-    public class MergeTwoSortedList
+    public class MergeSortedList
     {
         public static void Process(int[] first, int[] second, int firstCount)
         {

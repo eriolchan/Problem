@@ -54,7 +54,7 @@
     <Compile Include="FindMiddleNodeOfListTest.cs" />
     <Compile Include="KthNodeFromEndTest.cs" />
     <Compile Include="ListNodeTest.cs" />
-    <Compile Include="MergeTwoSortedListTest.cs" />
+    <Compile Include="MergeSortedListTest.cs" />
     <Compile Include="MinNumberInRotatedArrayTest.cs" />
     <Compile Include="NumberOf1InBinaryTest.cs" />
     <Compile Include="PowerTest.cs" />

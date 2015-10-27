@@ -53,7 +53,7 @@
     <Compile Include="Helper.cs" />
     <Compile Include="KthNodeFromEnd.cs" />
     <Compile Include="ListNode.cs" />
-    <Compile Include="MergeTwoSortedList.cs" />
+    <Compile Include="MergeSortedList.cs" />
     <Compile Include="MinNumberInRotatedArray.cs" />
     <Compile Include="NumberOf1InBinary.cs" />
     <Compile Include="Power.cs" />

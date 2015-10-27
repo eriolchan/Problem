@@ -5,7 +5,7 @@
     using System;
 
     [TestClass]
-    public class MergeTwoSortedListTest
+    public class MergeSortedListTest
     {
         [TestMethod]
         public void TestFirstListIsNull()
@@ -13,7 +13,7 @@
             int[] first = null;
             int[] second = new int[] { 4, 5, 6 };
 
-            MergeTwoSortedList.Process(first, second, 0);
+            MergeSortedList.Process(first, second, 0);
             Assert.IsNull(first);
         }
 
@@ -23,7 +23,7 @@
             int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
             int[] second = null;
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
             CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3 }, 10), first);
         }
 
@@ -33,7 +33,7 @@
             int[] first = new int[10];
             int[] second = new int[] { 3, 4, 5 };
 
-            MergeTwoSortedList.Process(first, second, 0);
+            MergeSortedList.Process(first, second, 0);
             CollectionAssert.AreEqual(Helper.CreateArray(second, 10), first);
         }
         
@@ -43,7 +43,7 @@
             int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
             int[] second = new int[0];
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
             CollectionAssert.AreEqual(Helper.CreateArray(first, 10), first);
         }
 
@@ -54,7 +54,7 @@
             int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 5);
             int[] second = new int[] { 4, 5, 6 };
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
         }
 
         [TestMethod]
@@ -63,7 +63,7 @@
             int[] first = Helper.CreateArray(new int[] { 4, 5, 6 }, 10);
             int[] second = new int[] { 1, 2, 3 };
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
             CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
         }
 
@@ -73,7 +73,7 @@
             int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
             int[] second = new int[] { 4, 5, 6 };
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
             CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
         }
 
@@ -83,7 +83,7 @@
             int[] first = Helper.CreateArray(new int[] { 2, 4, 5 }, 10);
             int[] second = new int[] { 1, 3, 6 };
 
-            MergeTwoSortedList.Process(first, second, 3);
+            MergeSortedList.Process(first, second, 3);
             CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
         }
 
@@ -93,7 +93,7 @@
             int[] first = Helper.CreateArray(new int[] { 1, 2 }, 5);
             int[] second = new int[] { 1, 2, 3 };
 
-            MergeTwoSortedList.Process(first, second, 2);
+            MergeSortedList.Process(first, second, 2);
             CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 1, 2, 2, 3 }, 5), first);
         }
     }
