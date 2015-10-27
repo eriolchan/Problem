@@ -2,99 +2,159 @@
 {
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Problems;
-    using System;
 
     [TestClass]
     public class MergeSortedListTest
     {
         [TestMethod]
-        public void TestFirstListIsNull()
+        public void TestFirstIsNull()
         {
-            int[] first = null;
-            int[] second = new int[] { 4, 5, 6 };
+            ListNode first = null;
+            ListNode second = Helper.CreateLinkedList(new int[] { 2, 4, 6 });
 
-            MergeSortedList.Process(first, second, 0);
-            Assert.IsNull(first);
-        }
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 2, 4, 6 }),
+                MergeSortedList.Process(first, second)));
+            
+            first = null;
+            second = Helper.CreateLinkedList(new int[] { 2, 4, 6 });
 
-        [TestMethod]
-        public void TestSecondListIsNull()
-        {
-            int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
-            int[] second = null;
-
-            MergeSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3 }, 10), first);
-        }
-
-        [TestMethod]
-        public void TestFirstListIsEmpty()
-        {
-            int[] first = new int[10];
-            int[] second = new int[] { 3, 4, 5 };
-
-            MergeSortedList.Process(first, second, 0);
-            CollectionAssert.AreEqual(Helper.CreateArray(second, 10), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 2, 4, 6 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
         
         [TestMethod]
-        public void TestSecondListIsEmpty()
+        public void TestSecondIsNull()
         {
-            int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
-            int[] second = new int[0];
+            ListNode first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            ListNode second = null;
 
-            MergeSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(first, 10), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 3, 5 }),
+                MergeSortedList.Process(first, second)));
+            
+            first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            second = null;
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 3, 5 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void TestInsufficientArrayLength()
+        public void TestFirstCrossSecond()
         {
-            int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 5);
-            int[] second = new int[] { 4, 5, 6 };
+            ListNode first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            ListNode second = Helper.CreateLinkedList(new int[] { 2, 4, 6 });
 
-            MergeSortedList.Process(first, second, 3);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process(first, second)));
+
+            first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            second = Helper.CreateLinkedList(new int[] { 2, 4, 6 });
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
 
         [TestMethod]
-        public void TestFirstIsMoreThanSecond()
+        public void TestFirstBeforeSecond()
         {
-            int[] first = Helper.CreateArray(new int[] { 4, 5, 6 }, 10);
-            int[] second = new int[] { 1, 2, 3 };
+            ListNode first = Helper.CreateLinkedList(new int[] { 1, 2, 4 });
+            ListNode second = Helper.CreateLinkedList(new int[] { 3, 5, 6 });
 
-            MergeSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process(first, second)));
+
+            first = Helper.CreateLinkedList(new int[] { 1, 2, 4 });
+            second = Helper.CreateLinkedList(new int[] { 3, 5, 6 });
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
 
         [TestMethod]
-        public void TestFirstIsLessThanSecond()
+        public void TestFirstAfterSecond()
         {
-            int[] first = Helper.CreateArray(new int[] { 1, 2, 3 }, 10);
-            int[] second = new int[] { 4, 5, 6 };
+            ListNode first = Helper.CreateLinkedList(new int[] { 3, 5, 6 });
+            ListNode second = Helper.CreateLinkedList(new int[] { 1, 2, 4 });
 
-            MergeSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process(first, second)));
+
+            first = Helper.CreateLinkedList(new int[] { 3, 5, 6 });
+            second = Helper.CreateLinkedList(new int[] { 1, 2, 4 });
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
 
         [TestMethod]
-        public void TestFirstInMiddleOfSecond()
+        public void TestFirstSecondBySort()
         {
-            int[] first = Helper.CreateArray(new int[] { 2, 4, 5 }, 10);
-            int[] second = new int[] { 1, 3, 6 };
+            ListNode first = Helper.CreateLinkedList(new int[] { 1, 2, 3 });
+            ListNode second = Helper.CreateLinkedList(new int[] { 4, 5, 6 });
 
-            MergeSortedList.Process(first, second, 3);
-            CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 2, 3, 4, 5, 6 }, 10), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process(first, second)));
+
+            first = Helper.CreateLinkedList(new int[] { 1, 2, 3 });
+            second = Helper.CreateLinkedList(new int[] { 4, 5, 6 });
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2, 3, 4, 5, 6 }),
+                MergeSortedList.Process_Recursively(first, second)));
         }
 
         [TestMethod]
-        public void TestFirstIsSameAsSecond()
+        public void TestHasSameValue()
         {
-            int[] first = Helper.CreateArray(new int[] { 1, 2 }, 5);
-            int[] second = new int[] { 1, 2, 3 };
+            ListNode first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            ListNode second = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
 
-            MergeSortedList.Process(first, second, 2);
-            CollectionAssert.AreEqual(Helper.CreateArray(new int[] { 1, 1, 2, 2, 3 }, 5), first);
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 1, 3, 3, 5, 5 }),
+                MergeSortedList.Process(first, second)));
+
+            first = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+            second = Helper.CreateLinkedList(new int[] { 1, 3, 5 });
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 1, 3, 3, 5, 5 }),
+                MergeSortedList.Process_Recursively(first, second)));
+        }
+
+        [TestMethod]
+        public void TestOnlyOneNode()
+        {
+            ListNode first = new ListNode(2);
+            ListNode second = new ListNode(1);
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2 }),
+                MergeSortedList.Process(first, second)));
+
+            first = new ListNode(2);
+            second = new ListNode(1);
+
+            Assert.IsTrue(Helper.CompareLinkedList(
+                Helper.CreateLinkedList(new int[] { 1, 2 }),
+                MergeSortedList.Process_Recursively(first, second)));
+        }
+
+        [TestMethod]
+        public void TestNull()
+        {
+            Assert.IsNull(MergeSortedList.Process(null, null));
+            Assert.IsNull(MergeSortedList.Process_Recursively(null, null));
         }
     }
 }

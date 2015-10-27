@@ -3,45 +3,81 @@
     using System;
 
     /// <summary>
-    /// Problem: 合并两个排序数组
-    /// 有两个排序的数组A1和A2, 内存在A1的末尾有足够多的空余空间
-    /// 容纳A2。请实现一个函数, 把A2中的所有数字插入到A1中并且所有
-    /// 的数字是排序的。
+    /// Problem: 合并两个排序的链表
+    /// 输入两个递增排序的链表, 合并这两个链表并使新链表
+    /// 中的结点仍然是按照递增排序的。
     /// </summary>
     public class MergeSortedList
     {
-        public static void Process(int[] first, int[] second, int firstCount)
+        public static ListNode Process(ListNode first, ListNode second)
         {
-            if (first == null || second == null || second.Length == 0)
+            if (first == null)
             {
-                return;
+                return second;
             }
 
-            int newLength = firstCount + second.Length;
-            if (newLength > first.Length)
+            if (second == null)
             {
-                throw new ArgumentException(Constants.InvalidInput);
+                return first;
             }
 
-            int newIndex = newLength - 1;
-            int firstIndex = firstCount - 1;
-            int secondIndex = second.Length - 1;
-            while (firstIndex >= 0 && secondIndex >= 0)
+            ListNode newHead = new ListNode(-1);
+
+            ListNode previous = newHead;
+            while (first != null && second != null)
             {
-                if (first[firstIndex] >= second[secondIndex])
+                if (first.Value <= second.Value)
                 {
-                    first[newIndex--] = first[firstIndex--];
+                    previous.Next = first;
+                    first = first.Next;
                 }
                 else
                 {
-                    first[newIndex--] = second[secondIndex--];
+                    previous.Next = second;
+                    second = second.Next;
                 }
+
+                previous = previous.Next;
             }
 
-            while (secondIndex >= 0)
+            if (first != null)
             {
-                first[newIndex--] = second[secondIndex--];
+                previous.Next = first;
             }
+
+            if (second != null)
+            {
+                previous.Next = second;
+            }
+
+            return newHead.Next;
+        }
+
+        public static ListNode Process_Recursively(ListNode first, ListNode second)
+        {
+            if (first == null)
+            {
+                return second;
+            }
+
+            if (second == null)
+            {
+                return first;
+            }
+
+            ListNode newHead = null;
+            if (first.Value <= second.Value)
+            {
+                newHead = first;
+                newHead.Next = Process_Recursively(first.Next, second);
+            }
+            else
+            {
+                newHead = second;
+                newHead.Next = Process_Recursively(first, second.Next);
+            }
+
+            return newHead;
         }
     }
 }
