@@ -66,6 +66,7 @@
     <Compile Include="ReverseList.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="StackWithTwoQueues.cs" />
+    <Compile Include="SubstructureInTree.cs" />
     <Compile Include="TreeNode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

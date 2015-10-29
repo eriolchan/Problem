@@ -9,27 +9,25 @@
     {
         public static ListNode Process(ListNode head)
         {
-            if (head == null)
-            {
-                return null;
-            }
-
+            ListNode newHead = null;
             ListNode previous = null;
             ListNode current = head;
             ListNode next = null;
 
-            while (current.Next != null)
+            while (current != null)
             {
                 next = current.Next;
-                current.Next = previous;
+                if (next == null)
+                {
+                    newHead = current;
+                }
 
+                current.Next = previous;
                 previous = current;
                 current = next;
             }
 
-            current.Next = previous;
-
-            return current;
+            return newHead;
         }
 
         public static ListNode Process_Recursively(ListNode head)

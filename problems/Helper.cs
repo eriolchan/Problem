@@ -149,6 +149,20 @@
             return result;
         }
 
+        public static TreeNode Clone(TreeNode root)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            TreeNode cloned = new TreeNode(root.Value);
+            cloned.Left = Clone(root.Left);
+            cloned.Right = Clone(root.Right);
+
+            return cloned;
+        }
+
         public static TreeNode CreateTree(TreeType type)
         {
             switch (type)

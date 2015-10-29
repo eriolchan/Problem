@@ -67,6 +67,7 @@
     <Compile Include="ReverseListTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="StackWithTwoQueuesTest.cs" />
+    <Compile Include="SubstructureInTreeTest.cs" />
     <Compile Include="TreeNodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
