@@ -56,6 +56,7 @@
     <Compile Include="MergeSortedArray.cs" />
     <Compile Include="MergeSortedList.cs" />
     <Compile Include="MinNumberInRotatedArray.cs" />
+    <Compile Include="MirrorOfBinaryTree.cs" />
     <Compile Include="NumberOf1InBinary.cs" />
     <Compile Include="Power.cs" />
     <Compile Include="Print1ToMaxOfNDigits.cs" />
