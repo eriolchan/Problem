@@ -61,6 +61,7 @@
     <Compile Include="Power.cs" />
     <Compile Include="Print1ToMaxOfNDigits.cs" />
     <Compile Include="PrintListInReversedOrder.cs" />
+    <Compile Include="PrintMatrixClockwisely.cs" />
     <Compile Include="QueueWithTwoStacks.cs" />
     <Compile Include="ReorderArray.cs" />
     <Compile Include="ReplaceBlank.cs" />

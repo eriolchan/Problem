@@ -62,6 +62,7 @@
     <Compile Include="PowerTest.cs" />
     <Compile Include="Print1ToMaxOfNDigitsTest.cs" />
     <Compile Include="PrintListInReversedOrderTest.cs" />
+    <Compile Include="PrintMatrixClockwiselyTest.cs" />
     <Compile Include="QueueWithTwoStacksTest.cs" />
     <Compile Include="ReorderArrayTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
