@@ -24,14 +24,13 @@
         {
             stack.Push(value);
 
-            if (minStack.Count == 0)
+            if (minStack.Count == 0 || value.CompareTo(Min()) < 0)
             {
                 minStack.Push(value);
             }
             else
             {
-                T min = Min();
-                minStack.Push(value.CompareTo(min) < 0 ? value : min);
+                minStack.Push(Min());
             }
         }
 
