@@ -56,6 +56,7 @@
     <Compile Include="ListNodeTest.cs" />
     <Compile Include="MergeSortedArrayTest.cs" />
     <Compile Include="MergeSortedListTest.cs" />
+    <Compile Include="MinInStackTest.cs" />
     <Compile Include="MinNumberInRotatedArrayTest.cs" />
     <Compile Include="MirrorOfBinaryTreeTest.cs" />
     <Compile Include="NumberOf1InBinaryTest.cs" />
