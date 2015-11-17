@@ -68,6 +68,7 @@
     <Compile Include="ReplaceBlank.cs" />
     <Compile Include="ReverseList.cs" />
     <Compile Include="Sort.cs" />
+    <Compile Include="StackPushPopOrder.cs" />
     <Compile Include="StackWithTwoQueues.cs" />
     <Compile Include="SubstructureInTree.cs" />
     <Compile Include="TreeNode.cs" />
