@@ -131,6 +131,34 @@
             }
         }
 
+        public static void LevelOrderTraverse(TreeNode root)
+        {
+            if (root == null)
+            {
+                return;
+            }
+
+            Queue<TreeNode> queue = new Queue<TreeNode>();
+            queue.Enqueue(root);
+            TreeNode current;
+
+            while (queue.Count > 0)
+            {
+                current = queue.Dequeue();
+                output.Append(current.Value);
+
+                if (current.Left != null)
+                {
+                    queue.Enqueue(current.Left);
+                }
+
+                if (current.Right != null)
+                {
+                    queue.Enqueue(current.Right);
+                }
+            }
+        }
+
         public override bool Equals(object obj)
         {
             if (obj == null)

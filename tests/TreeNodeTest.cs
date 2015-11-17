@@ -46,6 +46,16 @@
         }
 
         [TestMethod]
+        public void TestLevelOrderTraverseNotCompleteTree()
+        {
+            TreeNode root = Helper.CreateTree(TreeType.NotCompleteTree);
+            string expected = "12345678";
+
+            TreeNode.LevelOrderTraverse(root);
+            Assert.AreEqual(expected, TreeNode.Result);
+        }
+
+        [TestMethod]
         public void TestPreOrderTraverseNoRightChildTree()
         {
             TreeNode root = Helper.CreateTree(TreeType.NoRightChildTree);
@@ -81,6 +91,16 @@
             Assert.AreEqual(expected, TreeNode.Result);
 
             TreeNode.PostOrderTraverseIteratively(root);
+            Assert.AreEqual(expected, TreeNode.Result);
+        }
+
+        [TestMethod]
+        public void TestLevelOrderTraverseNoRightChildTree()
+        {
+            TreeNode root = Helper.CreateTree(TreeType.NoRightChildTree);
+            string expected = "12345";
+
+            TreeNode.LevelOrderTraverse(root);
             Assert.AreEqual(expected, TreeNode.Result);
         }
 
@@ -124,6 +144,16 @@
         }
 
         [TestMethod]
+        public void TestLevelOrderTraverseNoLeftChildTree()
+        {
+            TreeNode root = Helper.CreateTree(TreeType.NoLeftChildTree);
+            string expected = "12345";
+
+            TreeNode.LevelOrderTraverse(root);
+            Assert.AreEqual(expected, TreeNode.Result);
+        }
+
+        [TestMethod]
         public void TestPreOrderTraverseOnlyRootTree()
         {
             TreeNode root = new TreeNode(1);
@@ -159,6 +189,16 @@
             Assert.AreEqual(expected, TreeNode.Result);
 
             TreeNode.PostOrderTraverseIteratively(root);
+            Assert.AreEqual(expected, TreeNode.Result);
+        }
+
+        [TestMethod]
+        public void TestLevelOrderTraverseOnlyRootTree()
+        {
+            TreeNode root = new TreeNode(1);
+            string expected = "1";
+
+            TreeNode.LevelOrderTraverse(root);
             Assert.AreEqual(expected, TreeNode.Result);
         }
 
@@ -202,6 +242,16 @@
         }
 
         [TestMethod]
+        public void TestLevelOrderTraverseCompleteTree()
+        {
+            TreeNode root = Helper.CreateTree(TreeType.CompleteTree);
+            string expected = "1234567";
+
+            TreeNode.LevelOrderTraverse(root);
+            Assert.AreEqual(expected, TreeNode.Result);
+        }
+
+        [TestMethod]
         public void TestPreOrderTraverseNull()
         {
             TreeNode root = null;
@@ -234,6 +284,15 @@
             Assert.IsNull(root);
 
             TreeNode.PostOrderTraverseIteratively(root);
+            Assert.IsNull(root);
+        }
+
+        [TestMethod]
+        public void TestLevelOrderTraverseNull()
+        {
+            TreeNode root = null;
+
+            TreeNode.LevelOrderTraverse(root);
             Assert.IsNull(root);
         }
     }
