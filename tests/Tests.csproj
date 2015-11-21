@@ -68,6 +68,7 @@
     <Compile Include="ReorderArrayTest.cs" />
     <Compile Include="ReplaceBlankTest.cs" />
     <Compile Include="ReverseListTest.cs" />
+    <Compile Include="SequenceOfBSTTest.cs" />
     <Compile Include="SortTest.cs" />
     <Compile Include="StackPushPopOrderTest.cs" />
     <Compile Include="StackWithTwoQueuesTest.cs" />

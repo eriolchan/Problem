@@ -67,6 +67,7 @@
     <Compile Include="ReorderArray.cs" />
     <Compile Include="ReplaceBlank.cs" />
     <Compile Include="ReverseList.cs" />
+    <Compile Include="SequenceOfBST.cs" />
     <Compile Include="Sort.cs" />
     <Compile Include="StackPushPopOrder.cs" />
     <Compile Include="StackWithTwoQueues.cs" />
