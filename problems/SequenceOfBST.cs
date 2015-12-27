@@ -44,5 +44,41 @@
             return ProcessCore(sequence, start, i - 1) &&
                 ProcessCore(sequence, i, end - 1);
         }
+        
+        public static bool Process_PreOrder(int[] sequence)
+        {
+            if (sequence == null || sequence.Length == 0)
+            {
+                return false;
+            }
+
+            return ProcessCore_PreOrder(sequence, 0, sequence.Length - 1);
+        }
+        private static bool ProcessCore_PreOrder(int[] sequence, int start, int end)
+        {
+            if (start >= end)
+            {
+                return true;
+            }
+
+            int root = sequence[start];
+
+            int i = start + 1;
+            while (i <= end && sequence[i] < root)
+            {
+                ++i;
+            }
+
+            for (int j = i; j <= end; ++j)
+            {
+                if (sequence[j] < root)
+                {
+                    return false;
+                }
+            }
+
+            return ProcessCore_PreOrder(sequence, start + 1, i - 1) &&
+                ProcessCore_PreOrder(sequence, i, end);
+        }
     }
 }
