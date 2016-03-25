@@ -1,4 +1,4 @@
-/* Programming challenges - 110101 - The 3n+1 problem */
+// Programming challenges - 110101 - The 3n+1 problem
 
 #include<iostream>
 

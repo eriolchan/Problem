@@ -1,4 +1,4 @@
-/* Programming challenges - 110102 - Minesweeper */
+// Programming challenges - 110102 - Minesweeper
 
 #include<iostream>
 

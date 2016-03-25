@@ -1,5 +1,4 @@
-
-/* Programming challenges - 110104 - LC-Display */
+// Programming challenges - 110104 - LC-Display
 
 #include<iostream>
 #include<iomanip>

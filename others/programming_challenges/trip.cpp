@@ -1,4 +1,4 @@
-/* Programming challenges - 110103 - The Trip */
+// Programming challenges - 110103 - The Trip
 
 #include<iostream>
 #include<iomanip>
