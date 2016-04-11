@@ -35,14 +35,14 @@ void reverse(char *s)
 
 void test(char *actual, char *expected)
 {
-  cout << "actual: " << actual << ", expected: " << expected << endl;
+  cout << "actual: " << actual << " expected: " << expected << endl;
 }
 
 int main()
 {
   char *s = NULL;
   reverse(s);
-  cout << "actual: " << (s ? s : "NULL") << ", expected: NULL" << endl;
+  cout << "actual: " << (s ? s : "NULL") << " expected: NULL" << endl;
 
   char str[] = "0123456789";
   reverse(str);

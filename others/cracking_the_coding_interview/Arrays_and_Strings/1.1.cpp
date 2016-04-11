@@ -49,32 +49,32 @@ bool isUnique2(string s)
   return true;
 }
 
-void test(bool actual, bool expected)
+void test(bool actual, bool expected, int num)
 {
-  cout << "actual: " << actual << ", expected: " << expected << endl;
+  cout << "isUnique" << num << " - actual: " << actual << " expected: " << expected << endl;
 }
 
 int main()
 {
   string s = "a";
-  test(isUnique(s), true);
-  test(isUnique2(s), true);
+  test(isUnique(s), true, 1);
+  test(isUnique2(s), true, 2);
 
   s = "abcd";
-  test(isUnique(s), true);
-  test(isUnique2(s), true);
+  test(isUnique(s), true, 1);
+  test(isUnique2(s), true, 2);
 
   s = "aaaa";
-  test(isUnique(s), false);
-  test(isUnique2(s), false);
+  test(isUnique(s), false, 1);
+  test(isUnique2(s), false, 2);
 
   s = "ababab";
-  test(isUnique(s), false);
-  test(isUnique2(s), false);
+  test(isUnique(s), false, 1);
+  test(isUnique2(s), false, 2);
 
   s = "aaabbb";
-  test(isUnique(s), false);
-  test(isUnique2(s), false);
+  test(isUnique(s), false, 1);
+  test(isUnique2(s), false, 2);
 
   return 0;
 }
