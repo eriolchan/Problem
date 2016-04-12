@@ -51,12 +51,12 @@ void print(int **matrix, int n)
 void test(int ** matrix, int n)
 {
   cout << "Original matrix:" << endl;
-  print((int **)matrix, n);
+  print(matrix, n);
 
-  rotate((int **)matrix, n);
+  rotate(matrix, n);
 
   cout << "\nAfter rotate:" << endl;
-  print((int **)matrix, n);
+  print(matrix, n);
 }
 
 int main()
