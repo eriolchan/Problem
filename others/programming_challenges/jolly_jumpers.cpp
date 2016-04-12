@@ -1,4 +1,4 @@
-// Programming challenges - 110201 - Jolly Jumper
+// Programming challenges - 110201 - Jolly Jumpers
 
 #include<iostream>
 #include<stdlib.h>
