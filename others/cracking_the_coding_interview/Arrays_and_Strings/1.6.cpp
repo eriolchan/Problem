@@ -48,6 +48,17 @@ void print(int **matrix, int n)
   }
 }
 
+void test(int ** matrix, int n)
+{
+  cout << "Original matrix:" << endl;
+  print((int **)matrix, n);
+
+  rotate((int **)matrix, n);
+
+  cout << "\nAfter rotate:" << endl;
+  print((int **)matrix, n);
+}
+
 int main()
 {
   int matrix[4][4] = {
@@ -57,13 +68,7 @@ int main()
     13, 14, 15, 16
   };
 
-  cout << "Original matrix:" << endl;
-  print((int **)matrix, 4);
-
-  rotate((int **)matrix, 4);
-
-  cout << "\nAfter rotate:" << endl;
-  print((int **)matrix, 4);
+  test((int **)matrix, 4);
 
   return 0;
 }
