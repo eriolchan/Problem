@@ -16,6 +16,11 @@ void swap(int &a, int &b)
 
 void rotate(int **matrix, int n)
 {
+  if (!matrix)
+  {
+    return;
+  }
+
   for (int i = 0; i < n; ++i)
   {
     for (int j = i + 1; j < n; ++j)
@@ -37,6 +42,11 @@ void rotate(int **matrix, int n)
 
 void print(int **matrix, int n)
 {
+  if (!matrix)
+  {
+    return;
+  }
+
   for (int i = 0; i < n; ++i)
   {
     for (int j = 0; j < n; ++j)
@@ -57,6 +67,8 @@ void test(int ** matrix, int n)
 
   cout << "\nAfter rotate:" << endl;
   print(matrix, n);
+
+  cout << endl;
 }
 
 int main()
@@ -69,6 +81,7 @@ int main()
   };
 
   test((int **)matrix, 4);
+  test(NULL, 4);
 
   return 0;
 }
