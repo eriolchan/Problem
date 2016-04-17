@@ -53,9 +53,9 @@ bool isAnagram2(string s, string t)
   return true;
 }
 
-void test(bool actual, bool expected, int num)
+void test(bool actual, bool expected, int version)
 {
-  cout << "isAnagram" << num << " - actual: " << actual << " expected: " << expected << endl;
+  cout << "isAnagram" << version << " - actual: " << actual << " expected: " << expected << endl;
 }
 
 int main()

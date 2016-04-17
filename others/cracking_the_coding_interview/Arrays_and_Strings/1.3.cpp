@@ -60,9 +60,9 @@ void removeDuplicate2(char s[])
   s[p] = '\0';
 }
 
-void test(char actual[], char expected[], int num)
+void test(char actual[], char expected[], int version)
 {
-  cout << "removeDuplicate" << num << " - actual: " << actual << " expected: " << expected << endl;
+  cout << "removeDuplicate" << version << " - actual: " << actual << " expected: " << expected << endl;
 }
 
 int main()

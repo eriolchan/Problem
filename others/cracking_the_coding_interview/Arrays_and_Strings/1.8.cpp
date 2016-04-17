@@ -37,13 +37,14 @@ int main()
   string s2 = "erbottlewat";
   test(isRotation(s1, s2), true);
 
-  s2 = "erbottlewar";
-  test(isRotation(s1, s2), false);
-
   s1 = "";
   test(isRotation(s1, s2), false);
 
-  s1 = "ab"
+  s1 = "waterbottle";
+  s2 = "erbottlewar";
+  test(isRotation(s1, s2), false);
+
+  s1 = "ab";
   s2 = "bab";
   test(isRotation(s1, s2), false);
 }

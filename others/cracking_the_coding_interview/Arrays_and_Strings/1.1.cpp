@@ -49,9 +49,9 @@ bool isUnique2(string s)
   return true;
 }
 
-void test(bool actual, bool expected, int num)
+void test(bool actual, bool expected, int version)
 {
-  cout << "isUnique" << num << " - actual: " << actual << " expected: " << expected << endl;
+  cout << "isUnique" << version << " - actual: " << actual << " expected: " << expected << endl;
 }
 
 int main()
