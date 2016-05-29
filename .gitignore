@@ -2,3 +2,7 @@ bin/
 obj/
 TestResults/
 .vs/
+*.suo
+*.exe
+*.obj
+
