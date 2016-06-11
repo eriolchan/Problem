@@ -15,9 +15,6 @@ public class Question_1_1Test {
 		
 		actual = Question_1_1.isUniqueChars_Bits(s);
 		assertTrue(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
-		assertTrue(actual);
 	}
 
 	@Test
@@ -28,9 +25,6 @@ public class Question_1_1Test {
 		assertFalse(actual);
 
 		actual = Question_1_1.isUniqueChars_Bits(s);
-		assertFalse(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
 		assertFalse(actual);
 	}
 
@@ -43,9 +37,6 @@ public class Question_1_1Test {
 
 		actual = Question_1_1.isUniqueChars_Bits(s);
 		assertTrue(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
-		assertTrue(actual);
 	}
 
 	@Test
@@ -56,9 +47,6 @@ public class Question_1_1Test {
 		assertFalse(actual);
 
 		actual = Question_1_1.isUniqueChars_Bits(s);
-		assertFalse(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
 		assertFalse(actual);
 	}
 
@@ -71,9 +59,6 @@ public class Question_1_1Test {
 
 		actual = Question_1_1.isUniqueChars_Bits(s);
 		assertFalse(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
-		assertFalse(actual);
 	}
 
 	@Test
@@ -84,9 +69,6 @@ public class Question_1_1Test {
 		assertFalse(actual);
 
 		actual = Question_1_1.isUniqueChars_Bits(s);
-		assertFalse(actual);
-
-		actual = Question_1_1.isUniqueChars_Self(s);
 		assertFalse(actual);
 	}
 }

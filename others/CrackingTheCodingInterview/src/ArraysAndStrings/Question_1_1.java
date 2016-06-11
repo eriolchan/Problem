@@ -64,25 +64,4 @@ public class Question_1_1 {
 		
 		return true;
 	}
-	
-	/**
-	 * Complexity: O(n^2)
-	 */
-	public static boolean isUniqueChars_Self(String s) {
-		
-		if (s == null || s.length() == 0) {
-			return false;
-		}
-		
-		int len = s.length();
-		for (int i = 0; i < len - 1; ++i) {
-			for (int j = i + 1; j < len; ++j) {
-				if (s.charAt(i) == s.charAt(j)) {
-					return false;
-				}
-			}
-		}
-		
-		return true;
-	}
 }
