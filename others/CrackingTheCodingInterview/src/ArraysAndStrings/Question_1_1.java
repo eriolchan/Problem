@@ -25,9 +25,9 @@ public class Question_1_1 {
 			int index = (int)s.charAt(i);
 			if (visited[index]) {
 				return false;
-			} else {
-				visited[index] = true;
 			}
+			
+			visited[index] = true;
 		}
 		
 		return true;
@@ -44,7 +44,7 @@ public class Question_1_1 {
 		
 		final int Bits = 32;
 		
-		int[] visited = new int[Bits];
+		int[] visited = new int[8];
 		for (int i = 0; i < visited.length; ++i) {
 			visited[i] = 0;
 		}
@@ -57,14 +57,17 @@ public class Question_1_1 {
 			
 			if ((visited[block] & (1 << shift)) != 0) {
 				return false;
-			} else {
-				visited[block] |= 1 << shift;
 			}
+
+			visited[block] |= 1 << shift;
 		}
 		
 		return true;
 	}
 	
+	/**
+	 * Complexity: O(n^2)
+	 */
 	public static boolean isUniqueChars_Self(String s) {
 		
 		if (s == null || s.length() == 0) {
