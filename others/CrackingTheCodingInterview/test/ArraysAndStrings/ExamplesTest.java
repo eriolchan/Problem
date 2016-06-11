@@ -12,7 +12,6 @@ public class ExamplesTest {
 
 	@Test
 	public void testBuildMap() {
-
 		Student s1 = new Student(1, "Eric");
 		Student s2 = new Student(2, "Chen");
 		
@@ -29,7 +28,6 @@ public class ExamplesTest {
 	
 	@Test
 	public void testMerge() {
-		
 		String[] words = new String[] { "This", "is", "words" };
 		String[] more = new String[] { "and", "more" };
 		
@@ -48,7 +46,6 @@ public class ExamplesTest {
 	
 	@Test
 	public void testMakeSentence() {
-		
 		String[] words = new String[] { "This", "is", "words" };
 		
 		String expected = "Thisiswords";
