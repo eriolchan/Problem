@@ -53,7 +53,7 @@
                     }
 
                     count = 1;
-                    result += -1*current.Value;
+                    result -= current.Value;
                 }
                 else if (current.Value == previous.Value)
                 {

@@ -1,7 +1,6 @@
 ﻿namespace Tests
 {
     using System;
-    using System.Collections.Generic;
     using MerchantGuideToGalaxy;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -11,7 +10,7 @@
         [TestMethod]
         public void TestCanSolveQuestion()
         {
-            List<string> input = new List<string>
+            string[] input =
             {
                 "glob is I",
                 "prok is V",
@@ -29,7 +28,7 @@
 
             string output = Merchant.Process(input);
 
-            string expected = string.Join(Environment.NewLine, new List<string>
+            string expected = string.Join(Environment.NewLine, new []
             {
                 "pish tegj glob glob is 42",
                 "glob prok Silver is 68 Credits",
@@ -44,7 +43,7 @@
         [TestMethod]
         public void TestCannotSolveQuestion()
         {
-            List<string> input = new List<string>
+            string[] input =
             {
                 "glob is I",
                 "prok is A", // invalid Roman primitive
@@ -57,7 +56,7 @@
 
             string output = Merchant.Process(input);
 
-            string expected = string.Join(Environment.NewLine, new List<string>
+            string expected = string.Join(Environment.NewLine, new []
             {
                 "pish tegj glob glob is 42",
                 "I have no idea what you are talking about"

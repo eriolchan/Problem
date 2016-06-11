@@ -14,12 +14,14 @@
         {
             const string question = "how much is pish tegj glob glob ";
             string answer;
-            Context context = new Context();
-            context.RomanMapping = new Dictionary<string, RomanPrimitive>
+            Context context = new Context
             {
-                {"glob", RomanPrimitive.Parse('I')},
-                {"pish", RomanPrimitive.Parse('X')},
-                {"tegj", RomanPrimitive.Parse('L')}
+                RomanMapping = new Dictionary<string, RomanPrimitive>
+                {
+                    {"glob", RomanPrimitive.Parse('I')},
+                    {"pish", RomanPrimitive.Parse('X')},
+                    {"tegj", RomanPrimitive.Parse('L')}
+                }
             };
 
             Assert.IsFalse(new StatementSolver().Solve(question, context, out answer));
@@ -35,11 +37,13 @@
         {
             const string question = "how many Credits is glob prok Silver ";
             string answer;
-            Context context = new Context();
-            context.RomanMapping = new Dictionary<string, RomanPrimitive>
+            Context context = new Context
             {
-                {"glob", RomanPrimitive.Parse('I')},
-                {"prok", RomanPrimitive.Parse('V')}
+                RomanMapping = new Dictionary<string, RomanPrimitive>
+                {
+                    {"glob", RomanPrimitive.Parse('I')},
+                    {"prok", RomanPrimitive.Parse('V')}
+                }
             };
             context.ItemPrice["Silver"] = 17m;
 
@@ -80,11 +84,13 @@
         {
             const string question = "how many Credits is glob prok Silver ";
             string answer;
-            Context context = new Context();
-            context.RomanMapping = new Dictionary<string, RomanPrimitive>
+            Context context = new Context
             {
-                {"glob", RomanPrimitive.Parse('I')},
-                {"prok", RomanPrimitive.Parse('V')}
+                RomanMapping = new Dictionary<string, RomanPrimitive>
+                {
+                    {"glob", RomanPrimitive.Parse('I')},
+                    {"prok", RomanPrimitive.Parse('V')}
+                }
             };
 
             new StatementSolver().Solve(question, context, out answer);

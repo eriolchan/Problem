@@ -4,7 +4,7 @@
 
     public class RomanPrimitive
     {
-        private static readonly Dictionary<char, RomanPrimitive> RomanDictionary = new Dictionary<char, RomanPrimitive>()
+        private static readonly Dictionary<char, RomanPrimitive> RomanDictionary = new Dictionary<char, RomanPrimitive>
         {
             { 'I', new RomanPrimitive("I", 1, true, true, "VX") },
             { 'V', new RomanPrimitive("V", 5) },
