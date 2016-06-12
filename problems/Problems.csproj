@@ -59,6 +59,7 @@
     <Compile Include="MinNumberInRotatedArray.cs" />
     <Compile Include="MirrorOfBinaryTree.cs" />
     <Compile Include="NumberOf1InBinary.cs" />
+    <Compile Include="PathInTree.cs" />
     <Compile Include="Power.cs" />
     <Compile Include="Print1ToMaxOfNDigits.cs" />
     <Compile Include="PrintListInReversedOrder.cs" />
