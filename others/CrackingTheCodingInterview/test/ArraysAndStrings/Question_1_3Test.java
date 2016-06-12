@@ -13,12 +13,12 @@ public class Question_1_3Test {
         char[] s = new char[] { 'a', 'b', 'c', '\0' };
         
         char[] expected = new char[] { 'a', 'b', 'c' };
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         char[] actual = getValidArray(s);
         assertArrayEquals(expected, actual);
         
         s = new char[] { 'a', 'b', 'c', '\0' };
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         actual = getValidArray(s);
         assertArrayEquals(expected, actual);
     }
@@ -28,12 +28,12 @@ public class Question_1_3Test {
         char[] s = new char[] { 'a', 'b', 'a', 'b', '\0' };
         
         char[] expected = new char[] { 'a', 'b' };
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         char[] actual = getValidArray(s);
         assertArrayEquals(expected, actual);
         
         s = new char[] { 'a', 'b', 'a', 'b', '\0' };
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         actual = getValidArray(s);
         assertArrayEquals(expected, actual);
     }
@@ -43,12 +43,12 @@ public class Question_1_3Test {
         char[] s = new char[] { 'a', '\0' };
         
         char[] expected = new char[] { 'a' };
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         char[] actual = getValidArray(s);
         assertArrayEquals(expected, actual);
         
         s = new char[] { 'a', '\0' };
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         actual = getValidArray(s);
         assertArrayEquals(expected, actual);
     }
@@ -58,12 +58,12 @@ public class Question_1_3Test {
         char[] s = new char[] { 'a', 'a', 'a', '\0' };
         
         char[] expected = new char[] { 'a' };
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         char[] actual = getValidArray(s);
         assertArrayEquals(expected, actual);
         
         s = new char[] { 'a', 'a', 'a', '\0' };
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         actual = getValidArray(s);
         assertArrayEquals(expected, actual);
     }
@@ -73,12 +73,12 @@ public class Question_1_3Test {
         char[] s = new char[] { '\0' };
         
         char[] expected = new char[0];
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         char[] actual = getValidArray(s);
         assertArrayEquals(expected, actual);
         
         s = new char[] { '\0' };
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         actual = getValidArray(s);
         assertArrayEquals(expected, actual);
     }
@@ -87,10 +87,10 @@ public class Question_1_3Test {
     public void testRemoveDuplicate_Null() {
         char[] s = null;
         
-        Question_1_3.removeDuplicate_ASCII(s);
+        Question_1_3.removeDuplicateByASCII(s);
         assertNull(s);
 
-        Question_1_3.removeDuplicate_InPlace(s);
+        Question_1_3.removeDuplicateInPlace(s);
         assertNull(s);
     }
     

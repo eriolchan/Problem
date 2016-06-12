@@ -9,7 +9,7 @@ public class Question_1_1 {
     /**
      * Complexity: O(n)
      */
-    public static boolean isUniqueChars_ASCII(String s) {
+    public static boolean isUniqueCharsByASCII(String s) {
         if (s == null || s.length() == 0) {
             return false;
         }
@@ -35,7 +35,7 @@ public class Question_1_1 {
     /**
      * Complexity: O(n)
      */
-    public static boolean isUniqueChars_Bits(String s) {
+    public static boolean isUniqueCharsByBits(String s) {
         if (s == null || s.length() == 0) {
             return false;
         }

@@ -10,7 +10,7 @@ public class Question_1_3 {
     /**
      * Complexity: O(n)
      */
-    public static void removeDuplicate_ASCII(char[] s) {
+    public static void removeDuplicateByASCII(char[] s) {
         if (s == null) {
             return;
         }
@@ -36,7 +36,7 @@ public class Question_1_3 {
     /**
      * Complexity: O(n^2)
      */
-    public static void removeDuplicate_InPlace(char[] s) {
+    public static void removeDuplicateInPlace(char[] s) {
         if (s == null) {
             return;
         }
