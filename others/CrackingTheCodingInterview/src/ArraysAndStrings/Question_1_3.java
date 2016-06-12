@@ -22,7 +22,7 @@ public class Question_1_3 {
         }
         
         int p = 0;
-        int len = Helper.getArrayLength(s);
+        int len = Helper.getStringLength(s);
         for (int i = 0; i < len; ++i) {
             int index = (int)s[i];
             if (!visited[index]) {
@@ -43,7 +43,7 @@ public class Question_1_3 {
         }
         
         int p = 0;
-        int len = Helper.getArrayLength(s);
+        int len = Helper.getStringLength(s);
         for (int i = 0; i < len; ++i) {
             if (s[i] != '\0') {
                 s[p++] = s[i];
