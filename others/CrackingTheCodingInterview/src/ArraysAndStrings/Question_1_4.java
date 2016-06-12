@@ -7,10 +7,8 @@ import java.util.Arrays;
  * Write a method to decide if two strings are anagrams or not.
  */
 public class Question_1_4 {
-    
-    /**
-     * Complexity: O(n)
-     */
+
+    // O(n)
     public static boolean isAnagramByCount(String s1, String s2) {
         if (s1 == null || s2 == null) {
             return false;
@@ -44,9 +42,7 @@ public class Question_1_4 {
         return true;
     }
     
-    /**
-     * Complexity: O(nlogn)
-     */
+    // O(nlogn)
     public static boolean isAnagramBySort(String s1, String s2) {
         if (s1 == null || s2 == null) {
             return false;

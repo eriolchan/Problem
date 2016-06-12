@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Question_1_4Test {
-    
+
     @Test
     public void testIsAnagram_UniqueChars() {
         String s1 = "abcd";

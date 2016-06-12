@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Examples {
-    
+
     public static HashMap<Integer, Student> buildMap(Student[] students) {
         HashMap<Integer, Student> map = new HashMap<Integer, Student>();
         for (Student s : students) {

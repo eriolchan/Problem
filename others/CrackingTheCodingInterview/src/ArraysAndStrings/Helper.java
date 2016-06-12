@@ -3,7 +3,7 @@ package ArraysAndStrings;
 import java.util.Arrays;
 
 public class Helper {
-    
+
     /**
      * Get the actual length of C-style string.
      * Assume there is always '\0' in the string.

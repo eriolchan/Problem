@@ -5,7 +5,8 @@ package ArraysAndStrings;
  * Write a method to replace all spaces in a string with '%20'.
  */
 public class Question_1_5 {
-    
+
+    // O(n)
     public static void replaceSpace(char[] s) {
         if (s == null) {
             return;

@@ -7,10 +7,8 @@ package ArraysAndStrings;
  * including the null character.
  */
 public class Question_1_2 {
-    
-    /**
-     * Complexity: O(n)
-     */
+
+    // O(n)
     public static void reverse(char[] s) {
         if (s == null) {
             return;

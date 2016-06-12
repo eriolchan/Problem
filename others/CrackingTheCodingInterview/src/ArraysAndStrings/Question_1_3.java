@@ -7,10 +7,8 @@ package ArraysAndStrings;
  * NOTE: One or two additional variables are fine. An extra copy of the array is not.
  */
 public class Question_1_3 {
-    
-    /**
-     * Complexity: O(n)
-     */
+
+    // O(n)
     public static void removeDuplicateByASCII(char[] s) {
         if (s == null) {
             return;
@@ -34,9 +32,7 @@ public class Question_1_3 {
         s[p] = '\0';
     }
     
-    /**
-     * Complexity: O(n^2)
-     */
+    // O(n^2)
     public static void removeDuplicateInPlace(char[] s) {
         if (s == null) {
             return;

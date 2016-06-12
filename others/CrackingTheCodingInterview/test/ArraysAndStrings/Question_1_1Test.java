@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Question_1_1Test {
-    
+
     @Test
     public void testIsUniqueChars_Unique() {
         String s = "abc";

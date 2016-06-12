@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class ExamplesTest {
-    
+
     @Test
     public void testBuildMap() {
         Student s1 = new Student(1, "Eric");

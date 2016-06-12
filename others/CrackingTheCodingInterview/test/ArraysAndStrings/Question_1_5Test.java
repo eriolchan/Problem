@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Question_1_5Test {
-    
+
     @Test
     public void testReplaceSpace_NoSpace() {
         char[] s = Helper.createCharArray(15, "abc");

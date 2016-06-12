@@ -7,7 +7,7 @@ import java.util.Arrays;
 import org.junit.Test;
 
 public class Question_1_3Test {
-    
+
     @Test
     public void testRemoveDuplicate_NoDuplicate() {
         char[] s = new char[] { 'a', 'b', 'c', '\0' };

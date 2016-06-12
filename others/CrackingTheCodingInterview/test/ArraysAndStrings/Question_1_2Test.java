@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class Question_1_2Test {
-    
+
     @Test
     public void testReverse_LengthIsOdd() {
         char[] s = new char[] { 'a', 'b', 'c', '\0' };
