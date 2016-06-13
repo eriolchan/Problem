@@ -68,4 +68,10 @@ public class HelperTest {
         assertEquals('\0', actual[3]);
         assertArrayEquals(expected, Helper.getValidString(actual));
     }
+    
+    public static void assertMatrixEquals(int[][] expected, int[][] actual) {
+        for (int i = 0; i < actual.length; ++i) {
+            assertArrayEquals(expected[i], actual[i]);
+        }
+    }
 }

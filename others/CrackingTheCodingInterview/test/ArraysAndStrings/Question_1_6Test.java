@@ -20,7 +20,7 @@ public class Question_1_6Test {
             { 1, 4, 7 },
         };
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
@@ -39,7 +39,7 @@ public class Question_1_6Test {
             { 1, 5, 9 , 13 },
         };
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
@@ -52,7 +52,7 @@ public class Question_1_6Test {
             { 1 },
         };
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
@@ -67,7 +67,7 @@ public class Question_1_6Test {
             { 4, 5, 6 },
         };
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
@@ -80,12 +80,12 @@ public class Question_1_6Test {
             new int[0],
         };
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
         
         matrix = new int[0][];
         expected = new int[0][];
         Question_1_6.rotateMatrix(matrix);
-        assertMatrixEquals(expected, matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
@@ -94,11 +94,5 @@ public class Question_1_6Test {
 
         Question_1_6.rotateMatrix(matrix);
         assertNull(matrix);
-    }
-    
-    private static void assertMatrixEquals(int[][] expected, int[][] actual) {
-        for (int i = 0; i < actual.length; ++i) {
-            assertArrayEquals(expected[i], actual[i]);
-        }
     }
 }
