@@ -1,7 +1,5 @@
 package ArraysAndStrings;
 
-import java.util.HashSet;
-
 /**
  * Question 1.7
  * Write an algorithm such that if an element in an M*N matrix is 0,
