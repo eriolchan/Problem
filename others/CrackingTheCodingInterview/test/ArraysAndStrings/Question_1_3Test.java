@@ -2,8 +2,6 @@ package ArraysAndStrings;
 
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
-
 import org.junit.Test;
 
 public class Question_1_3Test {
