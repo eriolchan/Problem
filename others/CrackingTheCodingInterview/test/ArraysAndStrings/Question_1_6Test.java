@@ -91,7 +91,7 @@ public class Question_1_6Test {
     @Test
     public void testRotateMatrix_Null() {
         int[][] matrix = null;
-
+        
         Question_1_6.rotateMatrix(matrix);
         assertNull(matrix);
     }

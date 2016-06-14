@@ -14,7 +14,6 @@ public class ExamplesTest {
     public void testBuildMap() {
         Student s1 = new Student(1, "Eric");
         Student s2 = new Student(2, "Chen");
-        
         Student[] students = new Student[] { s1, s2 };
         
         HashMap<Integer, Student> expected = new HashMap<Integer, Student>();
@@ -22,7 +21,6 @@ public class ExamplesTest {
         expected.put(2, s2);
         
         HashMap<Integer, Student> actual = Examples.buildMap(students);
-        
         assertEquals(expected, actual);
    }
     
@@ -40,7 +38,6 @@ public class ExamplesTest {
         ));
         
         ArrayList<String> actual = Examples.merge(words, more);
-        
         assertEquals(expected, actual);
     }
     
@@ -50,7 +47,6 @@ public class ExamplesTest {
         
         String expected = "Thisiswords";
         String actual = Examples.makeSentence(words);
-        
         assertEquals(expected, actual);
     }
 }
