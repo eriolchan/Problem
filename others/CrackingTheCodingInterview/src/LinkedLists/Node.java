@@ -14,6 +14,10 @@ public class Node {
         return next;
     }
     
+    public Node setNext(Node next) {
+        return this.next = next;
+    }
+    
     public int getData() {
         return data;
     }
@@ -38,6 +42,7 @@ public class Node {
         return this.data == other.data;
     }
     
+    // O(n)
     public void appendToTail(int data) {
         Node end = new Node(data);
         Node n = this;
@@ -50,6 +55,7 @@ public class Node {
     
     /**
      * Assume there is one and only one element in the list whose data matches.
+     * O(n)
      */
     public static Node deleteNode(Node head, int data) {
         if (head == null) {
