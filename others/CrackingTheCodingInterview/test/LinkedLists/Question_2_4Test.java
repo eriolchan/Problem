@@ -45,4 +45,17 @@ public class Question_2_4Test {
         Node actual = Question_2_4.add(n1, n2);
         NodeTest.assertLinkedListEquals(expected, actual);
     }
+    
+    @Test
+    public void testAdd_Null() {
+        Node n1 = null;
+        Node n2 = Node.createLinkedList(new int[] { 1, 2, 3 });
+        
+        Node actual = Question_2_4.add(n1, n2);
+        NodeTest.assertLinkedListEquals(n2, actual);
+        
+        n2 = null;
+        actual = Question_2_4.add(n1, n2);
+        assertNull(actual);
+    }
 }

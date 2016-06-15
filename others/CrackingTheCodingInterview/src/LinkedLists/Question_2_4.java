@@ -9,58 +9,34 @@ package LinkedLists;
 public class Question_2_4 {
 
     public static Node add(Node n1, Node n2) {
-        if (n1 == null && n2 == null) {
-            return null;
-        }
+        int counter = 0;
+        Node head = null;
+        Node previous = null;
         
-        // return the copy of n1/n2
-        if (n1 == null) {
-            return n2;
-        }
-        
-        if (n2 == null) {
-            return n1;
-        }
-        
-        int value = n1.getData() + n2.getData();
-        int counter = value / 10;
-        Node head = new Node(value % 10);
-        Node previous = head;
-        
-        Node first = n1.getNext();
-        Node second = n2.getNext();
-        for (; first != null && second != null; first = first.getNext(), second = second.getNext()) {
-            value = first.getData() + second.getData() + counter;
+        while (n1 != null || n2 != null || counter != 0) {
+            int value = counter;
+            
+            if (n1 != null) {
+                value += n1.getData();
+                n1 = n1.getNext();
+            }
+            
+            if (n2 != null) {
+                value += n2.getData();
+                n2 = n2.getNext();
+            }
+            
             counter = value / 10;
-            previous.setNext(new Node(value % 10));
-            previous = previous.getNext();
-        }
-        
-        if (first != null) {
-            AddRemainder(previous, first, counter);
-        } else if (second != null) {
-            AddRemainder(previous, second, counter);
-        } else if (counter != 0) {
-            AddCounter(previous, counter);
+            Node node = new Node(value % 10);
+            
+            if (previous == null) {
+                head = previous = node;
+            } else {
+                previous.setNext(node);
+                previous = node;
+            }
         }
         
         return head;
-    }
-    
-    private static void AddRemainder(Node previous, Node head, int counter) {
-        for (Node node = head; node != null; node = node.getNext()) {
-            int value = node.getData() + counter;
-            counter = value / 10;
-            previous.setNext(new Node(value % 10));
-            previous = previous.getNext();
-        }
-        
-        if (counter != 0) {
-            AddCounter(previous, counter);
-        }
-    }
-    
-    private static void AddCounter(Node previous, int counter) {
-        previous.setNext(new Node(counter));
     }
 }
