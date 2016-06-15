@@ -7,16 +7,14 @@ package LinkedLists;
 public class Question_2_3 {
 
     // O(1)
-    public static void remove(Node toBeRemoved) {
-        if (toBeRemoved == null) {
-            return;
+    public static boolean remove(Node toBeRemoved) {
+        if (toBeRemoved == null || toBeRemoved.getNext() == null) {
+            return false;
         }
         
-        if (toBeRemoved.getNext() != null) {
-            toBeRemoved.setData(toBeRemoved.getNext().getData());
-            toBeRemoved.setNext(toBeRemoved.getNext().getNext());
-        } else {
-            toBeRemoved = null;
-        }
+        toBeRemoved.setData(toBeRemoved.getNext().getData());
+        toBeRemoved.setNext(toBeRemoved.getNext().getNext());
+        
+        return true;
     }
 }
