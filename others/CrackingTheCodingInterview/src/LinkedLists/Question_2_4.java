@@ -8,6 +8,7 @@ package LinkedLists;
  */
 public class Question_2_4 {
 
+    // O(n)
     public static Node add(Node n1, Node n2) {
         int counter = 0;
         Node head = null;

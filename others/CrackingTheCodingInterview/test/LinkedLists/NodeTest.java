@@ -86,7 +86,7 @@ public class NodeTest {
     @Test
     public void testCreateLinkedList_OneElement() {
         Node head = Node.createLinkedList(new int[] { 1 });
-
+        
         assertNotNull(head);
         assertEquals(1, head.getData());
         assertNull(head.getNext());
@@ -95,17 +95,69 @@ public class NodeTest {
     @Test
     public void testCreateLinkedList_MultipleElements() {
         Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
-
+        
         assertNotNull(head);
         assertEquals(1, head.getData());
-
+        
         assertNotNull(head.getNext());
         assertEquals(2, head.getNext().getData());
-
+        
         assertNotNull(head.getNext().getNext());
         assertEquals(3, head.getNext().getNext().getData());
-
+        
         assertNull(head.getNext().getNext().getNext());
+    }
+    
+    @Test
+    public void testFindNode_AtBegin() {
+        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
+        
+        Node expected = head;
+        Node actual = Node.findNode(head, 1);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void testFindNode_AtMiddle() {
+        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
+        
+        Node expected = head.getNext();
+        Node actual = Node.findNode(head, 2);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void testFindNode_AtEnd() {
+        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
+        
+        Node expected = head.getNext().getNext();
+        Node actual = Node.findNode(head, 3);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void testFindNode_OneElement() {
+        Node head = Node.createLinkedList(new int[] { 1 });
+        
+        Node expected = head;
+        Node actual = Node.findNode(head, 1);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
+    public void testFindNode_NotFound() {
+        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
+        
+        Node actual = Node.findNode(head, 4);
+        assertNull(actual);
+    }
+    
+    @Test
+    public void testFindNode_Null() {
+        Node head = null;
+        
+        Node actual = Node.findNode(head, 1);
+        assertNull(actual);
     }
     
     public static void assertLinkedListEquals(Node expected, Node actual) {

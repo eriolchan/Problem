@@ -97,4 +97,16 @@ public class Node {
         
         return head;
     }
+    
+    public static Node findNode(Node head, int data) {
+        if (head == null) {
+            return null;
+        }
+        
+        while (head != null && head.data != data) {
+            head = head.getNext();
+        }
+        
+        return head;
+    }
 }
