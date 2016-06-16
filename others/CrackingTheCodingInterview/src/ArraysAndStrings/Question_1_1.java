@@ -14,13 +14,9 @@ public class Question_1_1 {
         }
         
         boolean[] visited = new boolean[256];
-        for (int i = 0; i < visited.length; ++i) {
-            visited[i] = false;
-        }
-        
         int len = s.length();
         for (int i = 0; i < len; ++i) {
-            int index = (int)s.charAt(i);
+            int index = s.charAt(i);
             if (visited[index]) {
                 return false;
             }
@@ -37,18 +33,14 @@ public class Question_1_1 {
             return false;
         }
         
-        final int Bits = 32;
+        final int BITS = 32;
         
         int[] visited = new int[8];
-        for (int i = 0; i < visited.length; ++i) {
-            visited[i] = 0;
-        }
-        
         int len = s.length();
         for (int i = 0; i < len; ++i) {
-            int index = (int)s.charAt(i);
-            int block = index / Bits;
-            int shift = index % Bits;
+            int index = s.charAt(i);
+            int block = index / BITS;
+            int shift = index % BITS;
             
             if ((visited[block] & (1 << shift)) != 0) {
                 return false;
