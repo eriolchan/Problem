@@ -10,12 +10,12 @@ public class Question_2_4 {
 
     // O(n)
     public static Node add(Node n1, Node n2) {
-        int counter = 0;
+        int carry = 0;
         Node head = null;
         Node previous = null;
         
-        while (n1 != null || n2 != null || counter != 0) {
-            int value = counter;
+        while (n1 != null || n2 != null || carry != 0) {
+            int value = carry;
             
             if (n1 != null) {
                 value += n1.getData();
@@ -27,7 +27,7 @@ public class Question_2_4 {
                 n2 = n2.getNext();
             }
             
-            counter = value / 10;
+            carry = value / 10;
             Node node = new Node(value % 10);
             
             if (previous == null) {

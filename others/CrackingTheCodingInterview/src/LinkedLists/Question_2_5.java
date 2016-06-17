@@ -14,7 +14,6 @@ public class Question_2_5 {
         
         Node fast = head;
         Node slow = head;
-        
         while (fast != null && fast.getNext() != null) {
             fast = fast.getNext().getNext();
             slow = slow.getNext();
@@ -28,7 +27,7 @@ public class Question_2_5 {
             return null;
         }
         
-        slow = head;
+        fast = head;
         while (fast != slow) {
             fast = fast.getNext();
             slow = slow.getNext();

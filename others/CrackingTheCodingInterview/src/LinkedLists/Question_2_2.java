@@ -8,7 +8,7 @@ public class Question_2_2 {
 
     // O(n)
     public static Node findNthToLast(Node head, int n) {
-        if (head == null || n <= 0) {
+        if (head == null || n < 1) {
             return null;
         }
         

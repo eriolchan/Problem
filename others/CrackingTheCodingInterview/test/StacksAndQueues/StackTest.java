@@ -25,7 +25,7 @@ public class StackTest {
     @Test(expected=IllegalStateException.class)
     public void testPop_Empty() {
         Stack stack = new Stack();
-
+        
         stack.pop();
     }
 }

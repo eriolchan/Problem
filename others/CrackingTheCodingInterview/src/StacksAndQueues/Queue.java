@@ -9,7 +9,7 @@ public class Queue {
     
     public void enqueue(int data) {
         Node node = new Node(data);
-
+        
         if (front == null) {
             front = back = node;
         } else {

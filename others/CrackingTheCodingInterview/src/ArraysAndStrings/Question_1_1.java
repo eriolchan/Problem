@@ -8,7 +8,7 @@ package ArraysAndStrings;
 public class Question_1_1 {
 
     // O(n)
-    public static boolean isUniqueCharsByASCII(String s) {
+    public static boolean isUniqueCharsByMap(String s) {
         if (s == null || s.length() == 0) {
             return false;
         }

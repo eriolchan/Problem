@@ -13,7 +13,7 @@ public class Question_2_1Test {
         Node expected = Node.createLinkedList(new int[] { 1, 2, 3 });
         Question_2_1.removeDuplicate(head);
         NodeTest.assertLinkedListEquals(expected, head);
-
+        
         head = Node.createLinkedList(new int[] { 1, 2, 3 });
         Question_2_1.removeDuplicateByCount(head);
         NodeTest.assertLinkedListEquals(expected, head);

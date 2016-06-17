@@ -13,18 +13,19 @@ public class Question_2_1 {
         if (head == null) {
             return;
         }
-
-        HashSet<Integer> set = new HashSet<Integer>();
-        set.add(head.getData());
         
-        Node previous = head;
-        while (previous.getNext() != null) {
-            if (set.contains(previous.getNext().getData())) {
-                previous.setNext(previous.getNext().getNext());
+        Node previous = null;
+        HashSet<Integer> set = new HashSet<Integer>();
+        while (head != null) {
+            int data = head.getData();
+            if (set.contains(data)) {
+                previous.setNext(head.getNext());
             } else {
-                set.add(previous.getNext().getData());
-                previous = previous.getNext();
+                set.add(data);
+                previous = head;
             }
+            
+            head = head.getNext();
         }
     }
     
@@ -34,10 +35,9 @@ public class Question_2_1 {
             return;
         }
         
-        Node current = head;
-        while (current != null) {
-            int data = current.getData();
-            Node previous = current;
+        while (head != null) {
+            int data = head.getData();
+            Node previous = head;
             
             while (previous.getNext() != null) {
                 if (previous.getNext().getData() == data) {
@@ -47,7 +47,7 @@ public class Question_2_1 {
                 }
             }
             
-            current = current.getNext();
+            head = head.getNext();
         }
     }
 }

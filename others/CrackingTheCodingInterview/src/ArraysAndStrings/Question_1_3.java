@@ -9,27 +9,29 @@ package ArraysAndStrings;
 public class Question_1_3 {
 
     // O(n)
-    public static void removeDuplicateByASCII(char[] s) {
+    public static void removeDuplicateByMap(char[] s) {
         if (s == null) {
             return;
         }
         
-        boolean[] visited = new boolean[256];
-        for (int i = 0; i < visited.length; ++i) {
-            visited[i] = false;
+        int len = s.length;
+        if (len < 2) {
+            return;
         }
         
-        int p = 0;
-        int len = Helper.getStringLength(s);
+        int tail = 0;
+        boolean[] visited = new boolean[256];
         for (int i = 0; i < len; ++i) {
-            int index = (int)s[i];
+            int index = s[i];
             if (!visited[index]) {
                 visited[index] = true;
-                s[p++] = s[i];
+                s[tail++] = s[i];
             }
         }
         
-        s[p] = '\0';
+        if (tail < len) {
+            s[tail] = 0;
+        }
     }
     
     // O(n^2)
@@ -38,19 +40,27 @@ public class Question_1_3 {
             return;
         }
         
-        int p = 0;
-        int len = Helper.getStringLength(s);
-        for (int i = 0; i < len; ++i) {
-            if (s[i] != '\0') {
-                s[p++] = s[i];
-                for (int j = i + 1; j < len; ++j) {
-                    if (s[j] == s[i]) {
-                        s[j] = '\0';
-                    }
+        int len = s.length;
+        if (len < 2) {
+            return;
+        }
+        
+        int tail = 1;
+        for (int i = 1; i < len; ++i) {
+            int j;
+            for (j = 0; j < tail; ++j) {
+                if (s[i] == s[j]) {
+                    break;
                 }
+            }
+            
+            if (j == tail) {
+                s[tail++] = s[i];
             }
         }
         
-        s[p] = '\0';
+        if (tail < len) {
+            s[tail] = 0;
+        }
     }
 }

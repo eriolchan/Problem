@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class Question_1_4 {
 
     // O(n)
-    public static boolean isAnagramByCount(String s1, String s2) {
+    public static boolean isAnagramByMap(String s1, String s2) {
         if (s1 == null || s2 == null) {
             return false;
         }
@@ -21,15 +21,11 @@ public class Question_1_4 {
         }
         
         int[] counter = new int[256];
-        for (int i = 0; i < counter.length; ++i) {
-            counter[i] = 0;
-        }
-        
         for (int i = 0; i < len1; ++i) {
-            int index = (int)s1.charAt(i);
+            int index = s1.charAt(i);
             ++counter[index];
             
-            index = (int)s2.charAt(i);
+            index = s2.charAt(i);
             --counter[index];
         }
         
