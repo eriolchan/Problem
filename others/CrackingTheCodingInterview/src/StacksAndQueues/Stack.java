@@ -12,14 +12,22 @@ public class Stack {
         top = node;
     }
     
-    public int pop() {
+    public int peek() {
         if (top == null) {
             throw new IllegalStateException("Stack is empty");
         }
         
-        int result = top.getData();
+        return top.getData();
+    }
+    
+    public int pop() {
+        int result = peek();
         top = top.getNext();
         
         return result;
+    }
+    
+    public boolean isEmpty() {
+        return top == null;
     }
 }

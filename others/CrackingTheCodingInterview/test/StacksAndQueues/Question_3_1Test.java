@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TripleStacksTest {
+public class Question_3_1Test {
 
     @Test
     public void testTripleStacks1() {
-        TripleStacks stacks = new TripleStacks(3);
+        Question_3_1 stacks = new Question_3_1(3);
         
         stacks.push(1, 1);
         stacks.push(2, 2);
@@ -46,7 +46,7 @@ public class TripleStacksTest {
     
     @Test
     public void testIsEmpty_Stacks1() {
-        TripleStacks stacks = new TripleStacks(1);
+        Question_3_1 stacks = new Question_3_1(1);
         
         assertTrue(stacks.isEmpty(1));
         assertTrue(stacks.isEmpty(2));
@@ -69,7 +69,7 @@ public class TripleStacksTest {
     
     @Test(expected=IllegalStateException.class)
     public void testPush_Stack1_StackIsFull() {
-        TripleStacks stacks = new TripleStacks(1);
+        Question_3_1 stacks = new Question_3_1(1);
         
         stacks.push(1, 1);
         stacks.push(1, 2);
@@ -77,14 +77,14 @@ public class TripleStacksTest {
     
     @Test(expected=IllegalStateException.class)
     public void testPop_Stack1_StackIsEmpty() {
-        TripleStacks stacks = new TripleStacks(1);
+        Question_3_1 stacks = new Question_3_1(1);
         
         stacks.pop(1);
     }
     
     @Test(expected=IllegalArgumentException.class)
     public void testPush_Stack1_InvalidStackIndex() {
-        TripleStacks stacks = new TripleStacks(1);
+        Question_3_1 stacks = new Question_3_1(1);
         
         stacks.push(4, 1);
     }

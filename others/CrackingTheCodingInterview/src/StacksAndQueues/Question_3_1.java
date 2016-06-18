@@ -1,12 +1,16 @@
 package StacksAndQueues;
 
-public class TripleStacks {
+/**
+ * Question 3.1
+ * Describe how you could use a single array to implement three stacks.
+ */
+public class Question_3_1 {
     
     private int stackSize;
     private int[] buffer;
     private int[] stackPointer;
     
-    public TripleStacks(int stackSize) {
+    public Question_3_1(int stackSize) {
         this.stackSize = stackSize;
         buffer = new int[3 * stackSize];
         stackPointer = new int[] { -1, -1, -1 };
