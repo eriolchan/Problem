@@ -27,7 +27,7 @@ public class Examples {
         return sentence;
     }
     
-    public static String makeSentence(String[] words) {
+    public static String joinWords(String[] words) {
         StringBuffer sentence = new StringBuffer();
         for (String w : words) {
             sentence.append(w);

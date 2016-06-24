@@ -42,11 +42,11 @@ public class ExamplesTest {
     }
     
     @Test
-    public void testMakeSentence() {
+    public void testJoinWords() {
         String[] words = new String[] { "This", "is", "words" };
         
         String expected = "Thisiswords";
-        String actual = Examples.makeSentence(words);
+        String actual = Examples.joinWords(words);
         assertEquals(expected, actual);
     }
 }
