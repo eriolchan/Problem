@@ -13,23 +13,24 @@ public class Question_1_9 {
             return false;
         }
         
-        boolean[] state = new boolean[256];
+        boolean[] toggle = new boolean[256];
         int len = s.length();
         for (int i = 0; i < len; ++i) {
             int index = s.charAt(i);
-            state[index] = !state[index];
+            toggle[index] = !toggle[index];
         }
         
-        int count = 0;
-        for (int i = 0; i < state.length; ++i) {
-            if (state[i]) {
-                ++count;
+        int oddCount = 0;
+        for (int i = 0; i < toggle.length; ++i) {
+            if (toggle[i]) {
+                ++oddCount;
             }
         }
         
-        return count <= 1;
+        return oddCount <= 1;
     }
     
+    // O(n)
     // Assume all chars are from a ~ z and case insensitive.
     public static boolean isPermutationOfPalindromeByBits(String s) {
         if (s == null || s.length() == 0) {
