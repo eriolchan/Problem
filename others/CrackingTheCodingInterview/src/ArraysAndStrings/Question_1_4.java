@@ -1,62 +1,54 @@
 package ArraysAndStrings;
 
-import java.util.Arrays;
-
 /**
  * Question 1.4
- * Write a method to decide if two strings are anagrams or not.
+ * Given a string, write a function to check if it is a permutation of a palindrome.
+ * A parlindrome is a word or phrase that is the same forwards and backwards.
  */
 public class Question_1_4 {
-
+    
     // O(n)
-    public static boolean isAnagramByMap(String s1, String s2) {
-        if (s1 == null || s2 == null) {
+    public static boolean isPermutationOfPalindromeByMap(String s) {
+        if (s == null || s.length() == 0) {
             return false;
         }
         
-        int len1 = s1.length();
-        int len2 = s2.length();
-        if (len1 != len2 || len1 == 0) {
-            return false;
+        boolean[] toggle = new boolean[256];
+        int len = s.length();
+        for (int i = 0; i < len; ++i) {
+            int index = s.charAt(i);
+            toggle[index] = !toggle[index];
         }
         
-        int[] counter = new int[256];
-        for (int i = 0; i < len1; ++i) {
-            int index = s1.charAt(i);
-            ++counter[index];
-            
-            index = s2.charAt(i);
-            --counter[index];
-        }
-        
-        for (int i = 0; i < counter.length; ++i) {
-            if (counter[i] != 0) {
-                return false;
+        int oddCount = 0;
+        for (int i = 0; i < toggle.length; ++i) {
+            if (toggle[i]) {
+                ++oddCount;
             }
         }
         
-        return true;
+        return oddCount <= 1;
     }
     
-    // O(nlogn)
-    public static boolean isAnagramBySort(String s1, String s2) {
-        if (s1 == null || s2 == null) {
+    // O(n)
+    // Assume all chars are from a ~ z and case insensitive.
+    public static boolean isPermutationOfPalindromeByBits(String s) {
+        if (s == null || s.length() == 0) {
             return false;
         }
         
-        int len1 = s1.length();
-        int len2 = s2.length();
-        if (len1 != len2 || len1 == 0) {
-            return false;
+        int vector = 0;
+        for (char c : s.toLowerCase().toCharArray()) {
+            int shift = c - 'a';
+            int mask = 1 << shift;
+            
+            if ((vector & mask) == 0) {
+                vector |= mask;
+            } else {
+                vector &= ~mask;
+            }
         }
         
-        return sort(s1).equals(sort(s2));
-    }
-    
-    private static String sort(String s) {
-        char[] charArray = s.toCharArray();
-        Arrays.sort(charArray);
-        
-        return new String(charArray);
+        return (vector & (vector - 1)) == 0;
     }
 }

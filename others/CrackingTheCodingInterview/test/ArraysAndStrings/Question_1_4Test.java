@@ -7,110 +7,78 @@ import org.junit.Test;
 public class Question_1_4Test {
 
     @Test
-    public void testIsAnagram_UniqueChars() {
-        String s1 = "abcd";
-        String s2 = "acbd";
+    public void testIsPermutationOfPalindrome_LengthIsOdd() {
+        String s = "ababc";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertTrue(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertTrue(actual);
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_DuplicatedChar() {
-        String s1 = "ababa";
-        String s2 = "aaabb";
+    public void testIsPermutationOfPalindrome_LengthIsEven() {
+        String s = "abab";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertTrue(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertTrue(actual);
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_SameString() {
-        String s1 = "abcd";
-        String s2 = "abcd";
+    public void testIsPermutationOfPalindrome_SameChars() {
+        String s = "aaaa";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertTrue(actual);
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
         
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertTrue(actual);
+        s = "aaaaa";
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_SameElement() {
-        String s1 = "aaa";
-        String s2 = "aaa";
+    public void testIsPermutationOfPalindrome_OneElement() {
+        String s = "a";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertTrue(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertTrue(actual);
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_OneChar() {
-        String s1 = "a";
-        String s2 = "a";
+    public void testIsPermutationOfPalindrome_MoreThanOneOdd() {
+        String s = "abcdab";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertTrue(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertTrue(actual);
+        assertFalse(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertFalse(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_False() {
-        String s1 = "abc";
-        String s2 = "cda";
+    public void testIsPermutationOfPalindrome_NoSameChar() {
+        String s = "abcde";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertFalse(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertFalse(actual);
+        assertFalse(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertFalse(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_DifferentLength() {
-        String s1 = "abc";
-        String s2 = "ab";
+    public void testIsPermutationOfPalindrome_ExactPalindrome() {
+        String s = "abccba";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertFalse(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertFalse(actual);
+        assertTrue(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertTrue(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_Empty() {
-        String s1 = "abc";
-        String s2 = "";
+    public void testIsPermutationOfPalindrome_Empty() {
+        String s = "";
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertFalse(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertFalse(actual);
+        assertFalse(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertFalse(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
     
     @Test
-    public void testIsAnagram_Null() {
-        String s1 = null;
-        String s2 = "abc";
+    public void testIsPermutationOfPalindrome_Null() {
+        String s = null;
         
-        boolean actual = Question_1_4.isAnagramByMap(s1, s2);
-        assertFalse(actual);
-        
-        actual = Question_1_4.isAnagramBySort(s1, s2);
-        assertFalse(actual);
+        assertFalse(Question_1_4.isPermutationOfPalindromeByMap(s));
+        assertFalse(Question_1_4.isPermutationOfPalindromeByBits(s));
     }
 }

@@ -2,37 +2,55 @@ package ArraysAndStrings;
 
 /**
  * Question 1.5
- * Write a method to replace all spaces in a string with '%20'.
+ * There are three types of edits that can be performed on strings:
+ * insert a character, remove a character, or replace a character.
+ * Given two strings, write a function to check if they are one edit
+ * (or zero edit) away.
  */
 public class Question_1_5 {
-
+    
     // O(n)
-    public static void replaceSpace(char[] s) {
-        if (s == null) {
-            return;
+    public static boolean oneEditAway(String s1, String s2) {
+        if (s1 == null || s1 == null) {
+            return false;
         }
         
-        int len = 0;
-        int count = 0;
-        for (len = 0; s[len] != '\0'; ++len) {
-            if (s[len] == ' ') {
-                ++count;
-            }
+        int len1 = s1.length();
+        int len2 = s2.length();
+        if (Math.abs(len1 - len2) > 1) {
+            return false;
         }
         
-        int newLen = len + 2 * count;
-        if (newLen + 1 > s.length) {
-            throw new IllegalArgumentException("Insufficient array length");
-        }
+        String shorter = len1 < len2 ? s1 : s2;
+        String longer = len1 < len2 ? s2 : s1;
         
-        for (int i = len, j = newLen; i >= 0 && j > i; --i) {
-            if (s[i] == ' ') {
-                s[j--] = '0';
-                s[j--] = '2';
-                s[j--] = '%';
+        return checkOneEditAway(shorter, longer);
+    }
+    
+    private static boolean checkOneEditAway(String shorter, String longer) {
+        boolean foundDifference = false;
+        int i = 0;
+        int j = 0;
+        int len1 = shorter.length();
+        int len2 = longer.length();
+        
+        while (i < len1 && j < len2) {
+            if (shorter.charAt(i) != longer.charAt(j)) {
+                if (foundDifference) {
+                    return false;
+                }
+                
+                foundDifference = true;
+                if (len1 == len2) {
+                    ++i;
+                }
             } else {
-                s[j--] = s[i];
+                ++i;
             }
+            
+            ++j;
         }
+        
+        return true;
     }
 }

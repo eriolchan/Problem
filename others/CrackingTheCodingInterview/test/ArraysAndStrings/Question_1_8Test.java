@@ -7,66 +7,115 @@ import org.junit.Test;
 public class Question_1_8Test {
 
     @Test
-    public void testIsRotation_Left() {
-        String s1 = "abcd";
-        String s2 = "bcda";
+    public void testSetZero_NoZero() {
+        int[][] matrix = new int[][] {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+        };
         
-        assertTrue(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_Right() {
-        String s1 = "abcd";
-        String s2 = "dabc";
+    public void testSetZero_ZeroAtCorner() {
+        int[][] matrix = new int[][] {
+            { 1, 2, 0 },
+            { 4, 5, 6 },
+            { 7, 8, 9 },
+        };
         
-        assertTrue(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            { 0, 0, 0 },
+            { 4, 5, 0 },
+            { 7, 8, 0 },
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_Same() {
-        String s1 = "abcd";
-        String s2 = "abcd";
+    public void testSetZero_ZeroAtEdge() {
+        int[][] matrix = new int[][] {
+            { 1, 2, 3 },
+            { 4, 5, 0 },
+            { 7, 8, 9 },
+        };
         
-        assertTrue(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            { 1, 2, 0 },
+            { 0, 0, 0 },
+            { 7, 8, 0 },
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_False() {
-        String s1 = "abcd";
-        String s2 = "acbd";
+    public void testSetZero_ZeroAtCenter() {
+        int[][] matrix = new int[][] {
+            { 1, 2, 3 },
+            { 4, 0, 6 },
+            { 7, 8, 9 },
+        };
         
-        assertFalse(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            { 1, 0, 3 },
+            { 0, 0, 0 },
+            { 7, 0, 9 },
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_DifferentElement() {
-        String s1 = "abcd";
-        String s2 = "bcea";
+    public void testSetZero_MultipleZero() {
+        int[][] matrix = new int[][] {
+            { 1, 2, 3, 4, 5 },
+            { 6, 0, 8, 9, 10 },
+            { 11, 12, 13, 14, 15 },
+            { 16, 17, 18, 0, 0 },
+        };
         
-        assertFalse(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            { 1, 0, 3, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+            { 11, 0, 13, 0, 0 },
+            { 0, 0, 0, 0, 0 },
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_DifferentLength() {
-        String s1 = "abcd";
-        String s2 = "bcd";
+    public void testSetZero_DimensionIsZero() {
+        int[][] matrix = new int[][] {
+            new int[0],
+            new int[0],
+        };
         
-        assertFalse(Question_1_8.isRotation(s1, s2));
+        int[][] expected = new int[][] {
+            new int[0],
+            new int[0],
+        };
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
+        
+        matrix = new int[0][];
+        expected = new int[0][];
+        Question_1_8.SetZero(matrix);
+        HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testIsRotation_Empty() {
-        String s1 = "";
-        String s2 = "bcd";
+    public void testSetZero_Null() {
+        int[][] matrix = null;
         
-        assertFalse(Question_1_8.isRotation(s1, s2));
-    }
-    
-    @Test
-    public void testIsRotation_Null() {
-        String s1 = "abc";
-        String s2 = null;
-        
-        assertFalse(Question_1_8.isRotation(s1, s2));
+        Question_1_8.SetZero(matrix);
+        assertNull(matrix);
     }
 }

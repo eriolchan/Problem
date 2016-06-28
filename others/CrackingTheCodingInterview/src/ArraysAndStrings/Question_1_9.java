@@ -2,53 +2,21 @@ package ArraysAndStrings;
 
 /**
  * Question 1.9
- * Given a string, write a function to check if it is a permutation of a palindrome.
- * A parlindrome is a word or phrase that is the same forwards and backwards.
+ * Assume you have a method isSubstring which checks if one word is a substring of another.
+ * Given two strings, s1 and s2, write code to check if s2 is a rotation of s1
+ * using only one call to isSubstring.
  */
 public class Question_1_9 {
-    
-    // O(n)
-    public static boolean isPermutationOfPalindromeByMap(String s) {
-        if (s == null || s.length() == 0) {
+
+    public static boolean isRotation(String s1, String s2) {
+        if (s1 == null || s2 == null || s1.length() != s2.length() || s1.length() == 0) {
             return false;
         }
         
-        boolean[] toggle = new boolean[256];
-        int len = s.length();
-        for (int i = 0; i < len; ++i) {
-            int index = s.charAt(i);
-            toggle[index] = !toggle[index];
-        }
-        
-        int oddCount = 0;
-        for (int i = 0; i < toggle.length; ++i) {
-            if (toggle[i]) {
-                ++oddCount;
-            }
-        }
-        
-        return oddCount <= 1;
+        return isSubstring(s1 + s1, s2);
     }
     
-    // O(n)
-    // Assume all chars are from a ~ z and case insensitive.
-    public static boolean isPermutationOfPalindromeByBits(String s) {
-        if (s == null || s.length() == 0) {
-            return false;
-        }
-        
-        int vector = 0;
-        for (char c : s.toLowerCase().toCharArray()) {
-            int shift = c - 'a';
-            int mask = 1 << shift;
-            
-            if ((vector & mask) == 0) {
-                vector |= mask;
-            } else {
-                vector &= ~mask;
-            }
-        }
-        
-        return (vector & (vector - 1)) == 0;
+    private static boolean isSubstring(String s1, String s2) {
+        return s1.contains(s2);
     }
 }

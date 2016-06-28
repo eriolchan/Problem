@@ -7,97 +7,108 @@ import org.junit.Test;
 public class Question_1_3Test {
 
     @Test
-    public void testRemoveDuplicate_NoDuplicate() {
-        char[] s = new char[] { 'a', 'b', 'c' };
+    public void testReplaceSpace_NoSpace() {
+        String content = "abc";
+        char[] s = Helper.createCharArray(10, content);
         
         char[] expected = new char[] { 'a', 'b', 'c' };
-        Question_1_3.removeDuplicateByMap(s);
-        assertArrayEquals(expected, s);
-        
-        s = new char[] { 'a', 'b', 'c' };
-        Question_1_3.removeDuplicateInPlace(s);
-        assertArrayEquals(expected, s);
-    }
-    
-    @Test
-    public void testRemoveDuplicate_MultipleDuplicate() {
-        char[] s = new char[] { 'a', 'b', 'a', 'b' };
-        
-        char[] expected = new char[] { 'a', 'b' };
-        Question_1_3.removeDuplicateByMap(s);
-        char[] actual = Helper.getValidString(s);
-        assertArrayEquals(expected, actual);
-        
-        s = new char[] { 'a', 'b', 'a', 'b' };
-        Question_1_3.removeDuplicateInPlace(s);
-        actual = Helper.getValidString(s);
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
         assertArrayEquals(expected, actual);
     }
     
     @Test
-    public void testRemoveDuplicate_MultipleContinuousDuplicate() {
-        char[] s = new char[] { 'a', 'a', 'b', 'b' };
+    public void testReplaceSpace_SpaceAtStart() {
+        String content = " abc";
+        char[] s = Helper.createCharArray(10, content);
         
-        char[] expected = new char[] { 'a', 'b' };
-        Question_1_3.removeDuplicateByMap(s);
-        char[] actual = Helper.getValidString(s);
-        assertArrayEquals(expected, actual);
-        
-        s = new char[] { 'a', 'a', 'b', 'b' };
-        Question_1_3.removeDuplicateInPlace(s);
-        actual = Helper.getValidString(s);
+        char[] expected = new char[] { '%', '2', '0', 'a', 'b', 'c' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
         assertArrayEquals(expected, actual);
     }
     
     @Test
-    public void testRemoveDuplicate_OneElement() {
-        char[] s = new char[] { 'a' };
+    public void testReplaceSpace_SpaceAtMiddle() {
+        String content = "a bc";
+        char[] s = Helper.createCharArray(10, content);
         
-        char[] expected = new char[] { 'a' };
-        Question_1_3.removeDuplicateByMap(s);
-        assertArrayEquals(expected, s);
-        
-        s = new char[] { 'a' };
-        Question_1_3.removeDuplicateInPlace(s);
-        assertArrayEquals(expected, s);
-    }
-    
-    @Test
-    public void testRemoveDuplicate_SameElement() {
-        char[] s = new char[] { 'a', 'a', 'a' };
-        
-        char[] expected = new char[] { 'a' };
-        Question_1_3.removeDuplicateByMap(s);
-        char[] actual = Helper.getValidString(s);
-        assertArrayEquals(expected, actual);
-        
-        s = new char[] { 'a', 'a', 'a' };
-        Question_1_3.removeDuplicateInPlace(s);
-        actual = Helper.getValidString(s);
+        char[] expected = new char[] { 'a', '%', '2', '0', 'b', 'c' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
         assertArrayEquals(expected, actual);
     }
     
     @Test
-    public void testRemoveDuplicate_Empty() {
-        char[] s = new char[0];
+    public void testReplaceSpace_SpaceAtEnd() {
+        String content = "abc ";
+        char[] s = Helper.createCharArray(10, content);
+        
+        char[] expected = new char[] { 'a', 'b', 'c', '%', '2', '0' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void testReplaceSpace_MultipleSpace() {
+        String content = "a b c";
+        char[] s = Helper.createCharArray(10, content);
+        
+        char[] expected = new char[] { 'a', '%', '2', '0', 'b', '%', '2', '0', 'c' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void testReplaceSpace_ConsecutiveSpace() {
+        String content = "a  bc";
+        char[] s = Helper.createCharArray(10, content);
+        
+        char[] expected = new char[] { 'a', '%', '2', '0', '%', '2', '0', 'b', 'c' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void testReplaceSpace_OnlySpace() {
+        String content = "   ";
+        char[] s = Helper.createCharArray(10, content);
+        
+        char[] expected = new char[] { '%', '2', '0', '%', '2', '0', '%', '2', '0' };
+        Question_1_3.replaceSpace(s,content.length());
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void testReplaceSpace_OneSpace() {
+        String content = " ";
+        char[] s = Helper.createCharArray(10, content);
+        
+        char[] expected = new char[] { '%', '2', '0' };
+        Question_1_3.replaceSpace(s, content.length());
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
+    }
+    
+    @Test
+    public void testReplaceSpace_Empty() {
+        char[] s = new char[10];
         
         char[] expected = new char[0];
-        Question_1_3.removeDuplicateByMap(s);
-        assertArrayEquals(expected, s);
-        
-        s = new char[0];
-        Question_1_3.removeDuplicateInPlace(s);
-        assertArrayEquals(expected, s);
+        Question_1_3.replaceSpace(s, 0);
+        char[] actual = HelperTest.getValidString(s);
+        assertArrayEquals(expected, actual);
     }
     
     @Test
-    public void testRemoveDuplicate_Null() {
+    public void testReplaceSpace_Null() {
         char[] s = null;
         
-        Question_1_3.removeDuplicateByMap(s);
-        assertNull(s);
-        
-        Question_1_3.removeDuplicateInPlace(s);
+        Question_1_3.replaceSpace(s, 0);
         assertNull(s);
     }
 }

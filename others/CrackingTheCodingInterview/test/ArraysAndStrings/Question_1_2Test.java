@@ -7,55 +7,110 @@ import org.junit.Test;
 public class Question_1_2Test {
 
     @Test
-    public void testReverse_LengthIsOdd() {
-        char[] s = new char[] { 'a', 'b', 'c', '\0' };
+    public void testIsPermutation_UniqueChars() {
+        String s1 = "abcd";
+        String s2 = "acbd";
         
-        char[] expected = new char[] { 'c', 'b', 'a', '\0' };
-        Question_1_2.reverse(s);
-        assertArrayEquals(expected, s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertTrue(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertTrue(actual);
     }
     
     @Test
-    public void testReverse_LengthIsEven() {
-        char[] s = new char[] { 'a', 'b', 'c', 'd', '\0' };
+    public void testIsPermutation_DuplicatedChar() {
+        String s1 = "ababa";
+        String s2 = "aaabb";
         
-        char[] expected = new char[] { 'd', 'c', 'b', 'a', '\0' };
-        Question_1_2.reverse(s);
-        assertArrayEquals(expected, s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertTrue(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertTrue(actual);
     }
     
     @Test
-    public void testReverse_OneElement() {
-        char[] s = new char[] { 'a', '\0' };
+    public void testIsPermutation_SameString() {
+        String s1 = "abcd";
+        String s2 = "abcd";
         
-        char[] expected = new char[] { 'a', '\0' };
-        Question_1_2.reverse(s);
-        assertArrayEquals(expected, s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertTrue(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertTrue(actual);
     }
     
     @Test
-    public void testReverse_SameElement() {
-        char[] s = new char[] { 'a', 'a', '\0' };
+    public void testIsPermutation_SameElement() {
+        String s1 = "aaa";
+        String s2 = "aaa";
         
-        char[] expected = new char[] { 'a', 'a', '\0' };
-        Question_1_2.reverse(s);
-        assertArrayEquals(expected, s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertTrue(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertTrue(actual);
     }
     
     @Test
-    public void testReverse_Empty() {
-        char[] s = new char[] { '\0' };
+    public void testIsPermutation_OneChar() {
+        String s1 = "a";
+        String s2 = "a";
         
-        char[] expected = new char[] { '\0' };
-        Question_1_2.reverse(s);
-        assertArrayEquals(expected, s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertTrue(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertTrue(actual);
     }
     
     @Test
-    public void testReverse_Null() {
-        char[] s = null;
+    public void testIsPermutation_False() {
+        String s1 = "abc";
+        String s2 = "cda";
         
-        Question_1_2.reverse(s);
-        assertNull(s);
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertFalse(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertFalse(actual);
+    }
+    
+    @Test
+    public void testIsPermutation_DifferentLength() {
+        String s1 = "abc";
+        String s2 = "ab";
+        
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertFalse(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertFalse(actual);
+    }
+    
+    @Test
+    public void testIsPermutation_Empty() {
+        String s1 = "abc";
+        String s2 = "";
+        
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertFalse(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertFalse(actual);
+    }
+    
+    @Test
+    public void testIsPermutation_Null() {
+        String s1 = null;
+        String s2 = "abc";
+        
+        boolean actual = Question_1_2.isPermutationByMap(s1, s2);
+        assertFalse(actual);
+        
+        actual = Question_1_2.isPermutationBySort(s1, s2);
+        assertFalse(actual);
     }
 }
