@@ -9,8 +9,29 @@ package ArraysAndStrings;
  */
 public class Question_1_6 {
     
+    // O(n)
     public static String compress(String s) {
-        return null;
+        if (s == null || s.length() == 0) {
+            return s;
+        }
+        
+        StringBuilder builder = new StringBuilder();
+        int count = 0;
+        int len = s.length();
+        
+        for (int i = 0; i < len; ++i) {
+            ++count;
+            
+            if (i == len - 1 || s.charAt(i) != s.charAt(i + 1)) {
+                builder.append(s.charAt(i));
+                if (count > 1) {
+                    builder.append(count);
+                }
+                
+                count = 0;
+            }
+        }
+        
+        return builder.toString();
     }
-
 }
