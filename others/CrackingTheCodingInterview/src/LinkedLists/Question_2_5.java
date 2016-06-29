@@ -7,13 +7,13 @@ package LinkedLists;
 public class Question_2_5 {
 
     // O(n)
-    public static Node findLoopEntry(Node head) {
+    public static ListNode findLoopEntry(ListNode head) {
         if (head == null || head.getNext() == null) {
             return null;
         }
         
-        Node fast = head;
-        Node slow = head;
+        ListNode fast = head;
+        ListNode slow = head;
         while (fast != null && fast.getNext() != null) {
             fast = fast.getNext().getNext();
             slow = slow.getNext();

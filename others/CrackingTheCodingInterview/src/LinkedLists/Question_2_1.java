@@ -9,12 +9,12 @@ import java.util.HashSet;
 public class Question_2_1 {
     
     // O(n)
-    public static void removeDuplicateByCount(Node head) {
+    public static void removeDuplicateByCount(ListNode head) {
         if (head == null) {
             return;
         }
         
-        Node previous = null;
+        ListNode previous = null;
         HashSet<Integer> set = new HashSet<Integer>();
         while (head != null) {
             int data = head.getData();
@@ -30,14 +30,14 @@ public class Question_2_1 {
     }
     
     // O(n^2)
-    public static void removeDuplicate(Node head) {
+    public static void removeDuplicate(ListNode head) {
         if (head == null) {
             return;
         }
         
         while (head != null) {
             int data = head.getData();
-            Node previous = head;
+            ListNode previous = head;
             
             while (previous.getNext() != null) {
                 if (previous.getNext().getData() == data) {

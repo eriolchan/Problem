@@ -7,7 +7,7 @@ package LinkedLists;
 public class Question_2_3 {
 
     // O(1)
-    public static boolean remove(Node toBeRemoved) {
+    public static boolean remove(ListNode toBeRemoved) {
         if (toBeRemoved == null || toBeRemoved.getNext() == null) {
             return false;
         }

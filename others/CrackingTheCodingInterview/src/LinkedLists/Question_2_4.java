@@ -9,10 +9,10 @@ package LinkedLists;
 public class Question_2_4 {
 
     // O(n)
-    public static Node add(Node n1, Node n2) {
+    public static ListNode add(ListNode n1, ListNode n2) {
         int carry = 0;
-        Node head = null;
-        Node previous = null;
+        ListNode head = null;
+        ListNode previous = null;
         
         while (n1 != null || n2 != null || carry != 0) {
             int value = carry;
@@ -28,7 +28,7 @@ public class Question_2_4 {
             }
             
             carry = value / 10;
-            Node node = new Node(value % 10);
+            ListNode node = new ListNode(value % 10);
             
             if (previous == null) {
                 head = previous = node;

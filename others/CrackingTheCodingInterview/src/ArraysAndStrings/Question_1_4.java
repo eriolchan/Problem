@@ -31,7 +31,7 @@ public class Question_1_4 {
     }
     
     // O(n)
-    // Assume all chars are from a ~ z and case insensitive.
+    // Assume all chars are from a to z and case insensitive.
     public static boolean isPermutationOfPalindromeByBits(String s) {
         if (s == null || s.length() == 0) {
             return false;

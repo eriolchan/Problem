@@ -7,12 +7,12 @@ package LinkedLists;
 public class Question_2_2 {
 
     // O(n)
-    public static Node findNthToLast(Node head, int n) {
+    public static ListNode findNthToLast(ListNode head, int n) {
         if (head == null || n < 1) {
             return null;
         }
         
-        Node fast = head;
+        ListNode fast = head;
         for (int i = 0; i < n; ++i) {
             if (fast == null) {
                 return null;
@@ -21,7 +21,7 @@ public class Question_2_2 {
             fast = fast.getNext();
         }
         
-        Node slow = head;
+        ListNode slow = head;
         while (fast != null) {
             fast = fast.getNext();
             slow = slow.getNext();

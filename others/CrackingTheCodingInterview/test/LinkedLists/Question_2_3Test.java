@@ -8,30 +8,30 @@ public class Question_2_3Test {
 
     @Test
     public void testRemove_AtBegin() {
-        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
-        Node toBeRemoved = head;
+        ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
+        ListNode toBeRemoved = head;
         
-        Node expected = Node.createLinkedList(new int[] { 2, 3 });
+        ListNode expected = ListNodeTest.createLinkedList(new int[] { 2, 3 });
         boolean isSucceed = Question_2_3.remove(toBeRemoved);
         assertTrue(isSucceed);
-        NodeTest.assertLinkedListEquals(expected, head);
+        ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
     @Test
     public void testRemove_AtMiddle() {
-        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
-        Node toBeRemoved = head.getNext();
+        ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
+        ListNode toBeRemoved = head.getNext();
         
-        Node expected = Node.createLinkedList(new int[] { 1, 3 });
+        ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 3 });
         boolean isSucceed = Question_2_3.remove(toBeRemoved);
         assertTrue(isSucceed);
-        NodeTest.assertLinkedListEquals(expected, head);
+        ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
     @Test
     public void testRemove_AtEnd() {
-        Node head = Node.createLinkedList(new int[] { 1, 2, 3 });
-        Node toBeRemoved = head.getNext().getNext();
+        ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
+        ListNode toBeRemoved = head.getNext().getNext();
         
         boolean isSucceed = Question_2_3.remove(toBeRemoved);
         assertFalse(isSucceed);
@@ -39,8 +39,8 @@ public class Question_2_3Test {
     
     @Test
     public void testRemove_OneElement() {
-        Node head = Node.createLinkedList(new int[] { 1 });
-        Node toBeRemoved = head;
+        ListNode head = ListNodeTest.createLinkedList(new int[] { 1 });
+        ListNode toBeRemoved = head;
         
         boolean isSucceed = Question_2_3.remove(toBeRemoved);
         assertFalse(isSucceed);
@@ -48,7 +48,7 @@ public class Question_2_3Test {
     
     @Test
     public void testRemove_Null() {
-        Node toBeRemoved = null;
+        ListNode toBeRemoved = null;
         
         boolean isSucceed = Question_2_3.remove(toBeRemoved);
         assertFalse(isSucceed);

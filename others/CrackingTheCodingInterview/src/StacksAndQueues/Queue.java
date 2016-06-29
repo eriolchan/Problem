@@ -1,14 +1,14 @@
 package StacksAndQueues;
 
-import LinkedLists.Node;
+import LinkedLists.ListNode;
 
 public class Queue {
     
-    private Node front;
-    private Node back;
+    private ListNode front;
+    private ListNode back;
     
     public void enqueue(int data) {
-        Node node = new Node(data);
+        ListNode node = new ListNode(data);
         
         if (front == null) {
             front = back = node;

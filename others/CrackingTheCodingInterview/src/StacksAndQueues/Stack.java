@@ -1,13 +1,13 @@
 package StacksAndQueues;
 
-import LinkedLists.Node;
+import LinkedLists.ListNode;
 
 public class Stack {
     
-    private Node top;
+    private ListNode top;
     
     public void push(int data) {
-        Node node = new Node(data);
+        ListNode node = new ListNode(data);
         node.setNext(top);
         top = node;
     }
