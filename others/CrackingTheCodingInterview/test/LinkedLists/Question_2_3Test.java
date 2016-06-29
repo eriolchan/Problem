@@ -9,48 +9,43 @@ public class Question_2_3Test {
     @Test
     public void testRemove_AtBegin() {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        ListNode toBeRemoved = head;
+        ListNode node = head;
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 2, 3 });
-        boolean isSucceed = Question_2_3.remove(toBeRemoved);
-        assertTrue(isSucceed);
+        assertTrue(Question_2_3.remove(node));
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
     @Test
     public void testRemove_AtMiddle() {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        ListNode toBeRemoved = head.getNext();
+        ListNode node = head.getNext();
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 3 });
-        boolean isSucceed = Question_2_3.remove(toBeRemoved);
-        assertTrue(isSucceed);
+        assertTrue(Question_2_3.remove(node));
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
     @Test
     public void testRemove_AtEnd() {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        ListNode toBeRemoved = head.getNext().getNext();
+        ListNode node = head.getNext().getNext();
         
-        boolean isSucceed = Question_2_3.remove(toBeRemoved);
-        assertFalse(isSucceed);
+        assertFalse(Question_2_3.remove(node));
     }
     
     @Test
     public void testRemove_OneElement() {
-        ListNode head = ListNodeTest.createLinkedList(new int[] { 1 });
-        ListNode toBeRemoved = head;
+        ListNode head = new ListNode(1);
+        ListNode node = head;
         
-        boolean isSucceed = Question_2_3.remove(toBeRemoved);
-        assertFalse(isSucceed);
+        assertFalse(Question_2_3.remove(node));
     }
     
     @Test
     public void testRemove_Null() {
-        ListNode toBeRemoved = null;
+        ListNode node = null;
         
-        boolean isSucceed = Question_2_3.remove(toBeRemoved);
-        assertFalse(isSucceed);
+        assertFalse(Question_2_3.remove(node));
     }
 }

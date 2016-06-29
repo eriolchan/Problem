@@ -7,13 +7,13 @@ package LinkedLists;
 public class Question_2_3 {
 
     // O(1)
-    public static boolean remove(ListNode toBeRemoved) {
-        if (toBeRemoved == null || toBeRemoved.getNext() == null) {
+    public static boolean remove(ListNode node) {
+        if (node == null || node.getNext() == null) {
             return false;
         }
         
-        toBeRemoved.setData(toBeRemoved.getNext().getData());
-        toBeRemoved.setNext(toBeRemoved.getNext().getNext());
+        node.setData(node.getNext().getData());
+        node.setNext(node.getNext().getNext());
         
         return true;
     }
