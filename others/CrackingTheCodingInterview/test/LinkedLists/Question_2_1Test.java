@@ -11,11 +11,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -24,11 +24,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 1, 2, 3 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 1, 2, 3 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -37,11 +37,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 1, 3 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 2, 1, 3 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -50,11 +50,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3, 1 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 2, 3, 1 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -63,11 +63,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 1, 2, 1, 3, 1 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 1, 2, 1, 3, 1 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -76,11 +76,11 @@ public class Question_2_1Test {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 2, 1, 1, 3 });
         
         ListNode expected = ListNodeTest.createLinkedList(new int[] { 1, 2, 3 });
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 2, 1, 1, 3 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -88,25 +88,25 @@ public class Question_2_1Test {
     public void testRemoveDuplicate_SameElement() {
         ListNode head = ListNodeTest.createLinkedList(new int[] { 1, 1, 1 });
         
-        ListNode expected = ListNodeTest.createLinkedList(new int[] { 1 });
-        Question_2_1.removeDuplicate(head);
+        ListNode expected = new ListNode(1);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
         head = ListNodeTest.createLinkedList(new int[] { 1, 1, 1 });
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
     @Test
     public void testRemoveDuplicate_OneElement() {
-        ListNode head = ListNodeTest.createLinkedList(new int[] { 1 });
+        ListNode head = new ListNode(1);
         
-        ListNode expected = ListNodeTest.createLinkedList(new int[] { 1 });
-        Question_2_1.removeDuplicate(head);
+        ListNode expected = new ListNode(1);
+        Question_2_1.deleteDuplicateByMap(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
         
-        head = ListNodeTest.createLinkedList(new int[] { 1 });
-        Question_2_1.removeDuplicateByCount(head);
+        head = new ListNode(1);
+        Question_2_1.deleteDuplicateInPlace(head);
         ListNodeTest.assertLinkedListEquals(expected, head);
     }
     
@@ -114,10 +114,10 @@ public class Question_2_1Test {
     public void testRemoveDuplicate_Null() {
         ListNode head = null;
         
-        Question_2_1.removeDuplicate(head);
+        Question_2_1.deleteDuplicateByMap(head);
         assertNull(head);
         
-        Question_2_1.removeDuplicateByCount(head);
+        Question_2_1.deleteDuplicateInPlace(head);
         assertNull(head);
     }
 }

@@ -13,6 +13,9 @@ public class Question_2_2Test {
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
         assertEquals(3, actual.getData());
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
+        assertEquals(3, actual.getData());
     }
     
     @Test
@@ -21,6 +24,9 @@ public class Question_2_2Test {
         int n = 2;
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
+        assertEquals(2, actual.getData());
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
         assertEquals(2, actual.getData());
     }
     
@@ -31,14 +37,20 @@ public class Question_2_2Test {
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
         assertEquals(1, actual.getData());
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
+        assertEquals(1, actual.getData());
     }
     
     @Test
     public void testFindNthToLast_OneElement() {
-        ListNode head = ListNodeTest.createLinkedList(new int[] { 1 });
+        ListNode head = new ListNode(1);
         int n = 1;
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
+        assertEquals(1, actual.getData());
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
         assertEquals(1, actual.getData());
     }
     
@@ -48,6 +60,9 @@ public class Question_2_2Test {
         int n = 4;
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
+        assertNull(actual);
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
         assertNull(actual);
     }
     
@@ -59,8 +74,14 @@ public class Question_2_2Test {
         ListNode actual = Question_2_2.findNthToLast(head, n);
         assertNull(actual);
         
+        actual = Question_2_2.findNthToLastRecursively(head, n);
+        assertNull(actual);
+        
         n = -1;
         actual = Question_2_2.findNthToLast(head, n);
+        assertNull(actual);
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
         assertNull(actual);
     }
     
@@ -70,6 +91,9 @@ public class Question_2_2Test {
         int n = 1;
         
         ListNode actual = Question_2_2.findNthToLast(head, n);
+        assertNull(actual);
+        
+        actual = Question_2_2.findNthToLastRecursively(head, n);
         assertNull(actual);
     }
 }
