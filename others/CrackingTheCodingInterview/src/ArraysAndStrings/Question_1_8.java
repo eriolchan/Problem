@@ -8,7 +8,7 @@ package ArraysAndStrings;
 public class Question_1_8 {
 
     // O(n^2)
-    public static void SetZero(int[][] matrix) {
+    public static void SetZeros(int[][] matrix) {
         if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return;
         }

@@ -19,7 +19,15 @@ public class Question_1_7Test {
             { 2, 5, 8 },
             { 1, 4, 7 },
         };
-        Question_1_7.rotateMatrix(matrix);
+        assertTrue(Question_1_7.rotateMatrixByMirror(matrix));
+        HelperTest.assertMatrixEquals(expected, matrix);
+        
+        matrix = new int[][] {
+            { 1, 2, 3 },
+            { 4, 5, 6 },
+            { 7, 8, 9 },
+        };
+        assertTrue(Question_1_7.rotateMatrixByRoll(matrix));
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
@@ -38,7 +46,16 @@ public class Question_1_7Test {
             { 2, 6, 10, 14 },
             { 1, 5, 9 , 13 },
         };
-        Question_1_7.rotateMatrix(matrix);
+        assertTrue(Question_1_7.rotateMatrixByMirror(matrix));
+        HelperTest.assertMatrixEquals(expected, matrix);
+        
+        matrix = new int[][] {
+            { 1, 2, 3, 4 },
+            { 5, 6, 7, 8 },
+            { 9, 10, 11, 12 },
+            { 13, 14, 15, 16 },
+        };
+        assertTrue(Question_1_7.rotateMatrixByRoll(matrix));
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
@@ -51,7 +68,13 @@ public class Question_1_7Test {
         int[][] expected = new int[][] {
             { 1 },
         };
-        Question_1_7.rotateMatrix(matrix);
+        assertTrue(Question_1_7.rotateMatrixByMirror(matrix));
+        HelperTest.assertMatrixEquals(expected, matrix);
+        
+        matrix = new int[][] {
+            { 1 },
+        };
+        assertTrue(Question_1_7.rotateMatrixByRoll(matrix));
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
@@ -62,12 +85,8 @@ public class Question_1_7Test {
             { 4, 5, 6 },
         };
         
-        int[][] expected = new int[][] {
-            { 1, 2, 3 },
-            { 4, 5, 6 },
-        };
-        Question_1_7.rotateMatrix(matrix);
-        HelperTest.assertMatrixEquals(expected, matrix);
+        assertFalse(Question_1_7.rotateMatrixByMirror(matrix));
+        assertFalse(Question_1_7.rotateMatrixByRoll(matrix));
     }
     
     @Test
@@ -76,23 +95,22 @@ public class Question_1_7Test {
             new int[0],
         };
         
-        int[][] expected = new int[][] {
-            new int[0],
-        };
-        Question_1_7.rotateMatrix(matrix);
-        HelperTest.assertMatrixEquals(expected, matrix);
+        assertFalse(Question_1_7.rotateMatrixByMirror(matrix));
+        assertFalse(Question_1_7.rotateMatrixByRoll(matrix));
         
         matrix = new int[0][];
-        expected = new int[0][];
-        Question_1_7.rotateMatrix(matrix);
-        HelperTest.assertMatrixEquals(expected, matrix);
+        assertFalse(Question_1_7.rotateMatrixByMirror(matrix));
+        assertFalse(Question_1_7.rotateMatrixByRoll(matrix));
     }
     
     @Test
     public void testRotateMatrix_Null() {
         int[][] matrix = null;
         
-        Question_1_7.rotateMatrix(matrix);
+        assertFalse(Question_1_7.rotateMatrixByMirror(matrix));
+        assertNull(matrix);
+        
+        assertFalse(Question_1_7.rotateMatrixByRoll(matrix));
         assertNull(matrix);
     }
 }

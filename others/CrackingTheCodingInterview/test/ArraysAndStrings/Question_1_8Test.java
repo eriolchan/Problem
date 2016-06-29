@@ -7,7 +7,7 @@ import org.junit.Test;
 public class Question_1_8Test {
 
     @Test
-    public void testSetZero_NoZero() {
+    public void testSetZeros_NoZero() {
         int[][] matrix = new int[][] {
             { 1, 2, 3 },
             { 4, 5, 6 },
@@ -17,12 +17,12 @@ public class Question_1_8Test {
             { 1, 2, 3 },
             { 4, 5, 6 },
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_ZeroAtCorner() {
+    public void testSetZeros_ZeroAtCorner() {
         int[][] matrix = new int[][] {
             { 1, 2, 0 },
             { 4, 5, 6 },
@@ -34,12 +34,12 @@ public class Question_1_8Test {
             { 4, 5, 0 },
             { 7, 8, 0 },
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_ZeroAtEdge() {
+    public void testSetZeros_ZeroAtEdge() {
         int[][] matrix = new int[][] {
             { 1, 2, 3 },
             { 4, 5, 0 },
@@ -51,12 +51,12 @@ public class Question_1_8Test {
             { 0, 0, 0 },
             { 7, 8, 0 },
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_ZeroAtCenter() {
+    public void testSetZeros_ZeroAtCenter() {
         int[][] matrix = new int[][] {
             { 1, 2, 3 },
             { 4, 0, 6 },
@@ -68,12 +68,12 @@ public class Question_1_8Test {
             { 0, 0, 0 },
             { 7, 0, 9 },
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_MultipleZero() {
+    public void testSetZeros_MultipleZero() {
         int[][] matrix = new int[][] {
             { 1, 2, 3, 4, 5 },
             { 6, 0, 8, 9, 10 },
@@ -87,12 +87,12 @@ public class Question_1_8Test {
             { 11, 0, 13, 0, 0 },
             { 0, 0, 0, 0, 0 },
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_DimensionIsZero() {
+    public void testSetZeros_DimensionIsZero() {
         int[][] matrix = new int[][] {
             new int[0],
             new int[0],
@@ -102,20 +102,20 @@ public class Question_1_8Test {
             new int[0],
             new int[0],
         };
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
         
         matrix = new int[0][];
         expected = new int[0][];
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         HelperTest.assertMatrixEquals(expected, matrix);
     }
     
     @Test
-    public void testSetZero_Null() {
+    public void testSetZeros_Null() {
         int[][] matrix = null;
         
-        Question_1_8.SetZero(matrix);
+        Question_1_8.SetZeros(matrix);
         assertNull(matrix);
     }
 }

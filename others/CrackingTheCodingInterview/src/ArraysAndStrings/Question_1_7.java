@@ -9,14 +9,14 @@ package ArraysAndStrings;
 public class Question_1_7 {
 
     // O(n^2)
-    public static void rotateMatrix(int[][] matrix) {
+    public static boolean rotateMatrixByMirror(int[][] matrix) {
         if (matrix == null) {
-            return;
+            return false;
         }
         
         int m = matrix.length;
         if (m == 0 || matrix[0] == null || m != matrix[0].length) {
-            return;
+            return false;
         }
         
         for (int i = 0; i < m; ++i) {
@@ -30,11 +30,41 @@ public class Question_1_7 {
                 swap(matrix, i, j, m - 1 - i, j);
             }
         }
+        
+        return true;
     }
     
     private static void swap(int[][] matrix, int x1, int y1, int x2, int y2) {
         int temp = matrix[x1][y1];
         matrix[x1][y1] = matrix[x2][y2];
         matrix[x2][y2] = temp;
+    }
+    
+    // O(n^2)
+    public static boolean rotateMatrixByRoll(int[][] matrix) {
+        if (matrix == null) {
+            return false;
+        }
+        
+        int m = matrix.length;
+        if (m == 0 || matrix[0] == null || m != matrix[0].length) {
+            return false;
+        }
+        
+        for (int i = 0; i < m / 2; ++i) {
+            int last = m - 1 - i;
+            
+            for (int j = i; j < last; ++j) {
+                int offset = j - i;
+                int top = matrix[i][j];
+                
+                matrix[i][j] = matrix[j][last];
+                matrix[j][last] = matrix[last][last - offset];
+                matrix[last][last - offset] = matrix[last - offset][i];
+                matrix[last - offset][i] = top;
+            }
+        }
+        
+        return true;
     }
 }
