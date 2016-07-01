@@ -6,7 +6,7 @@ package ArraysAndStrings;
  * A parlindrome is a word or phrase that is the same forwards and backwards.
  */
 public class Question_1_4 {
-    
+
     // O(n)
     public static boolean isPermutationOfPalindromeByMap(String s) {
         if (s == null || s.length() == 0) {

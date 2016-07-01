@@ -8,7 +8,7 @@ package ArraysAndStrings;
  * the original string.
  */
 public class Question_1_6 {
-    
+
     // O(n)
     public static String compress(String s) {
         if (s == null || s.length() == 0) {

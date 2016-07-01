@@ -8,7 +8,7 @@ package ArraysAndStrings;
  * (or zero edit) away.
  */
 public class Question_1_5 {
-    
+
     // O(n)
     public static boolean oneEditAway(String s1, String s2) {
         if (s1 == null || s1 == null) {
