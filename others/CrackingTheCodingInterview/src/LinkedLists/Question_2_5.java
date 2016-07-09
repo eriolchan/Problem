@@ -48,8 +48,8 @@ public class Question_2_5 {
             return null;
         }
         
-        int len1 = getLength(n1);
-        int len2 = getLength(n2);
+        int len1 = ListNode.getLength(n1);
+        int len2 = ListNode.getLength(n2);
         
         if (len1 < len2) {
             n1 = padLeft(n1, len2 - len1);
@@ -78,15 +78,6 @@ public class Question_2_5 {
         return sum;
     }
     
-    private static int getLength(ListNode n) {
-        int len = 0;
-        while (n != null) {
-            ++len;
-            n = n.getNext();
-        }
-        
-        return len;
-    }
     
     private static ListNode padLeft(ListNode head, int length) {
         for (int i = 0; i < length; ++i) {

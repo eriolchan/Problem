@@ -80,4 +80,14 @@ public class ListNode {
         
         return head;
     }
+    
+    public static int getLength(ListNode head) {
+        int len = 0;
+        while (head != null) {
+            ++len;
+            head = head.getNext();
+        }
+        
+        return len;
+    }
 }

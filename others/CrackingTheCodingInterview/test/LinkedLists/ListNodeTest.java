@@ -83,6 +83,34 @@ public class ListNodeTest {
         assertEquals(n1, n3);
     }
     
+    @Test
+    public void testLength_Odd() {
+        ListNode head = createLinkedList(new int[] { 1, 2, 3 });
+        
+        assertEquals(3, ListNode.getLength(head));
+    }
+    
+    @Test
+    public void testLength_Even() {
+        ListNode head = createLinkedList(new int[] { 1, 2, 3, 4 });
+        
+        assertEquals(4, ListNode.getLength(head));
+    }
+    
+    @Test
+    public void testLength_One() {
+        ListNode head = new ListNode(1);
+        
+        assertEquals(1, ListNode.getLength(head));
+    }
+    
+    @Test
+    public void testLength_Null() {
+        ListNode head = null;
+        
+        assertEquals(0, ListNode.getLength(head));
+    }
+    
     public static void assertLinkedListEquals(ListNode expected, ListNode actual) {
         while (expected != null && actual != null) {
             assertEquals(expected, actual);
