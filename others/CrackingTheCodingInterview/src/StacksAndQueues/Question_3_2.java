@@ -1,47 +1,45 @@
 package StacksAndQueues;
 
+import java.util.Stack;
+
 /**
  * Question 3.2
  * How would you design a stack which, in addition to push and pop,
  * also has a function min() which returns the minimum element?
  * Push, pop and min should all operate in O(1) time.
  */
-public class Question_3_2 {
+public class Question_3_2 extends Stack<Integer> {
+
+    private static final long serialVersionUID = 1L;
     
-    private Stack stack;
-    private Stack minStack;
+    private Stack<Integer> minStack;
     
     public Question_3_2() {
-        stack = new Stack();
-        minStack = new Stack();
+        minStack = new Stack<Integer>();
     }
     
-    public void push(int data) {
-        stack.push(data);
-        
-        if (minStack.isEmpty() || data <= min()) {
-            minStack.push(data);
+    public void push(int value) {
+        if (value <= min()) {
+            minStack.push(value);
         }
+        
+        super.push(value);
     }
     
-    public int pop() {
-        int result = stack.pop();
-        if (result == minStack.peek()) {
+    public Integer pop() {
+        int value = super.pop();
+        if (value == min()) {
             minStack.pop();
         }
         
-        return result;
-    }
-    
-    public int peek() {
-        return stack.peek();
-    }
-    
-    public boolean isEmpty() {
-        return stack.isEmpty();
+        return value;
     }
     
     public int min() {
-        return minStack.peek();
+        if (minStack.empty()) {
+            return Integer.MAX_VALUE;
+        } else {
+            return minStack.peek();
+        }
     }
 }
