@@ -4,11 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class MyQueueTest {
+public class Question_3_4Test {
 
     @Test
-    public void testMyQueue() throws EmptyQueueException {
-        MyQueue<Integer> queue = new MyQueue<Integer>();
+    public void testQueue() throws EmptyQueueException {
+        Question_3_4<Integer> queue = new Question_3_4<Integer>();
         queue.add(1);
         queue.add(2);
         
@@ -24,7 +24,7 @@ public class MyQueueTest {
     
     @Test
     public void testIsEmpty() throws EmptyQueueException {
-        MyQueue<Integer> queue = new MyQueue<Integer>();
+        Question_3_4<Integer> queue = new Question_3_4<Integer>();
         
         assertTrue(queue.isEmpty());
         
@@ -37,7 +37,7 @@ public class MyQueueTest {
     
     @Test(expected=EmptyQueueException.class)
     public void testRemove_QueueIsEmpty() throws EmptyQueueException {
-        MyQueue<Integer> queue = new MyQueue<Integer>();
+        Question_3_4<Integer> queue = new Question_3_4<Integer>();
         
         queue.remove();
     }
