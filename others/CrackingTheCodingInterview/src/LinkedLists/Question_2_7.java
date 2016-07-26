@@ -8,6 +8,7 @@ package LinkedLists;
  */
 public class Question_2_7 {
 
+    // O(n)
     public static ListNode findIntersection(ListNode n1, ListNode n2) {
         if (n1 == null || n2 == null) {
             return null;

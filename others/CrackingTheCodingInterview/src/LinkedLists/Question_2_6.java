@@ -8,6 +8,7 @@ import java.util.Stack;
  */
 public class Question_2_6 {
 
+    // O(n)
     public static boolean isPalindromeByReverse(ListNode head) {
         if (head == null) {
             return false;
@@ -46,6 +47,7 @@ public class Question_2_6 {
         return n1 == null && n2 == null;
     }
     
+    // O(n)
     public static boolean isPalindromeByStack(ListNode head) {
         if (head == null) {
             return false;
@@ -76,6 +78,7 @@ public class Question_2_6 {
         return stack.isEmpty();
     }
     
+    // O(n)
     public static boolean isPalindromeRecursively(ListNode head) {
         if (head == null) {
             return false;
