@@ -19,16 +19,12 @@ public class Question_3_5 {
         
         Stack<Integer> result = new Stack<Integer>();
         while (!stack.isEmpty()) {
-            if (result.isEmpty() || stack.peek() <= result.peek()) {
-                result.push(stack.pop());
-            } else {
-                Integer temp = stack.pop();
-                while (!result.isEmpty() && temp > result.peek()) {
-                    stack.push(result.pop());
-                }
-                
-                result.push(temp);
+            Integer temp = stack.pop();
+            while (!result.isEmpty() && temp > result.peek()) {
+                stack.push(result.pop());
             }
+            
+            result.push(temp);
         }
         
         return result;
