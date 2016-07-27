@@ -38,7 +38,7 @@ public class Question_1_2 {
         return true;
     }
     
-    // O(nlogn)
+    // O(nlog n)
     public static boolean isPermutationBySort(String s1, String s2) {
         if (s1 == null || s2 == null) {
             return false;
