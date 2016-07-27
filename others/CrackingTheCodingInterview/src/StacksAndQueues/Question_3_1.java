@@ -173,7 +173,7 @@ class TripleStacks2 {
     private int previousIndex(int index) {
         return adjustIndex(index - 1);
     }
-
+    
     // mod will return negative value in Java.
     private int adjustIndex(int index) {
         int max = values.length;

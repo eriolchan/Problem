@@ -6,5 +6,6 @@ class InnerNode<T> {
     
     public InnerNode(T data) {
         this.data = data;
+        next = null;
     }
 }

@@ -116,10 +116,13 @@ public class Question_2_6 {
     }
     
     private static class Result {
-        ListNode next = null;
-        boolean result = true;
+        ListNode next;
+        boolean result;
         
-        private Result() {}
+        private Result() {
+            next = null;
+            result = true;
+        }
         
         public static Result getInstance() {
             return new Result();

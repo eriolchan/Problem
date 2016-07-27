@@ -56,9 +56,11 @@ public class Question_2_2 {
     
     static class Index {
         
-        int value = 0;
+        int value;
         
-        private Index() {}
+        private Index() {
+            value = 0;
+        }
         
         static Index getInstance() {
             return new Index();

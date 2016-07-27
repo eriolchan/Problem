@@ -96,10 +96,13 @@ public class Question_2_5 {
     }
     
     private static class PartialSum {
-        ListNode sum = null;
-        int carry = 0;
+        ListNode sum;
+        int carry;
         
-        private PartialSum() {}
+        private PartialSum() {
+            sum = null;
+            carry = 0;
+        }
         
         public static PartialSum getInstance() {
             return new PartialSum();

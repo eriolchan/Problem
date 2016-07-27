@@ -162,6 +162,8 @@ public class Question_3_3 {
             
             public Node(int value) {
                 this.value = value;
+                above = null;
+                below = null;
             }
         }
     }
