@@ -1,4 +1,14 @@
+# Big O
+
+- When you see a problem where the number of elements in the problem space gets halved each time, that will likely be a *O(logN)*  runtime.
+- When you have a recursive function that makes multiple calls, the runtime will often (but not always) look like *O(branches<sub>depth</sub>)*, where branches is the number of times each recursive call branches.
+- Think of Big O by
+  - What it means.
+  - What it does. 
+
+
 # Hash Tables
+
 A hash table is a data structure that maps keys to values for highly efficient lookup. Here is a simple implementation, we use an array of linked list and a hash code function.
 
 To insert a key and value, do following
@@ -15,10 +25,12 @@ To retrieve the value pair by its key, you could
 
 
 ## Alternative
+
 We can implement the hash table with a balance binary search tree. This gives us an *O(logN)* lookup time. The advantage of it is potentially using less space, since we no longer allocate a large array. We can also iterate through the keys in order.
 
 
 ## Hash Table Collision Resolution
+
 - *Chaining with Linked Lists*. Hash table's array maps to a linked list of items. We just add items to this linked list. As long as the number of collisions is fairly small, this will be quite efficient. In the worst case, lookup is *O(n)*.
 - *Chaining with Binary Search Trees*. We could also store collisions in a binary search tree instead of linked list. This will bring the worst-case runtime to *O(logN)*. In practice, we would rarely take this approach.
 - *Open Addressing with Linear Probing*. When a collision occurs, we just move on to the next index in the array until we find an open spot. (Or sometimes, some other fixed distance, like *index + 5*). One obvious drawback is that the total number of entries in the hash table is limited by the size of the array. And another issue is clustering.
@@ -26,13 +38,16 @@ We can implement the hash table with a balance binary search tree. This gives us
 
 
 # ArrayList (Dynamically Resizing Array)
+
 An ArrayList is an array that resizes itself as needed while still providing *O(1)* access. A typical implementation is that when the array is full, the array doubles in size. Each doubling takes *O(n)* time, but happens so rarely that its amortized time is still *O(1)*.
 
 
 # StringBuffer / StringBuilder
+
 StringBuilder simply creates a resizable array of all the strings, copying them back to a string only when necessary. StringBuffer is synchronized, but StringBuilder is not.
 
 # Rabin-Karp Substring Search
+
 The brute force way to search for a substring *S* in a larger string *B* takes *O(s(b - s))* time. The Rabin-Karp algorithm optimize this with a little trick: if two strings are the same, they must have the same hash value. (The converse, however, is not true). Therefore if we efficiently precompute a hash value for each sequence of s characters within *B*, we can find the locations of *S* in *O(b)* time. We then just need to validate that those locations really do match *S*.
 
 In practice, we would use a better rolling hash function, such as Rabin fingerprint. This essentially treats a string like does as a base 128 number.
