@@ -2,19 +2,13 @@
 A hash table is a data structure that maps keys to values for highly efficient lookup. Here is a simple implementation, we use an array of linked list and a hash code function.
 
 To insert a key and value, do following
-
 1. Compute the key's hash code, which will usually be an int or long. Note that two different keys could have the same hash code, as there may be an infinite number of keys and a finite number of ints.
-
 2. Map the hash code to an index in the array. This could be done with something like *hash(key) % array_length*.
-
 3. At this index, there is a linked list of keys and values. Store the key and value in this index. We must use a linked list because of collisions: you could have two different keys with the same hash code, or two different hash codes that map to the same index.
 
 To retrieve the value pair by its key, you could
-
 1. Compute the hash code from the key.
-
 2. Compute the index from the hash code.
-
 3. Search through the linked list for the value with this key.
 
 
@@ -39,7 +33,7 @@ StringBuilder simply creates a resizable array of all the strings, copying them 
 # Rabin-Karp Substring Search
 The brute force way to search for a substring *S* in a larger string *B* takes *O(s(b - s))* time. The Rabin-Karp algorithm optimize this with a little trick: if two strings are the same, they must have the same hash value. (The converse, however, is not true). Therefore if we efficiently precompute a hash value for each sequence of s characters within *B*, we can find the locations of *S* in *O(b)* time. We then just need to validate that those locations really do match *S*.
 
-In practice, we would use a better rolling hash function, such as Rabin fingerprint. This essentially treats a string like does as a base 128 number. e.g.
-> hash('doe') = code('d') * 1282 + code('o') * 1281 + code('e') * 1280
+In practice, we would use a better rolling hash function, such as Rabin fingerprint. This essentially treats a string like does as a base 128 number.
+> hash('doe') = code('d') * 128<sup>2<sup> + code('o') * 128<sup>1<sup> + code('e') * 128<sup>0<sup>
 
 Using a good hash function like this will give us expected time complexity of *O(s + b)*, although the worst case is *O(sb)*.
