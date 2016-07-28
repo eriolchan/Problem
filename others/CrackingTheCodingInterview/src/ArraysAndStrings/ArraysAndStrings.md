@@ -1,7 +1,7 @@
 # Big O
 
 - When you see a problem where the number of elements in the problem space gets halved each time, that will likely be a *O(logN)*  runtime.
-- When you have a recursive function that makes multiple calls, the runtime will often (but not always) look like *O(branches<sub>depth</sub>)*, where branches is the number of times each recursive call branches.
+- When you have a recursive function that makes multiple calls, the runtime will often (but not always) look like *O(branches<sup>depth</sup>)*, where branches is the number of times each recursive call branches.
 - Think of Big O by
   - What it means.
   - What it does. 
@@ -45,6 +45,7 @@ An ArrayList is an array that resizes itself as needed while still providing *O(
 # StringBuffer / StringBuilder
 
 StringBuilder simply creates a resizable array of all the strings, copying them back to a string only when necessary. StringBuffer is synchronized, but StringBuilder is not.
+
 
 # Rabin-Karp Substring Search
 
