@@ -75,7 +75,7 @@ A min-heap is a complete binary tree (that is, totally filled other than the rig
 1. When we insert into a min-heap, we always start by inserting the element at the bottom. We insert at the rightmost spot so as to maintain the complete tree property.
 2. Then we "fix" the tree by swapping the new element with its parent, until we find an appropriate spot for the element. We essentially bubble up the minimum element.
 
-This takes *O(log n)* time, where *n* is the number of nodes in the heap.
+This takes *O(logN)* time, where *n* is the number of nodes in the heap.
 
 
 ## Extract Minimum Element
@@ -87,7 +87,7 @@ Finding the minimum element of a min-heap is easy: it's always at the top. The t
 
 Do we swap it with the left child or the right child? That depends on their values. There's no inherent ordering between the left and right element, but you'll need to take the smaller one in order to maintain the min-heap ordering.
 
-This algorithm will also take *O(log n)* time.
+This algorithm will also take *O(logN)* time.
 
 
 # Tries (Prefix Trees)
