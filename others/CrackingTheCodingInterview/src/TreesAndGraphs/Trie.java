@@ -34,7 +34,7 @@ public class Trie {
         return !exact || lastNode.terminates();
     }
     
-    public boolean constains(String prefix) {
+    public boolean contains(String prefix) {
         return contains(prefix, false);
     }
     
@@ -64,6 +64,11 @@ public class Trie {
             this.character = character;
         }
         
+        // Returns the character data stored in this node.
+        public char getChar() {
+            return character;
+        }
+        
         // Add this word to the trie, and recursively create the child nodes.
         public void addWord(String word) {
             if (word == null || word.isEmpty()) {
@@ -75,7 +80,7 @@ public class Trie {
             TrieNode child = getChild(firstChar);
             if (child == null) {
                 child = new TrieNode(firstChar);
-                children.put(firstChar, child);
+                children.put(child.getChar(), child);
             }
             
             if (word.length() > 1) {
