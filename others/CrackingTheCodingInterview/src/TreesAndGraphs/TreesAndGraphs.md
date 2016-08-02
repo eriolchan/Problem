@@ -118,14 +118,16 @@ This is the most common way to represent a graph. Every vertex (or node) stores 
 
 A simple class definition for a graph node could look essentially the same as a tree node.
 
-    class Graph {
-        public Node[] nodes;
-    }
+```java
+class Graph {
+    public Node[] nodes;
+}
 
-    class Node {
-        public String name;
-        public Node[] children;
-    }
+class Node {
+    public String name;
+    public Node[] children;
+}
+```
 
 The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node. You don't necessarily need any additional classes to represent a graph. An array (or a hash table) of lists (arrays, array lists, linked lists, etc.) can store the adjacent list. This is a bit more compact, but it isn't quite as clean. We tend to use node classes unless there's a compelling reason not to.
 
@@ -146,16 +148,18 @@ In depth-first search, we start at the root (or another arbitrarily selected nod
 
 Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk getting stuck in a infinite loop.
 
-    void search(Node root) {
-        if (root == null) return;
-        visit(root);
-        root.visited = true
-        foreach (Node n in root.adjacent) {
-            if (n.visited == false) {
-                search(n);
-            }
+```java
+void search(Node root) {
+    if (root == null) return;
+    visit(root);
+    root.visited = true
+    foreach (Node n in root.adjacent) {
+        if (n.visited == false) {
+            search(n);
         }
     }
+}
+```
 
 
 ## Breadth-first search (BFS)
@@ -164,22 +168,24 @@ In breadth-first search, we start at the root (or another arbitrarily selected n
 
 If you are asked to implement BFS, the key thing to remember is the use of the queue.
 
-    void search(Node root) {
-        Queue queue = new Queue();
-        root.marked = true;
-        queue.enqueue(root); // Add to the end of queue
-        
-        while (!queue.isEmpty()) {
-            Node r = queue.dequeue(); // Remove from the front of the queue
-            visit(r);
-            foreach (Node n in r.adjacent) {
-                if (n.marked == false) {
-                    n.marked = true;
-                    queue.enqueue(n);
-                }
+```java
+void search(Node root) {
+    Queue queue = new Queue();
+    root.marked = true;
+    queue.enqueue(root); // Add to the end of queue
+    
+    while (!queue.isEmpty()) {
+        Node r = queue.dequeue(); // Remove from the front of the queue
+        visit(r);
+        foreach (Node n in r.adjacent) {
+            if (n.marked == false) {
+                n.marked = true;
+                queue.enqueue(n);
             }
         }
     }
+}
+```
 
 Breadth-first search and depth-first search tend to be used in different scenarios. DFS is often preferred if we want to visit every node in the graph. Both will work just fine, but depth-first search is a bit simpler. However, if we want to find the shortest path (or just any path) between two nodes, BFS is generally better.
 
