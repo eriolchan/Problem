@@ -47,14 +47,14 @@ public class TreeNode {
     public static void inOrderTraversalRecursively(TreeNode root) {
         if (root != null) {
             inOrderTraversalRecursively(root.left);
-            output.append(root.getData());
+            visit(root);
             inOrderTraversalRecursively(root.right);
         }
     }
     
     public static void preOrderTraversalRecursively(TreeNode root) {
         if (root != null) {
-            output.append(root.getData());
+            visit(root);
             preOrderTraversalRecursively(root.left);
             preOrderTraversalRecursively(root.right);
         }
@@ -64,7 +64,11 @@ public class TreeNode {
         if (root != null) {
             postOrderTraversalRecursively(root.left);
             postOrderTraversalRecursively(root.right);
-            output.append(root.getData());
+            visit(root);
         }
+    }
+    
+    private static void visit(TreeNode node) {
+        output.append(node.getData());
     }
 }
