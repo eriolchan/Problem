@@ -100,3 +100,92 @@ Very commonly, a trie is used to store the entire (English) language for quick p
 
 Many problems involving lists of valid words leverage a trie as an optimization. In situations when we search through the tree on related prefixes repeatedly (e.g., looking up M, then MA, then MAN, then MANY), we might pass around a reference to the current node in the tree. This will allow us to just check if Y is a child of MAN, rather than starting from the root each time.
 
+
+# Graphs
+
+A tree is actually a type of graph, but not all graphs are trees. Simply put, a tree is a connected graph without cycles.
+
+A graph is simply a collection of nodes with edges between (some of) them.
+
+- Graphs can be either directed or undirected. While directed edges are like a one-way street, undirected edges are like two-way street.
+- The graph might consist of multiple isolated subgraphs. If there is a path between every pair of vertices, it is called a "connected graph".
+- The graph can also have cycles (or not). An "acyclic graph" is one without cycles.
+
+
+## Adjacency List
+
+This is the most common way to represent a graph. Every vertex (or node) stores a list of adjacent vertices. In an undirected graph, an edge like (a, b) would be stored twice: once in a's adjacent vertices and once in b's adjacent vertices.
+
+A simple class definition for a graph node could look essentially the same as a tree node.
+
+    class Graph {
+        public Node[] nodes;
+    }
+
+    class Node {
+        public String name;
+        public Node[] children;
+    }
+
+The Graph class is used because, unlike in a tree, you can't necessarily reach all the nodes from a single node. You don't necessarily need any additional classes to represent a graph. An array (or a hash table) of lists (arrays, array lists, linked lists, etc.) can store the adjacent list. This is a bit more compact, but it isn't quite as clean. We tend to use node classes unless there's a compelling reason not to.
+
+
+## Adjacency Matrices
+
+An adjacency matrix is an *NxN* boolean matrix (where *N* is the number of nodes), where a true value at *matrix[i][j]* indicates an edge from node *i* to node *j*. In an undirected graph, an adjacency matrix will be symmetric. In a directed graph, it will not (necessarily) be.
+
+The same graph algorithms that are used on adjacency lists (breadth-first search, etc.) can be performed with adjacency matrices, but they may be somewhat less efficient. In adjacency list representation, you can easily iterate through the neighbors of a node. In the adjacency matrix representation, you will need to iterate through all the nodes to identify a node's neighbors.
+
+
+# Graph Search
+
+
+## Depth-first search (DFS)
+
+In depth-first search, we start at the root (or another arbitrarily selected node) and explore each branch completely before moving on to the next branch. That is, we go deep first before we go wide.
+
+Note that pre-order and other forms of tree traversal are a form of DFS. The key difference is that when implementing this algorithm for a graph, we must check if the node has been visited. If we don't, we risk getting stuck in a infinite loop.
+
+    void search(Node root) {
+        if (root == null) return;
+        visit(root);
+        root.visited = true
+        foreach (Node n in root.adjacent) {
+            if (n.visited == false) {
+                search(n);
+            }
+        }
+    }
+
+
+## Breadth-first search (BFS)
+
+In breadth-first search, we start at the root (or another arbitrarily selected node) and explore each neighbor before going on to any of their children. That is, we go wide before we go deep.
+
+If you are asked to implement BFS, the key thing to remember is the use of the queue.
+
+    void search(Node root) {
+        Queue queue = new Queue();
+        root.marked = true;
+        queue.enqueue(root); // Add to the end of queue
+        
+        while (!queue.isEmpty()) {
+            Node r = queue.dequeue(); // Remove from the front of the queue
+            visit(r);
+            foreach (Node n in r.adjacent) {
+                if (n.marked == false) {
+                    n.marked = true;
+                    queue.enqueue(n);
+                }
+            }
+        }
+    }
+
+Breadth-first search and depth-first search tend to be used in different scenarios. DFS is often preferred if we want to visit every node in the graph. Both will work just fine, but depth-first search is a bit simpler. However, if we want to find the shortest path (or just any path) between two nodes, BFS is generally better.
+
+
+## Bidirectional Search
+
+Bidirectional search is used to find the shortest path between a source and destination node. It operates by essentially running two simultaneous breadth-first searches, one from each node. When their searches collide, we have found a path.
+
+The bidirectional search is actually faster by a factor of *k<sup>d/2</sup>*. (each node has at most *k* adjacent nodes, and the shortest path from node *s* to node *t* has length *d*).
