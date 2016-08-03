@@ -250,6 +250,7 @@ An AVL tree is one of two common ways to implement tree balancing. We will only 
 
 An AVL tree stores in each node the height of the subtrees rooted at this node. Then, for any node, we can check if it is height balanced: that the height of the left subtree and the height of right subtree differ by no more than one. This prevents situations where the tree gets too lopsided.
 > balance(n) = n.left.height - n.right.height
+
 > -1 <= balance(n) <= 1
 
 
