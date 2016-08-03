@@ -289,8 +289,8 @@ Property #4 means that two red nodes cannot be adjacent in a path. Therefore, no
 
 Consider two paths from a node (say, the root) to its leaves. The paths must have the same number of black nodes, so let's assume that their read node counts are as different as possible.
 
-1. Path 1 (Min Red): The minimum number of red nodes is zero. Therefore Path 1 has *b* nodes total.
-2. Path 2 (Max Red): The maximum number of red nodes is *b*, since red nodes must have black children and there are *b* black nodes. Therefore, path 2 has *2b* nodes total.
+1. Min Red path: The minimum number of red nodes is zero. Therefore it has *b* nodes total.
+2. Max Red path: The maximum number of red nodes is *b*, since red nodes must have black children and there are *b* black nodes. Therefore it has *2b* nodes total.
 
 Therefore, even in the most extreme case, the lengths of paths cannot differ by more than a factor of two. That's good enough to ensure an *O(logN)* find and insert runtime.
 
@@ -333,9 +333,9 @@ By simple combinations, that's eight cases to consider. Fortunately some of thes
         - Introducing a black violation.
     - In each of the cases, the red violation is fixed with rotations that maintain the node ordering. Further, it maintain the exact number of black nodes in each path through the affected portion of the tree that were in place beforehand. The children of the rotating section are either NULL leaves or subtrees that remain internally unchanged.
     - Case A: N and P are both left children.
-        - We resolve the red violation with rotation of N, P and G and associated recoloring.  If you picture the in-order traversal, the order is a <= N <= b <= P <= c <= G <=U. The tree maintains the same, equal number of black nodes in the path down to each subtree a, b, c and U (which may all be NULL).
+        - We resolve the red violation with rotation of N, P and G and associated recoloring.  If you picture the in-order traversal, the order is *a <= N <= b <= P <= c <= G <=U*. The tree maintains the same, equal number of black nodes in the path down to each subtree a, b, c and U (which may all be NULL).
     - Case B: P is a left child, and N is a right child.
-        - The rotation resolve the red violation and maintain the in-order property of a <= P <= b <= N <= c <= G <= U.
+        - The rotation resolve the red violation and maintain the in-order property of *a <= P <= b <= N <= c <= G <= U*.
     - Case C: N and P are both right children.
         - This is a mirror image of case A.
     - Case D: N is a left child, and P is a right child.
