@@ -239,3 +239,108 @@ In this algorithm, the priority queue can be implemented in different ways, and 
 
 - If the graph has a lot of edges, then *v<sup>2</sup>* will be close to *e*. In this case, you might be better off with the array implementation, as *O(v<sup>2</sup>)*.
 - If the graph is sparse, then *e* is much less than *v<sup>2</sup>*. In this case, the min heap implementation may be better as *O((v+e) logv)*.
+
+
+# AVL Trees
+
+An AVL tree is one of two common ways to implement tree balancing. We will only discuss insertions here, but you can look up deletions separately if you're interested.
+
+
+## Properties
+
+An AVL tree stores in each node the height of the subtrees rooted at this node. Then, for any node, we can check if it is height balanced: that the height of the left subtree and the height of right subtree differ by no more than one. This prevents situations where the tree gets too lopsided.
+> balance(n) = n.left.height - n.right.height
+> -1 <= balance(n) <= 1
+
+
+## Insertion
+
+When you insert a node, the balance of some nodes might change to -2 or 2. Therefore, when we "unwind" the recursive stack, we check and fix the balance at each node. We do this through a series of rotations. Rotations can be either left or right rotations. The right rotation is an inverse of the left rotation.
+
+Depending on the balance and where the imbalance occurs, we fix it in a different way.
+
+1. Balance is 2.
+    - In this case, the left's height is two bigger than the right's height. If the left side is larger, the left subtree's extra nodes must be hanging to the left (as in LEFT LEFT SHAPE) or hanging to the right (as in LEFT RIGHT SHAPE). If it looks like the LEFT RIGHT SHAPE, transform it with the rotations into the LEFT LEFT SHAPE then into BALANCED. If it looks like the LEFT LEFT SHAPE already, just transform it into BALANCED.
+2. Balance is -2.
+    - This case is the mirror image of the prior case. The tree will look like either the RIGHT LEFT SHAPE or the RIGHT RIGHT SHAPE. Perform the rotations to transform it into BALANCED.
+
+We recurse up the tree, fixing any imbalances. If we ever achieve a balance of 0 on a subtree, then we know that we have completed all the balances. This portion of the tree will not cause another, higher subtree to have a balance of -2 or 2. If we were doing this non-recursively, then we could break from the loop.
+
+
+# Red-Black Trees
+
+Red-black trees (a type of self-balancing binary search tree) do not ensure quite as strict balancing, but the balancing is still good enough to ensure *O(logN)* insertions, deletions, and retrievals. They require a bit less memory and can rebalance faster (which means faster insertions and removals), so they are often used in situations where the tree will be modified frequently.
+
+Red-black trees operate by enforcing a quasi-alternating red and black coloring (under certain rules) and then requiring every path from a node to its leaves to have the same number of black nodes. Doing so leads to a reasonably balanced tree.
+
+
+## Properties
+
+1. Every node is either red or black.
+2. The root is black.
+3. The leaves, which are NULL nodes, are considered black.
+4. Every red node must have two black children. That is, a red node cannot have red children (although a black node can have black children).
+5. Every path from a node to its leaves must have the same number of black children.
+
+
+## Why It Balances
+
+Property #4 means that two red nodes cannot be adjacent in a path. Therefore, no more than half the nodes in a path can be red.
+
+Consider two paths from a node (say, the root) to its leaves. The paths must have the same number of black nodes, so let's assume that their read node counts are as different as possible.
+
+1. Path 1 (Min Red): The minimum number of red nodes is zero. Therefore Path 1 has *b* nodes total.
+2. Path 2 (Max Red): The maximum number of red nodes is *b*, since red nodes must have black children and there are *b* black nodes. Therefore, path 2 has *2b* nodes total.
+
+Therefore, even in the most extreme case, the lengths of paths cannot differ by more than a factor of two. That's good enough to ensure an *O(logN)* find and insert runtime.
+
+
+## Insertion
+
+Inserting a new node into a red-black tree starts off with a typical binary search tree insertion.
+
+- New nodes are inserted at a leaf, which means that they replace a black node.
+- New nodes are always colored red and are given two black leaf (NULL) nodes.
+
+Once we've done that, we fix any resulting red-black property violations.
+
+- Red violations: A red node has a red child (or the root is red).
+- Black violations: One path has more blacks than another path.
+
+In the special case that where the root is red, we can always just turn it black to satisfy property #2, without violating the other constraints.
+
+Let's call N the current node. P is N's parent. G is N's grandparent. U is N's uncle and P's sibling. We know that
+
+- N is red and P is red, since we have a red violation.
+- G is definitely black, since didn't previously have a red violation.
+
+The unknown parts are
+
+- U could be either red or black.
+- U could be either a left or right child.
+- N could be either a left or right child.
+
+By simple combinations, that's eight cases to consider. Fortunately some of these cases will be equivalent.
+
+1. U is red.
+    - It doesn't matter whether U is a left or right child, nor whether P is a left or right child. We can merge four of our eight cases into one.
+    - If U is red, we can just toggle the colors of P, U and G. Flip G from black to red. Flip P and U from red to black. We haven't changed the number of black nodes in any path.
+    - However, by making G red, we might have created a red violation with G's parent. If so, we recursively apply the full logic to handle a red violation, where this G becomes the new N.
+    - Note that in the general recursive case, N, P and U may also have subtrees in place of each black NULL. In this case, these subtrees stay attached to the same parents, as the tree structure remains unchanged.
+2. U is black.
+    - We'll need to consider the configurations (left vs. right child) of N and U. In each case, our goal is to fix up the red violation without
+        - Messing up the ordering of the binary search tree.
+        - Introducing a black violation.
+    - In each of the cases, the red violation is fixed with rotations that maintain the node ordering. Further, it maintain the exact number of black nodes in each path through the affected portion of the tree that were in place beforehand. The children of the rotating section are either NULL leaves or subtrees that remain internally unchanged.
+    - Case A: N and P are both left children.
+        - We resolve the red violation with rotation of N, P and G and associated recoloring.  If you picture the in-order traversal, the order is a <= N <= b <= P <= c <= G <=U. The tree maintains the same, equal number of black nodes in the path down to each subtree a, b, c and U (which may all be NULL).
+    - Case B: P is a left child, and N is a right child.
+        - The rotation resolve the red violation and maintain the in-order property of a <= P <= b <= N <= c <= G <= U.
+    - Case C: N and P are both right children.
+        - This is a mirror image of case A.
+    - Case D: N is a left child, and P is a right child.
+        - This is a mirror image of case B.
+
+In each of Case 2's subcases, the middle element by value of N, P and G is rotated to become the root of what was G's subtree, and that element and G swap colors.
+
+Do not try to memorize these cases. Rather, study why they work. How does each one ensure no red violations, no black violations and no violation of the binary search tree property?
