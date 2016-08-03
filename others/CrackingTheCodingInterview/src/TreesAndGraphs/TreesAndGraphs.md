@@ -195,3 +195,47 @@ Breadth-first search and depth-first search tend to be used in different scenari
 Bidirectional search is used to find the shortest path between a source and destination node. It operates by essentially running two simultaneous breadth-first searches, one from each node. When their searches collide, we have found a path.
 
 The bidirectional search is actually faster by a factor of *k<sup>d/2</sup>*. (each node has at most *k* adjacent nodes, and the shortest path from node *s* to node *t* has length *d*).
+
+
+# Topological Sort
+
+A topological sort of a directed graph is a way of ordering the list of nodes such that is (a, b) is an edge in the graph then *a* will appear before *b* in the list. If a graph has cycles or is not directed, then there is no topological sort.
+
+The algorithm is
+
+1. Create a queue *order*, which will eventually store the valid topological sort. It is currently empty.
+2. Create a queue *processNext*. This queue will store the next nodes to process.
+3. Count the number of incoming edges of each node and set a class variable *node.inbound*. Nodes typically only store their outgoing edges. However, you can count the inbound edges by walking through each node *n* and, for each of its outgoing edges (n, x), incrementing *x.inbound*.
+4. Walk through the nodes again and add to *processNext* any node where *x.inbound == 0*.
+5. While *processNext* is not empty, do the following
+    - Remove first node *n* from *processNext*.
+    - For each edge (n, x), decrement *x.inbound*. If *x.inbound == 0*, append *x* to *processNext*.
+    - Append *n* to *order*.
+6. If *order* contains all the nodes, then it has succeeded. Otherwise, the topological sort has failed due to a cycle.
+
+
+# Dijkstra's Algorithm
+
+Dijkstra's algorithm is a way to find the shortest path between two points in a weighted directed graph (which might have cycles). All edges must have positive values.
+
+We first initialize several variables
+
+- *path_weight[node]*: maps from each node to the total weight of the shortest path. All values are initialized to infinity, except for *path_weight[a]* which is initialized to 0.
+- *previous[node]*: maps from each node to the previous node in the (current) shortest path.
+- *remaining*: a priority queue of all nodes in the graph, where each node's priority is defined by its *path_weight*.
+
+Once we've initialized these values, we can start adjusting the values of *path_weight*. We iterate through the nodes in *remaining* (until remaining is empty), do the following.
+
+1. select the node in *remaining* with the lowest value in *path_weight*. Call this node *n*.
+2. For each adjacent node, compare *path_weight[x]* (which is the weight of the current shortest path from *a* to *x*) to *path_weight[n] + edge_weight[(n, x)]*. That is, could we get a path from *a* to *x* with lower weight by going through n instead of our current path? If so, update *path_weight* and *previous*.
+3. Remove *n* from *remaining*.
+
+When *remaining* is empty, then *path_weight* stores the weight of the current shortest path from *a* to each node. We can reconstruct this path by tracing through previous.
+
+
+## Priority Queue and Runtime
+
+In this algorithm, the priority queue can be implemented in different ways, and which is better depends.
+
+- If the graph has a lot of edges, then *v<sup>2</sup>* will be close to *e*. In this case, you might be better off with the array implementation, as *O(v<sup>2</sup>)*.
+- If the graph is sparse, then *e* is much less than *v<sup>2</sup>*. In this case, the min heap implementation may be better as *O((v+e) logv)*.
