@@ -107,7 +107,7 @@ public class Graph {
         }
     }
     
-    // O(n+m)
+    // O(v+e)
     public static boolean topologicalSort(Graph graph) {
         if (graph == null) {
             return false;
