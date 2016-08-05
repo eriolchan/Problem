@@ -1,5 +1,7 @@
 package TreesAndGraphs;
 
+import static org.junit.Assert.*;
+
 public class HelperTest {
 
     public static TreeNode createNotPerfectTree() {
@@ -45,5 +47,15 @@ public class HelperTest {
         root.getRight().setRight(new TreeNode(7));
         
         return root;
+    }
+    
+    public static void assertTreeEquals(TreeNode expected, TreeNode actual) {
+        if (expected != null && actual != null) {
+            assertEquals(expected, actual);
+            assertTreeEquals(expected.getLeft(), actual.getLeft());
+            assertTreeEquals(expected.getRight(), actual.getRight());
+        } else {
+            assertTrue(expected == null && actual == null);
+        }
     }
 }

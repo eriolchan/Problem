@@ -71,6 +71,26 @@ public class TreeNode {
         }
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        
+        if (!(obj instanceof TreeNode)) {
+            return false;
+        }
+        
+        final TreeNode other = (TreeNode)obj;
+        
+        return this.data == other.data;
+    }
+    
+    @Override
+    public int hashCode() {
+        return data;
+    }
+    
     private static void visit(TreeNode node) {
         output.append(node.getData());
     }

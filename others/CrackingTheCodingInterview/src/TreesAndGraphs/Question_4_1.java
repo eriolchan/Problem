@@ -10,6 +10,7 @@ import java.util.Queue;
  */
 public class Question_4_1 {
 
+    // O(n)
     public static boolean hasRoute(Graph graph, Node start, Node end) {
         if (graph == null || start == null || end == null) {
             return false;

@@ -280,7 +280,7 @@ class Node {
         
         final Node other = (Node)obj;
         
-        return this.name.equals(other.getName());
+        return this.name.equals(other.name);
     }
     
     @Override
