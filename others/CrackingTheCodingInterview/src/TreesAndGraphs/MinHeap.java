@@ -11,6 +11,7 @@ public class MinHeap {
         buildHeap();
     }
     
+    // O(log n)
     public Integer extractMin() throws EmptyHeapException {
         if (array.size() == 0) {
             throw new EmptyHeapException();
@@ -28,6 +29,7 @@ public class MinHeap {
         return result;
     }
     
+    // O(log n)
     public void insert(Integer value) {
         array.add(value);
         bubbleUp(array.size() - 1);

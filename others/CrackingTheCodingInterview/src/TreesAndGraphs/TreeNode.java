@@ -44,6 +44,7 @@ public class TreeNode {
         return result;
     }
     
+    // O(n)
     public static void inOrderTraversalRecursively(TreeNode root) {
         if (root != null) {
             inOrderTraversalRecursively(root.left);
@@ -52,6 +53,7 @@ public class TreeNode {
         }
     }
     
+    // O(n)
     public static void preOrderTraversalRecursively(TreeNode root) {
         if (root != null) {
             visit(root);
@@ -60,6 +62,7 @@ public class TreeNode {
         }
     }
     
+    // O(n)
     public static void postOrderTraversalRecursively(TreeNode root) {
         if (root != null) {
             postOrderTraversalRecursively(root.left);

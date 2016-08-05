@@ -1,6 +1,7 @@
 package TreesAndGraphs;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -21,22 +22,32 @@ public class Graph {
         nodes = new ArrayList<Node>();
     }
     
-    public void addEdge(String s, String t) {
-        Node source = getNode(s);
-        if (source == null) {
-            source = new Node(s);
-            nodes.add(source);
+    public void addEdge(String s, String e) {
+        addEdge(s, e, 0);
+    }
+    
+    public void addEdge(String s, String e, int weight) {
+        Node start = getNode(s);
+        if (start == null) {
+            start = new Node(s);
+            nodes.add(start);
         }
         
-        Node target = getNode(t);
-        if (target == null) {
-            target = new Node(t);
-            nodes.add(target);
+        Node end = getNode(e);
+        if (end == null) {
+            end = new Node(e);
+            nodes.add(end);
         }
         
-        if (!source.getNeighbors().contains(target)) {
-            source.getNeighbors().add(target);
+        if (!start.getNeighbors().contains(end)) {
+            start.getNeighbors().add(end);
+            start.setWeight(end.getName(), weight);
+            end.increaseInbound();
         }
+    }
+    
+    public ArrayList<Node> getNodes() {
+        return nodes;
     }
     
     public Node getNode(String name) {
@@ -57,6 +68,7 @@ public class Graph {
         return result;
     }
     
+    // O(n)
     public static void depthFirstSearch(Node root) {
         if (root == null) {
             return;
@@ -72,6 +84,7 @@ public class Graph {
         }
     }
     
+    // O(n)
     public static void breadthFirstSearch(Node root) {
         if (root == null) {
             return;
@@ -94,6 +107,117 @@ public class Graph {
         }
     }
     
+    // O(n+m)
+    public static boolean topologicalSort(Graph graph) {
+        if (graph == null) {
+            return false;
+        }
+        
+        Queue<Node> processNext = new LinkedList<Node>();
+        for (Node node : graph.getNodes()) {
+            if (node.getInbound() == 0) {
+                processNext.add(node);
+            }
+        }
+        
+        Queue<Node> order = new LinkedList<Node>();
+        while (!processNext.isEmpty()) {
+            Node node = processNext.remove();
+            order.add(node);
+            
+            for (Node neighbor : node.getNeighbors()) {
+                neighbor.decreaseInbound();
+                if (neighbor.getInbound() == 0) {
+                    processNext.add(neighbor);
+                }
+            }
+        }
+        
+        if (order.size() != graph.getNodes().size()) {
+            return false;
+        }
+        
+        while (!order.isEmpty()) {
+            visit(order.remove());
+        }
+        
+        return true;
+    }
+    
+    // O(v^2)
+    public static int dijkstraShortestPath(Graph graph, String start, String end) {
+        HashMap<String, String> previous = new HashMap<String, String>();
+        HashMap<String, Integer> pathWeights = initializePathWeights(graph, start);
+        
+        HashSet<String> remaining = new HashSet<String>();
+        for (String key : pathWeights.keySet()) {
+            remaining.add(key);
+        }
+        
+        while (!remaining.isEmpty()) {
+            String name = getMinWeight(remaining, pathWeights);
+            if (name == null) {
+                break;
+            }
+            
+            Node min = graph.getNode(name);
+            for (Node node : min.getNeighbors()) {
+                if (remaining.contains(node.getName())) {
+                    int weight = pathWeights.get(name) + min.getWeight(node.getName());
+                    if (weight < pathWeights.get(node.getName())) {
+                        pathWeights.put(node.getName(), weight);
+                        previous.put(node.getName(), name);
+                    }
+                }
+            }
+            
+            remaining.remove(name);
+        }
+        
+        int weight = pathWeights.get(end);
+        if (weight != Integer.MAX_VALUE) {
+            constructPath(previous, end);
+        }
+        
+        return weight;
+    }
+    
+    private static void constructPath(HashMap<String, String> previous, String end) {
+        if (!previous.containsKey(end)) {
+            output.append(end);
+            return;
+        }
+        
+        constructPath(previous, previous.get(end));
+        output.append(end);
+    }
+    
+    private static HashMap<String, Integer> initializePathWeights(Graph graph, String start) {
+        HashMap<String, Integer> pathWeights = new HashMap<String, Integer>();
+        for (Node node : graph.getNodes()) {
+            pathWeights.put(node.getName(), Integer.MAX_VALUE);
+        }
+        
+        pathWeights.put(start, 0);
+        
+        return pathWeights;
+    }
+    
+    private static String getMinWeight(HashSet<String> remaining, HashMap<String, Integer> pathWeights) {
+        String name = null;
+        int minWeight = Integer.MAX_VALUE;
+        
+        for (String s : remaining) {
+            int weight = pathWeights.get(s);
+            if (weight < minWeight) {
+                minWeight = weight;
+                name = s;
+            }
+        }
+        
+        return name;
+    }
+    
     private static void visit(Node node) {
         output.append(node.getName());
     }
@@ -101,19 +225,47 @@ public class Graph {
 
 class Node {
     private String name;
+    private int inbound;
     private ArrayList<Node> neighbors;
+    private HashMap<String, Integer> weights;
     
     public Node(String name) {
         this.name = name;
+        inbound = 0;
         neighbors = new ArrayList<Node>();
+        weights = new HashMap<String, Integer>();
     }
     
     public String getName() {
         return name;
     }
     
+    public int getInbound() {
+        return inbound;
+    }
+    
     public ArrayList<Node> getNeighbors() {
         return neighbors;
+    }
+    
+    public int getWeight(String target) {
+        if (!weights.containsKey(target)) {
+            return Integer.MAX_VALUE;
+        }
+        
+        return weights.get(target);
+    }
+    
+    public void setWeight(String target, int weight) {
+        weights.put(target, weight);
+    }
+    
+    public void increaseInbound() {
+        ++inbound;
+    }
+    
+    public void decreaseInbound() {
+        --inbound;
     }
     
     @Override
