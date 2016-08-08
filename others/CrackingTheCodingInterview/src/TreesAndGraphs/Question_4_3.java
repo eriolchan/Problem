@@ -9,6 +9,7 @@ import java.util.LinkedList;
  */
 public class Question_4_3 {
 
+    // O(n)
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListByDFS(TreeNode root) {
         if (root == null) {
             return null;
@@ -20,6 +21,7 @@ public class Question_4_3 {
         return lists;
     }
     
+    // O(n)
     public static ArrayList<LinkedList<TreeNode>> createLinkedListByBFS(TreeNode root) {
         if (root == null) {
             return null;

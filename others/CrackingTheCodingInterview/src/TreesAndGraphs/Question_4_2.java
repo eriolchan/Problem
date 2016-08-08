@@ -7,6 +7,7 @@ package TreesAndGraphs;
  */
 public class Question_4_2 {
 
+    // O(n)
     public static TreeNode createMinimalBST(int[] array) {
         if (array == null || array.length == 0) {
             return null;
