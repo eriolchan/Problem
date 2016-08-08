@@ -58,7 +58,7 @@ public class Question_2_5 {
             n2 = padLeft(n2, len1 - len2);
         }
         
-        PartialSum sum = addListsInOrderCore(n1, n2);
+        PartialSum sum = addListsInOrderRecursively(n1, n2);
         if (sum.carry != 0) {
             sum.sum = insertBefore(sum.sum, sum.carry);
         }
@@ -66,12 +66,12 @@ public class Question_2_5 {
         return sum.sum;
     }
     
-    private static PartialSum addListsInOrderCore(ListNode n1, ListNode n2) {
+    private static PartialSum addListsInOrderRecursively(ListNode n1, ListNode n2) {
         if (n1 == null && n2 == null) {
             return PartialSum.getInstance();
         }
         
-        PartialSum sum = addListsInOrderCore(n1.getNext(), n2.getNext());
+        PartialSum sum = addListsInOrderRecursively(n1.getNext(), n2.getNext());
         int value = n1.getData() + n2.getData() + sum.carry;
         sum.sum = insertBefore(sum.sum, value % 10);
         sum.carry = value / 10;
@@ -96,8 +96,8 @@ public class Question_2_5 {
     }
     
     private static class PartialSum {
-        ListNode sum;
-        int carry;
+        private ListNode sum;
+        private int carry;
         
         private PartialSum() {
             sum = null;

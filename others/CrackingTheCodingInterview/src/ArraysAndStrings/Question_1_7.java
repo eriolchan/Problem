@@ -34,12 +34,6 @@ public class Question_1_7 {
         return true;
     }
     
-    private static void swap(int[][] matrix, int x1, int y1, int x2, int y2) {
-        int temp = matrix[x1][y1];
-        matrix[x1][y1] = matrix[x2][y2];
-        matrix[x2][y2] = temp;
-    }
-    
     // O(n^2)
     public static boolean rotateMatrixByRoll(int[][] matrix) {
         if (matrix == null) {
@@ -66,5 +60,11 @@ public class Question_1_7 {
         }
         
         return true;
+    }
+    
+    private static void swap(int[][] matrix, int x1, int y1, int x2, int y2) {
+        int temp = matrix[x1][y1];
+        matrix[x1][y1] = matrix[x2][y2];
+        matrix[x2][y2] = temp;
     }
 }

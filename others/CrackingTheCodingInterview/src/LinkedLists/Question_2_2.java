@@ -54,9 +54,8 @@ public class Question_2_2 {
         return node;
     }
     
-    static class Index {
-        
-        int value;
+    private static class Index {
+        private int value;
         
         private Index() {
             value = 0;

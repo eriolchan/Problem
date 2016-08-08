@@ -12,18 +12,18 @@ public class Question_4_2 {
             return null;
         }
         
-        return createBinarySearchTreeCore(array, 0, array.length - 1);
+        return createMinimalBSTRecursively(array, 0, array.length - 1);
     }
     
-    private static TreeNode createBinarySearchTreeCore(int[] array, int start, int end) {
+    private static TreeNode createMinimalBSTRecursively(int[] array, int start, int end) {
         if (start > end) {
             return null;
         }
         
         int middle = (start + end) / 2;
         TreeNode root = new TreeNode(array[middle]);
-        root.setLeft(createBinarySearchTreeCore(array, start, middle - 1));
-        root.setRight(createBinarySearchTreeCore(array, middle + 1, end));
+        root.setLeft(createMinimalBSTRecursively(array, start, middle - 1));
+        root.setRight(createMinimalBSTRecursively(array, middle + 1, end));
         
         return root;
     }

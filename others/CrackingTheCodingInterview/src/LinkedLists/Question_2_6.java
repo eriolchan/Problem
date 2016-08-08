@@ -18,35 +18,6 @@ public class Question_2_6 {
         return compare(head, reversed);
     }
     
-    private static ListNode reverse(ListNode head) {
-        if (head == null) {
-            return null;
-        }
-        
-        ListNode next = null;
-        while (head != null) {
-            ListNode node = new ListNode(head.getData());
-            node.setNext(next);
-            next = node;
-            head = head.getNext();
-        }
-        
-        return next;
-    }
-    
-    private static boolean compare(ListNode n1, ListNode n2) {
-        while (n1 != null && n2 != null) {
-            if (n1.getData() != n2.getData()) {
-                return false;
-            }
-            
-            n1 = n1.getNext();
-            n2 = n2.getNext();
-        }
-        
-        return n1 == null && n2 == null;
-    }
-    
     // O(n)
     public static boolean isPalindromeByStack(ListNode head) {
         if (head == null) {
@@ -90,6 +61,35 @@ public class Question_2_6 {
         return result.result;
     }
     
+    private static ListNode reverse(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        
+        ListNode next = null;
+        while (head != null) {
+            ListNode node = new ListNode(head.getData());
+            node.setNext(next);
+            next = node;
+            head = head.getNext();
+        }
+        
+        return next;
+    }
+    
+    private static boolean compare(ListNode n1, ListNode n2) {
+        while (n1 != null && n2 != null) {
+            if (n1.getData() != n2.getData()) {
+                return false;
+            }
+            
+            n1 = n1.getNext();
+            n2 = n2.getNext();
+        }
+        
+        return n1 == null && n2 == null;
+    }
+    
     private static Result isPalindromeCore(ListNode head, int length) {
         if (head == null || length <= 0) {
             Result result = Result.getInstance();
@@ -116,8 +116,8 @@ public class Question_2_6 {
     }
     
     private static class Result {
-        ListNode next;
-        boolean result;
+        private ListNode next;
+        private boolean result;
         
         private Result() {
             next = null;
