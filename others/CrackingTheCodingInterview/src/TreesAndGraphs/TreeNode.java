@@ -3,6 +3,7 @@ package TreesAndGraphs;
 public class TreeNode {
 
     private int data;
+    private TreeNode parent;
     private TreeNode left;
     private TreeNode right;
     
@@ -13,8 +14,14 @@ public class TreeNode {
     }
     
     public TreeNode(int data) {
+        this(data, null);
+    }
+    
+    public TreeNode(int data, TreeNode parent) {
         this.data = data;
-        left = right = null;
+        this.parent = parent;
+        left = null;
+        right = null;
     }
     
     public int getData() {
@@ -35,6 +42,10 @@ public class TreeNode {
     
     public void setRight(TreeNode right) {
         this.right = right;
+    }
+    
+    public TreeNode getParent() {
+        return parent;
     }
     
     public static String getResult() {
