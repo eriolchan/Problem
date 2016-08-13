@@ -13,8 +13,8 @@ public class Question_4_1Test {
         graph.addEdge("b", "c");
         graph.addEdge("c", "a");
         
-        Node start = graph.getNode("a");
-        Node end = graph.getNode("c");
+        Node start = graph.getOrCreateNode("a");
+        Node end = graph.getOrCreateNode("c");
         assertTrue(Question_4_1.hasRoute(graph, start, end));
     }
     
@@ -25,8 +25,8 @@ public class Question_4_1Test {
         graph.addEdge("b", "c");
         graph.addEdge("a", "c");
         
-        Node start = graph.getNode("a");
-        Node end = graph.getNode("c");
+        Node start = graph.getOrCreateNode("a");
+        Node end = graph.getOrCreateNode("c");
         assertTrue(Question_4_1.hasRoute(graph, start, end));
     }
     
@@ -36,8 +36,8 @@ public class Question_4_1Test {
         graph.addEdge("a", "b");
         graph.addEdge("b", "c");
         
-        Node start = graph.getNode("c");
-        Node end = graph.getNode("a");
+        Node start = graph.getOrCreateNode("c");
+        Node end = graph.getOrCreateNode("a");
         assertFalse(Question_4_1.hasRoute(graph, start, end));
     }
     
@@ -47,7 +47,7 @@ public class Question_4_1Test {
         graph.addEdge("a", "b");
         graph.addEdge("b", "c");
         
-        Node start = graph.getNode("a");
+        Node start = graph.getOrCreateNode("a");
         Node end = start;
         assertTrue(Question_4_1.hasRoute(graph, start, end));
     }

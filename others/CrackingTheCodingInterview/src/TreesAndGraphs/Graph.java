@@ -9,6 +9,7 @@ import java.util.Queue;
 public class Graph {
 
     private ArrayList<Node> nodes;
+    private HashMap<String, Node> map;
     
     private static StringBuilder output;
     private static HashSet<String> visited;
@@ -20,6 +21,17 @@ public class Graph {
     
     public Graph() {
         nodes = new ArrayList<Node>();
+        map = new HashMap<String, Node>();
+    }
+    
+    public Node getOrCreateNode(String name) {
+        if (!map.containsKey(name)) {
+            Node node = new Node(name);
+            nodes.add(node);
+            map.put(name, node);
+        }
+        
+        return map.get(name);
     }
     
     public void addEdge(String s, String e) {
@@ -27,37 +39,13 @@ public class Graph {
     }
     
     public void addEdge(String s, String e, int weight) {
-        Node start = getNode(s);
-        if (start == null) {
-            start = new Node(s);
-            nodes.add(start);
-        }
-        
-        Node end = getNode(e);
-        if (end == null) {
-            end = new Node(e);
-            nodes.add(end);
-        }
-        
-        if (!start.getNeighbors().contains(end)) {
-            start.getNeighbors().add(end);
-            start.setWeight(end.getName(), weight);
-            end.increaseInbound();
-        }
+        Node start = getOrCreateNode(s);
+        Node end = getOrCreateNode(e);
+        start.AddNeighbor(end, weight);
     }
     
     public ArrayList<Node> getNodes() {
         return nodes;
-    }
-    
-    public Node getNode(String name) {
-        for (Node node : nodes) {
-            if (node.getName().equals(name)) {
-                return node;
-            }
-        }
-        
-        return null;
     }
     
     public static String getResult() {
@@ -160,7 +148,7 @@ public class Graph {
                 break;
             }
             
-            Node min = graph.getNode(name);
+            Node min = graph.getOrCreateNode(name);
             for (Node node : min.getNeighbors()) {
                 if (remaining.contains(node.getName())) {
                     int weight = pathWeights.get(name) + min.getWeight(node.getName());
@@ -227,12 +215,14 @@ class Node {
     private String name;
     private int inbound;
     private ArrayList<Node> neighbors;
+    private HashMap<String, Node> map;
     private HashMap<String, Integer> weights;
     
     public Node(String name) {
         this.name = name;
         inbound = 0;
         neighbors = new ArrayList<Node>();
+        map = new HashMap<String, Node>();
         weights = new HashMap<String, Integer>();
     }
     
@@ -248,16 +238,22 @@ class Node {
         return neighbors;
     }
     
+    public void AddNeighbor(Node target, int weight) {
+        String name = target.getName();
+        if (!map.containsKey(name)) {
+            map.put(name, target);
+            neighbors.add(target);
+            weights.put(name, weight);
+            target.increaseInbound();
+        }
+    }
+    
     public int getWeight(String target) {
         if (!weights.containsKey(target)) {
             return Integer.MAX_VALUE;
         }
         
         return weights.get(target);
-    }
-    
-    public void setWeight(String target, int weight) {
-        weights.put(target, weight);
     }
     
     public void increaseInbound() {

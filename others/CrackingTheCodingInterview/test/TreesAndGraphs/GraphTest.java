@@ -18,7 +18,7 @@ public class GraphTest {
         graph.addEdge("d", "c");
         graph.addEdge("d", "e");
         
-        Node root = graph.getNode("a");
+        Node root = graph.getOrCreateNode("a");
         Graph.depthFirstSearch(root);
         assertEquals("abdcef", Graph.getResult());
         
@@ -41,6 +41,23 @@ public class GraphTest {
         
         assertTrue(Graph.topologicalSort(graph));
         assertEquals("afbcde", Graph.getResult());
+    }
+    
+    @Test
+    public void testTopologicalSort_NotConnectedGraph() {
+        Graph graph = new Graph();
+        graph.addEdge("a", "b");
+        graph.addEdge("a", "d");
+        graph.addEdge("b", "c");
+        graph.addEdge("c", "d");
+        graph.addEdge("c", "e");
+        graph.addEdge("d", "e");
+        graph.addEdge("f", "e");
+        graph.addEdge("h", "i");
+        graph.getOrCreateNode("g");
+        
+        assertTrue(Graph.topologicalSort(graph));
+        assertEquals("afghbicde", Graph.getResult());
     }
     
     @Test
