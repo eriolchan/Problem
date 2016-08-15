@@ -26,6 +26,10 @@ public class Question_4_7Test {
         String expected = "dfgcbae";
         String actual = Question_4_7.findBuildOrderByTopologicalSort(projects, dependencies);
         assertEquals(expected, actual);
+        
+        expected = "fdgcbae";
+        actual = Question_4_7.findBuildOrderByDFS(projects, dependencies);
+        assertEquals(expected, actual);
     }
     
     @Test
@@ -46,6 +50,9 @@ public class Question_4_7Test {
         };
         
         String actual = Question_4_7.findBuildOrderByTopologicalSort(projects, dependencies);
+        assertNull(actual);
+        
+        actual = Question_4_7.findBuildOrderByDFS(projects, dependencies);
         assertNull(actual);
     }
 }

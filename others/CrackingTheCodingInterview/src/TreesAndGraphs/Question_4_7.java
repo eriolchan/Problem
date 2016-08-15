@@ -19,16 +19,54 @@ public class Question_4_7 {
         return Graph.topologicalSort(graph) ? Graph.getResult() : null;
     }
     
+    // O(v+e)
     public static String findBuildOrderByDFS(String[] projects, String[][] dependencies) {
         Graph graph = buildGraph(projects, dependencies);
+        
+        HashMap<String, Status> status = new HashMap<String, Status>();
+        for (String project : projects) {
+            status.put(project, Status.NONE);
+        }
+        
+        Stack<String> stack = new Stack<String>();
+        for (Node node : graph.getNodes()) {
+            if (status.get(node.getName()) == Status.NONE) {
+                if (!findBuildOrderByDFSRecursively(node, stack, status)) {
+                    return null;
+                }
+            }
+        }
+        
+        return getResult(stack);
     }
     
-    private static boolean findBuildOrderByDFSRecursively(Node project, Stack<String> stack, HashMap<String, Status> status) {
-        if (status.get(project) == Status.VISITING) {
+    private static boolean findBuildOrderByDFSRecursively(Node node, Stack<String> stack, HashMap<String, Status> status) {
+        if (status.get(node.getName()) == Status.VISITING) {
             return false;
         }
         
-        for (Node node : )
+        if (status.get(node.getName()) == Status.NONE) {
+            status.put(node.getName(), Status.VISITING);
+            for (Node neighbor : node.getNeighbors()) {
+                if (!findBuildOrderByDFSRecursively(neighbor, stack, status)) {
+                    return false;
+                }
+            }
+            
+            status.put(node.getName(), Status.VISITED);
+            stack.push(node.getName());
+        }
+        
+        return true;
+    }
+    
+    private static String getResult(Stack<String> stack) {
+        StringBuilder result = new StringBuilder();
+        while (!stack.isEmpty()) {
+            result.append(stack.pop());
+        }
+        
+        return result.toString();
     }
     
     private static Graph buildGraph(String[] projects, String[][] dependencies) {

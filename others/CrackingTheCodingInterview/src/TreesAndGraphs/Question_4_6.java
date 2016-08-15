@@ -7,6 +7,7 @@ package TreesAndGraphs;
  */
 public class Question_4_6 {
 
+    // O(log n)
     public static TreeNode inOrderSuccessor(TreeNode node) {
         if (node == null) {
             return null;
