@@ -16,7 +16,7 @@ public class Question_3_3 {
     private int capacity;
     
     public Question_3_3(int capacity) {
-        stacks = new ArrayList<Stack>();
+        this.stacks = new ArrayList<Stack>();
         this.capacity = capacity;
     }
     
@@ -85,7 +85,7 @@ public class Question_3_3 {
         
         public Stack(int capacity) {
             this.capacity = capacity;
-            size = 0;
+            this.size = 0;
         }
         
         public boolean isEmpty() {
@@ -156,14 +156,14 @@ public class Question_3_3 {
         }
         
         private class Node {
-            int value;
-            Node above;
-            Node below;
+            private int value;
+            private Node above;
+            private Node below;
             
             public Node(int value) {
                 this.value = value;
-                above = null;
-                below = null;
+                this.above = null;
+                this.below = null;
             }
         }
     }

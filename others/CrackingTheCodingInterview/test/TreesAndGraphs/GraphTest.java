@@ -57,7 +57,7 @@ public class GraphTest {
         graph.getOrCreateNode("g");
         
         assertTrue(Graph.topologicalSort(graph));
-        assertEquals("afghbicde", Graph.getResult());
+        assertEquals("afhgbicde", Graph.getResult());
     }
     
     @Test

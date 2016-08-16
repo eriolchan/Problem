@@ -92,19 +92,12 @@ public class Question_2_6 {
     
     private static Result isPalindromeCore(ListNode head, int length) {
         if (head == null || length <= 0) {
-            Result result = Result.getInstance();
-            result.next = head;
-            
-            return result;
+            return Result.getInstance(head);
         } else if (length == 1) {
-            Result result = Result.getInstance();
-            result.next = head.getNext();
-            
-            return result;
+            return Result.getInstance(head.getNext());
         }
         
         Result result = isPalindromeCore(head.getNext(), length - 2);
-        
         if (!result.result || result.next == null) {
             return result;
         }
@@ -119,13 +112,13 @@ public class Question_2_6 {
         private ListNode next;
         private boolean result;
         
-        private Result() {
-            next = null;
-            result = true;
+        private Result(ListNode next) {
+            this.next = next;
+            this.result = true;
         }
         
-        public static Result getInstance() {
-            return new Result();
+        public static Result getInstance(ListNode next) {
+            return new Result(next);
         }
     }
 }

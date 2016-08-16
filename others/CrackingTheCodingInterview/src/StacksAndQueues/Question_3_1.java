@@ -241,7 +241,7 @@ class TripleStacks3 {
     private int[] stackPointer;
     
     public TripleStacks3(int capacity) {
-        this.stackCapacity = capacity;
+        stackCapacity = capacity;
         freeIndex = 0;
         values = new StackNode[numberOfStacks * capacity];
         stackPointer = new int[] { -1, -1, -1 };
@@ -318,8 +318,8 @@ class TripleStacks3 {
     }
     
     private class StackNode {
-        int previous;
-        int value;
+        private int previous;
+        private int value;
         
         public StackNode(int previous, int value) {
             this.previous = previous;
