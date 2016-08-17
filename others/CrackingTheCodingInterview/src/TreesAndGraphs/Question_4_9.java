@@ -11,6 +11,7 @@ import java.util.LinkedList;
  */
 public class Question_4_9 {
 
+    // O(n^3)
     public static ArrayList<LinkedList<Integer>> allSequence(TreeNode root) {
         ArrayList<LinkedList<Integer>> result = new ArrayList<LinkedList<Integer>>();
         

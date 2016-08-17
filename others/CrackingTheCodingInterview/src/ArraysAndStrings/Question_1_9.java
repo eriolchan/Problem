@@ -8,6 +8,7 @@ package ArraysAndStrings;
  */
 public class Question_1_9 {
 
+    // O(m+n)
     public static boolean isRotation(String s1, String s2) {
         if (s1 == null || s2 == null || s1.length() != s2.length() || s1.length() == 0) {
             return false;
