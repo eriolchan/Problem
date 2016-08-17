@@ -52,7 +52,7 @@ public class Question_4_2Test {
     }
     
     @Test
-    public void testCreateMinimalBST_OneElement() {
+    public void testCreateMinimalBST_OnlyRoot() {
         int[] array = new int[] { 1 };
         
         TreeNode expected = new TreeNode(1);

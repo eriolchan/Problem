@@ -11,10 +11,6 @@ public class Question_4_3 {
 
     // O(n)
     public static ArrayList<LinkedList<TreeNode>> createLevelLinkedListByDFS(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        
         ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
         createLinkedListByDFSRecursively(root, lists, 0);
         
@@ -23,13 +19,12 @@ public class Question_4_3 {
     
     // O(n)
     public static ArrayList<LinkedList<TreeNode>> createLinkedListByBFS(TreeNode root) {
-        if (root == null) {
-            return null;
-        }
-        
         ArrayList<LinkedList<TreeNode>> lists = new ArrayList<LinkedList<TreeNode>>();
         LinkedList<TreeNode> list = new LinkedList<TreeNode>();
-        list.add(root);
+        
+        if (root != null) {
+            list.add(root);
+        }
         
         while (!list.isEmpty()) {
             lists.add(list);
@@ -52,14 +47,16 @@ public class Question_4_3 {
     }
     
     private static void createLinkedListByDFSRecursively(TreeNode root, ArrayList<LinkedList<TreeNode>> lists, int level) {
-        if (root != null) {
-            if (level == lists.size()) {
-                lists.add(new LinkedList<TreeNode>());
-            }
-            
-            lists.get(level).add(root);
-            createLinkedListByDFSRecursively(root.getLeft(), lists, level + 1);
-            createLinkedListByDFSRecursively(root.getRight(), lists, level + 1);
+        if (root == null) {
+            return;
         }
+        
+        if (level == lists.size()) {
+            lists.add(new LinkedList<TreeNode>());
+        }
+        
+        lists.get(level).add(root);
+        createLinkedListByDFSRecursively(root.getLeft(), lists, level + 1);
+        createLinkedListByDFSRecursively(root.getRight(), lists, level + 1);
     }
 }

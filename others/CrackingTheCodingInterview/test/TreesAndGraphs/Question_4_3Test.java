@@ -96,11 +96,12 @@ public class Question_4_3Test {
     public void testCreateLinkedListByDFS_Null() {
         TreeNode root = null;
         
+        ArrayList<LinkedList<TreeNode>> expected = new ArrayList<LinkedList<TreeNode>>();
         ArrayList<LinkedList<TreeNode>> actual = Question_4_3.createLevelLinkedListByDFS(root);
-        assertNull(actual);
+        assertEquals(expected, actual);
         
         actual = Question_4_3.createLevelLinkedListByDFS(root);
-        assertNull(actual);
+        assertEquals(expected, actual);
     }
     
     private static ArrayList<LinkedList<TreeNode>> createListOfList(int[][] data) {

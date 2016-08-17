@@ -55,4 +55,17 @@ public class Question_4_7Test {
         actual = Question_4_7.findBuildOrderByDFS(projects, dependencies);
         assertNull(actual);
     }
+    
+    @Test
+    public void testFindBuildOrder_OneElement() {
+        String[] projects = new String[] {
+            "a",
+        };
+        
+        String[][] dependencies = new String[][] {};
+        
+        String expected = "a";
+        String actual = Question_4_7.findBuildOrderByTopologicalSort(projects, dependencies);
+        assertEquals(expected, actual);
+    }
 }
