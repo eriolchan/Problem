@@ -24,7 +24,17 @@ public class Question_4_11Test {
         
         BSTreeNode r1 = tree.getRandomNode();
         BSTreeNode r2 = tree.getRandomNode();
-        
         assertNotEquals(r1.getData(), r2.getData());
+    }
+    
+    @Test
+    public void testBSTreeNode_Null() {
+        Question_4_11 tree = new Question_4_11();
+        
+        BSTreeNode actual = tree.find(1);
+        assertNull(actual);
+        
+        BSTreeNode r = tree.getRandomNode();
+        assertNull(r);
     }
 }

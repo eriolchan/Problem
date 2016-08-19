@@ -67,5 +67,8 @@ public class Question_4_7Test {
         String expected = "a";
         String actual = Question_4_7.findBuildOrderByTopologicalSort(projects, dependencies);
         assertEquals(expected, actual);
+        
+        actual = Question_4_7.findBuildOrderByDFS(projects, dependencies);
+        assertEquals(expected, actual);
     }
 }
