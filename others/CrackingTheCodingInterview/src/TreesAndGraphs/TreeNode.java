@@ -20,8 +20,8 @@ public class TreeNode {
     public TreeNode(int data, TreeNode parent) {
         this.data = data;
         this.parent = parent;
-        left = null;
-        right = null;
+        this.left = null;
+        this.right = null;
     }
     
     public int getData() {

@@ -212,6 +212,7 @@ public class Graph {
 }
 
 class Node {
+
     private String name;
     private int inbound;
     private ArrayList<Node> neighbors;

@@ -99,12 +99,14 @@ abstract class Animal {
 }
 
 class Dog extends Animal {
+
     public Dog(String name) {
         super(name);
     }
 }
 
 class Cat extends Animal {
+
     public Cat(String name) {
         super(name);
     }
