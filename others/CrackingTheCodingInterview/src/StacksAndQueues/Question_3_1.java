@@ -6,7 +6,7 @@ package StacksAndQueues;
  */
 public class Question_3_1 {
 
-    private int numberOfStacks = 3;
+    private static final int numberOfStacks = 3;
     private int stackCapacity;
     private int[] values;
     private int[] sizes;
@@ -78,7 +78,7 @@ public class Question_3_1 {
 
 class TripleStacks2 {
     
-    private int numberOfStacks = 3;
+    private static final int numberOfStacks = 3;
     private StackInfo[] infos;
     private int[] values;
     
@@ -234,7 +234,7 @@ class TripleStacks2 {
 
 class TripleStacks3 {
     
-    private int numberOfStacks = 3;
+    private static final int numberOfStacks = 3;
     private int stackCapacity;
     private int freeIndex;
     private StackNode[] values;

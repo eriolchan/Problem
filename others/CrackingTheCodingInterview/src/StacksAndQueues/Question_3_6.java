@@ -74,6 +74,7 @@ public class Question_3_6 {
 }
 
 abstract class Animal {
+
     private String name;
     private int order;
     

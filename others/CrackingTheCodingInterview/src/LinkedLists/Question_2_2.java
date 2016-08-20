@@ -61,7 +61,7 @@ public class Question_2_2 {
             value = 0;
         }
         
-        static Index getInstance() {
+        public static Index getInstance() {
             return new Index();
         }
     }

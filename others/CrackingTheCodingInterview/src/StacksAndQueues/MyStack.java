@@ -2,7 +2,11 @@ package StacksAndQueues;
 
 public class MyStack<T> {
     
-    private InnerNode<T> top = null;
+    private InnerNode<T> top;
+    
+    public MyStack() {
+        top = null;
+    }
     
     public void push(T item) {
         InnerNode<T> t = new InnerNode<T>(item);

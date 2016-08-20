@@ -2,8 +2,13 @@ package StacksAndQueues;
 
 public class MyQueue<T> {
     
-    private InnerNode<T> first = null;
-    private InnerNode<T> last = null;
+    private InnerNode<T> first;
+    private InnerNode<T> last;
+    
+    public MyQueue() {
+        first = null;
+        last = null;
+    }
     
     public void add(T item) {
         InnerNode<T> t = new InnerNode<T>(item);
