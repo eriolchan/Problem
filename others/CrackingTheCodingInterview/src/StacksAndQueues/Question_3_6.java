@@ -95,7 +95,7 @@ abstract class Animal {
     }
     
     public boolean compareOrder(Animal animal) {
-        return order < animal.getOrder();
+        return this.order < animal.order;
     }
 }
 

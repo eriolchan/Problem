@@ -27,11 +27,6 @@ public class ListNode {
     }
     
     @Override
-    public int hashCode() {
-        return data;
-    }
-    
-    @Override
     public boolean equals(Object obj) {
         if (this == obj) {
             return true;
@@ -44,6 +39,11 @@ public class ListNode {
         final ListNode other = (ListNode)obj;
         
         return this.data == other.data;
+    }
+    
+    @Override
+    public int hashCode() {
+        return data;
     }
     
     // O(n)
