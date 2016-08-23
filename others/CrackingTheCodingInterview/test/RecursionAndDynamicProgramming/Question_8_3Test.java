@@ -54,6 +54,20 @@ public class Question_8_3Test {
     }
     
     @Test
+    public void testFindMagic_OneElement() {
+        int[] array = new int[] { 0 };
+        
+        int expected = 0;
+        int actual = Question_8_3.findMagic(array);
+        assertEquals(expected, actual);
+        
+        array = new int[] { 1 };
+        expected = -1;
+        actual = Question_8_3.findMagic(array);
+        assertEquals(expected, actual);
+    }
+    
+    @Test
     public void testFindMagic_Empty() {
         int[] array = new int[0];
         
