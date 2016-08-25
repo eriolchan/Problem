@@ -9,6 +9,7 @@ package RecursionAndDynamicProgramming;
  */
 public class Question_8_3 {
 
+    // O(log n)
     public static int findMagic(int[] array) {
         if (array == null || array.length == 0) {
             return -1;

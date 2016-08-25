@@ -26,6 +26,7 @@ public class Question_8_6 {
         return stack;
     }
     
+    // O(2^n)
     public void moveDisks(int n, Question_8_6 destination, Question_8_6 buffer) {
         if (n > 0) {
             moveDisks(n - 1, buffer, destination);
