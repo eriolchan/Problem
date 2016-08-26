@@ -21,6 +21,9 @@ public class Question_8_7Test {
         expected.add("cba");
         ArrayList<String> actual = Question_8_7.getPermutationsRecursively(s);
         assertEquals(expected, actual);
+        
+        actual = Question_8_7.getPermutationsByRolling(s);
+        HelperTest.assertArrayEqualsIgnoreOrdinal(expected, actual);
     }
     
     @Test
@@ -54,6 +57,9 @@ public class Question_8_7Test {
         expected.add("dcba");
         ArrayList<String> actual = Question_8_7.getPermutationsRecursively(s);
         assertEquals(expected, actual);
+        
+        actual = Question_8_7.getPermutationsByRolling(s);
+        HelperTest.assertArrayEqualsIgnoreOrdinal(expected, actual);
     }
     
     @Test
@@ -63,6 +69,9 @@ public class Question_8_7Test {
         ArrayList<String> expected = new ArrayList<String>();
         expected.add(s);
         ArrayList<String> actual = Question_8_7.getPermutationsRecursively(s);
+        assertEquals(expected, actual);
+        
+        actual = Question_8_7.getPermutationsByRolling(s);
         assertEquals(expected, actual);
     }
     
@@ -74,6 +83,9 @@ public class Question_8_7Test {
         expected.add(s);
         ArrayList<String> actual = Question_8_7.getPermutationsRecursively(s);
         assertEquals(expected, actual);
+        
+        actual = Question_8_7.getPermutationsByRolling(s);
+        assertEquals(expected, actual);
     }
     
     @Test
@@ -81,6 +93,9 @@ public class Question_8_7Test {
         String s = null;
         
         ArrayList<String> actual = Question_8_7.getPermutationsRecursively(s);
+        assertNull(actual);
+        
+        actual = Question_8_7.getPermutationsByRolling(s);
         assertNull(actual);
     }
 }

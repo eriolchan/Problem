@@ -35,7 +35,10 @@ public class Question_8_7 {
             return null;
         }
         
-        return getPermutationsCore("", s);
+        ArrayList<String> result = new ArrayList<String>();
+        getPermutationsCore("", s, result);
+        
+        return result;
     }
     
     private static String insertCharAt(String word, char c, int i) {
@@ -45,11 +48,15 @@ public class Question_8_7 {
         return start + c + end;
     }
     
-    private static ArrayList<String> getPermutationsCore(String prefix, String remainder) {
-        ArrayList<String> result = new ArrayList<String>();
-        
+    private static void getPermutationsCore(String prefix, String remainder, ArrayList<String> result) {
         if (remainder.length() == 0) {
             result.add(prefix);
+        }
+        
+        for (int i = 0; i < remainder.length(); ++i) {
+            String start = remainder.substring(0, i);
+            String end = remainder.substring(i + 1);
+            getPermutationsCore(prefix + remainder.charAt(i), start + end, result);
         }
     }
 }
