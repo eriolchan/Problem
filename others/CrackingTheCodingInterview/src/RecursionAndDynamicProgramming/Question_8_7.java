@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Question_8_7 {
 
+    // O(n^2 n!)
     public static ArrayList<String> getPermutationsRecursively(String s) {
         if (s == null) {
             return null;
@@ -30,6 +31,7 @@ public class Question_8_7 {
         return result;
     }
     
+    // O(n^2 n!)
     public static ArrayList<String> getPermutationsByRolling(String s) {
         if (s == null) {
             return null;

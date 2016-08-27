@@ -18,7 +18,7 @@ public class Question_1_1Test {
     }
     
     @Test
-    public void testIsUniqueChars_HasDepuplicate() {
+    public void testIsUniqueChars_HasDuplicate() {
         String s = "aba";
         
         boolean actual = Question_1_1.isUniqueCharsByMap(s);
