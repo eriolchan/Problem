@@ -10,7 +10,7 @@ public class HelperTest {
         assertEquals(expected.size(), actual.size());
         
         for (T value : expected) {
-            assertTrue(actual.contains(value));
+            assertTrue(actual.remove(value));
         }
     }
 }
